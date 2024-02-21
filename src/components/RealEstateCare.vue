@@ -1,6 +1,8 @@
 <!--HTML-->
 <template lang="">
-    <div>
+    <div class="container">
+        <h1> Iconen uit link halen !! - https://pictogrammers.com/library/mdi/ !!!</h1>
+
         <MainToolBar />
         <MainHeader />
         <MainContent />
@@ -12,7 +14,6 @@
 <script>
 
 // imports
-import MainToolBar from '@/components/MainToolBar.vue';
 import MainHeader from '@/components/MainHeader.vue';
 import MainContent from '@/components/MainContent.vue';
 import MainTabBar from '@/components/MainTabBar.vue';
@@ -21,7 +22,7 @@ import MainTabBar from '@/components/MainTabBar.vue';
 export default {
     name: "RealEstacteCare",
     components: {
-        MainToolBar, MainHeader, MainContent, MainTabBar
+        MainHeader, MainContent, MainTabBar
     },
     mounted() {
         // Set page title when component is mounted
@@ -32,6 +33,10 @@ export default {
 
 
 <!--STYLE-->
-<style lang="">
+<style scoped>
+
+.container {
+    background-color: rgba(0,170,162,.5);
+}
     
 </style>
