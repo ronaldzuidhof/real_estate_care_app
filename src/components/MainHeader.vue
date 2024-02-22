@@ -1,34 +1,49 @@
 <template lang="">
     <div class="row py-2">
         <div class="col-7 d-flex">
-            <img src="@/assets/RealEstateMainLogoWhite.png" class="overflow-auto">
+            <img src="@/assets/RealEstateMainLogoWhite.png" class="overflow-auto" @click="click('logo image')" >
         </div>
         <div class="col-5 d-flex justify-content-end align-items-center">
-            <img src="@/assets/icons/IconBellWhite.png" class="icon">
-            <img src="@/assets/icons/IconGearWhite.png" class="icon">
+            <svg-icon type="mdi" :path="path[0]" class="icon" @click="click('bell')"></svg-icon>
+            <svg-icon type="mdi" :path="path[1]" class="icon" @click="click('cog')"></svg-icon>
         </div>
 
     </div>
 </template>
 
 <script>
+// import icons
+import SvgIcon from '@jamescoyle/vue-icon'
+import { mdiBell, mdiCog } from '@mdi/js'
+
 export default {
-   name: "MainHeader", 
+    name: "MainHeader", 
+    components: {
+        SvgIcon
+    },
+    data() {
+        return {
+            path: [mdiBell, mdiCog ]
+        }
+    }, 
+    methods: {
+        click(buttonName){
+            console.log("Button " + buttonName + " header pressed")
+        }
+    }
 }
 </script>
 
 <style scoped>
-
 .row {
     background-color: rgba(41,52,57,1)
 }
 
 .icon {
-    width: 50px;
-    height: 50px;
-    margin-inline-end: 15px
+    height: 35%;
+    width: auto;
+    margin-inline-end: 10%;
+    color: white;
 }
 
-
-    
 </style>

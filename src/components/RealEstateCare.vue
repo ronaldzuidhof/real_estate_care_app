@@ -1,8 +1,6 @@
 <!--HTML-->
 <template lang="">
     <div class="container">
-        <h1> Iconen uit link halen !! - https://pictogrammers.com/library/mdi/ !!!</h1>
-
         <MainToolBar />
         <MainHeader />
         <MainContent />
