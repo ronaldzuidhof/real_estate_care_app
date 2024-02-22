@@ -1,10 +1,10 @@
 <!--HTML-->
 <template lang="">
     <div class="container">
-        <MainToolBar />
         <MainHeader />
         <MainContent />
         <MainTabBar />
+        <TestComponent />
     </div>
 </template>
 
@@ -16,11 +16,13 @@ import MainHeader from '@/components/MainHeader.vue';
 import MainContent from '@/components/MainContent.vue';
 import MainTabBar from '@/components/MainTabBar.vue';
 
+import TestComponent from '@/components/TestComponent.vue';
+
 // Export
 export default {
     name: "RealEstacteCare",
     components: {
-        MainHeader, MainContent, MainTabBar
+        MainHeader, MainContent, MainTabBar, TestComponent
     },
     mounted() {
         // Set page title when component is mounted

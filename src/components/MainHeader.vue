@@ -12,7 +12,7 @@
 </template>
 
 <script>
-// import icons
+// imports
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiBell, mdiCog } from '@mdi/js'
 

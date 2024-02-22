@@ -3,6 +3,7 @@
         <div class="button">
             <!--=injected content comes here-->
             <slot></slot>
+            {{text}}
             <!-------------------------------->
         </div>
     </div>
@@ -10,8 +11,13 @@
 <script>
 export default {
     name: "MainButton",
+    props:{
+        text: {
+            type: String,
+            required: true
+        },
+    }
 }
-
 </script>
 <style scoped>
 
