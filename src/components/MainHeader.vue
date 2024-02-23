@@ -1,13 +1,14 @@
 <template lang="">
-    <div class="row py-2">
-        <div class="col-7 d-flex">
-            <img src="@/assets/RealEstateMainLogoWhite.png" class="overflow-auto" @click="click('logo image')" >
+    <div class="container">
+        <div class="row py-2">
+            <div class="col-7 d-flex">
+                <img src="@/assets/RealEstateMainLogoWhite.png" class="overflow-auto" @click="click('logo image')" >
+            </div>
+            <div class="col-5 d-flex justify-content-end align-items-center">
+                <svg-icon type="mdi" :path="path[0]" class="icon" @click="click('bell')"></svg-icon>
+                <svg-icon type="mdi" :path="path[1]" class="icon" @click="click('cog')"></svg-icon>
+            </div>
         </div>
-        <div class="col-5 d-flex justify-content-end align-items-center">
-            <svg-icon type="mdi" :path="path[0]" class="icon" @click="click('bell')"></svg-icon>
-            <svg-icon type="mdi" :path="path[1]" class="icon" @click="click('cog')"></svg-icon>
-        </div>
-
     </div>
 </template>
 

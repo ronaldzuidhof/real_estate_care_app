@@ -1,6 +1,6 @@
 <template lang="">
     <div class="container">
-        <div class="button">
+        <div class="button h-100">
             <!--=injected content comes here-->
             <slot></slot>
         </div>

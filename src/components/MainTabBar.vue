@@ -1,17 +1,19 @@
 <template lang="">
-    <div class="row d-flex justify-content-between">
-        <TabBarButton @click="click('Active task')" class="col-4 selected">
-            <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
-            <text>Active task</text>
-        </TabBarButton> 
-        <TabBarButton @click="click('Active task')" class="col-4">
-            <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
-            <text>Search</text>
-        </TabBarButton> 
-        <TabBarButton @click="click('Active task')" class="col-4">
-            <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
-            <text>Active task</text>
-        </TabBarButton> 
+    <div class="vh-20">
+        <div class="row d-flex justify-content-between">
+            <TabBarButton @click="click('Active task')" class="col-4 selected">
+                <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
+                <text>Active task</text>
+            </TabBarButton> 
+            <TabBarButton @click="click('Active task')" class="col-4">
+                <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
+                <text>Search</text>
+            </TabBarButton> 
+            <TabBarButton @click="click('Active task')" class="col-4">
+                <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
+                <text>Active task</text>
+            </TabBarButton> 
+        </div>
     </div>
 </template>
 <script>

@@ -1,5 +1,6 @@
 <template lang="">
-        <div class="row p-2 ">
+    <div class="container border-start border-end">
+        <div class="row p-2 h-50">
         <ContentButton @click="click('Scheduled')" class="col-6 pe-1">
             <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
             <text>Scheduled</text>
@@ -8,16 +9,17 @@
             <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
             <text>Completed</text>
         </ContentButton>
-    </div>
-    <div class="row pb-2 px-2">
-        <ContentButton @click="click('Knowledge base')" class="col-6 pe-1">
-            <svg-icon type="mdi" :path="path[2]" class="icon"></svg-icon>
-            <text>Knowledge base</text>
-        </ContentButton>
-        <ContentButton @click="click('Settings')" class="col-6 ps-1">
-            <svg-icon type="mdi" :path="path[3]" class="icon"></svg-icon>
-            <text>Settings</text>
-        </ContentButton>
+        </div>
+        <div class="row pb-2 px-2 h-50">
+            <ContentButton @click="click('Knowledge base')" class="col-6 pe-1">
+                <svg-icon type="mdi" :path="path[2]" class="icon"></svg-icon>
+                <text>Knowledge base</text>
+            </ContentButton>
+            <ContentButton @click="click('Settings')" class="col-6 ps-1">
+                <svg-icon type="mdi" :path="path[3]" class="icon"></svg-icon>
+                <text>Settings</text>
+            </ContentButton>
+        </div>
     </div>
 
 </template>
@@ -45,6 +47,7 @@ export default {
 }
 </script>
 <style scoped>
+
 .icon {
     height: auto;
     width: 50%;
