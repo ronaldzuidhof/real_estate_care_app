@@ -1,9 +1,9 @@
 <template lang="">
     <section>
-        <img src="@/assets/RealEstateMainLogoWhite.png" @click="click('logo image')" >
+        <img src="@/assets/RealEstateMainLogoWhite.png" v-touch:tap="touchHandler" >
         <picture>
-            <svg-icon type="mdi" :path="path[0]" @click="click('bell')" class="icon"></svg-icon>
-            <svg-icon type="mdi" :path="path[1]" @click="click('cog')" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="path[0]" v-touch:tap="touchHandler" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="path[1]" v-touch:tap="touchHandler" class="icon"></svg-icon>
         </picture>
     </section>
 </template>
@@ -24,8 +24,8 @@ export default {
         }
     }, 
     methods: {
-        click(buttonName){
-            console.log("Button " + buttonName + " header pressed")
+        touchHandler(event){
+            console.log(event);
         }
     }
 }

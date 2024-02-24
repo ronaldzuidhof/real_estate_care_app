@@ -1,20 +1,21 @@
 <template lang="">
     <section>
-        <ContentButton @click="click('Scheduled')" class="positon1">
-            <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
-            Scheduled
+        <ContentButton v-touch:tap="touchHandler" class="positon1">
+                <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
+                Scheduled
         </ContentButton> 
-        <ContentButton @click="click('Completed')" class="positon2">
+        <ContentButton v-touch:tap="touchHandler" class="positon2">
             <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
             Completed
         </ContentButton> 
-        <ContentButton @click="click('Knowledge base')" class="positon3">
+        <ContentButton v-touch:tap="touchHandler" class="positon3">
             <svg-icon type="mdi" :path="path[2]" class="icon"></svg-icon>
             Knowledge base
         </ContentButton> 
-        <ContentButton @click="click('Settings')" class="positon4">
+        <ContentButton v-touch:tap="touchHandler" class="positon4">
             <svg-icon type="mdi" :path="path[3]" class="icon"></svg-icon>
-            Settings        </ContentButton> 
+            Settings        
+        </ContentButton> 
     </section>
 
 </template>
@@ -35,8 +36,8 @@ export default {
         }
     },
     methods: {
-        click(buttonName){
-            console.log("Button " + buttonName + " main section pressed")
+        touchHandler(event){
+            console.log(event);
         }
     }
 }

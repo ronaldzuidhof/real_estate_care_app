@@ -29,6 +29,7 @@ body {
     margin: auto;
     max-width: 700px;
     min-height: 650px;
+    max-height: 1200px;
 }
 
 </style>

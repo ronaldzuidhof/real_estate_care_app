@@ -1,14 +1,14 @@
 <template lang="">
     <section>
-        <TabBarButton @click="click('Active task')" class="selected">
+        <TabBarButton v-touch:tap="touchHandler" class="selected">
             <svg-icon type="mdi" :path="path[0]" class="icon selected"></svg-icon>
             <p class="selected">Active task</p>
         </TabBarButton> 
-        <TabBarButton @click="click('Search')">
+        <TabBarButton v-touch:tap="touchHandler">
             <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
             <p>Search</p>
         </TabBarButton> 
-        <TabBarButton @click="click('Information')">
+        <TabBarButton v-touch:tap="touchHandler">
             <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
             <p>Information</p>
         </TabBarButton> 
@@ -31,8 +31,8 @@ export default {
         }
     },
     methods: {
-        click(buttonName){
-            console.log("Button " + buttonName + " main section pressed")
+        touchHandler(event){
+            console.log(event);
         }
     }
 }
