@@ -1,11 +1,13 @@
-<!--HTML-->
+<!--HTML----------------------------------------------------------------------------------------------->
+
 <template lang="">
     <MainHeader class="main_header"/>
     <MainContent class="main_content"/>
     <MainTabBar class="main_tab_bar"/>
 </template>
 
-<!--SCRIPT-->
+<!--SCRIPT--------------------------------------------------------------------------------------------->
+
 <script>
 
 // imports
@@ -13,20 +15,22 @@ import MainHeader from '@/components/MainHeader.vue';
 import MainContent from '@/components/MainContent.vue';
 import MainTabBar from '@/components/MainTabBar.vue';
 
-// Export
+// Export App
 export default {
     name: "RealEstacteCare",
     components: {
+        // Load used components
         MainHeader, MainContent, MainTabBar
     },
     mounted() {
-        // Set page title when component is mounted
+        // Set page title when component is mounted (tab browser)
         document.title = "RealEstateCare";
     },
 }
 </script>
 
-<!--STYLE-->
+<!--STYLE--------------------------------------------------------------------------------------------->
+
 <style scoped>
 
 </style>

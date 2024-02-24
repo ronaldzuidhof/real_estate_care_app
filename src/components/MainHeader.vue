@@ -1,3 +1,5 @@
+<!--HTML----------------------------------------------------------------------------------------------->
+
 <template lang="">
     <section>
         <img src="@/assets/RealEstateMainLogoWhite.png" v-touch:tap="touchHandler" >
@@ -8,28 +10,36 @@
     </section>
 </template>
 
+<!--SCRIPT--------------------------------------------------------------------------------------------->
+
 <script>
 // imports
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiBell, mdiCog } from '@mdi/js'
 
+// export component
 export default {
     name: "MainHeader", 
+    // load used components
     components: {
         SvgIcon
     },
     data() {
         return {
-            path: [mdiBell, mdiCog ]
+            // put icon objects in path array of object data
+            path: [mdiBell, mdiCog]
         }
     }, 
     methods: {
+        // print event object to the console that called the method
         touchHandler(event){
             console.log(event);
         }
     }
 }
 </script>
+
+<!--STYLE--------------------------------------------------------------------------------------------->
 
 <style scoped>
 

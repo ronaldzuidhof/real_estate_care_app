@@ -1,17 +1,27 @@
+<!--HTML----------------------------------------------------------------------------------------------->
+
 <template>
   <RealEstateCare/>
 </template>
 
+<!--SCRIPT--------------------------------------------------------------------------------------------->
+
 <script>
+// imports
 import RealEstateCare from './components/RealEstateCare.vue';
 
+// export App
 export default {
   name: 'App',
   components: {
+    // Load used component
     RealEstateCare
+  }
 }
-}
+
 </script>
+
+<!--STYLE--------------------------------------------------------------------------------------------->
 
 <style>
 
@@ -26,7 +36,7 @@ body {
     justify-content: center;
     height: 100vh;
     padding: 0;
-    margin: auto;
+    margin-inline: auto;
     max-width: 700px;
     min-height: 650px;
     max-height: 1200px;

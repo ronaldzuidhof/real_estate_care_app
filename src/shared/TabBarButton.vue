@@ -1,3 +1,5 @@
+<!--HTML----------------------------------------------------------------------------------------------->
+
 <template lang="">
     <div class="button">
         <!--=injected content comes here-->
@@ -5,11 +7,16 @@
     </div>
 </template>
 
+<!--SCRIPT--------------------------------------------------------------------------------------------->
+
 <script>
+// export shared component
 export default {
     name: "TabBarButton",
 }
 </script>
+
+<!--STYLE--------------------------------------------------------------------------------------------->
 
 <style scoped>
 .button {
@@ -20,4 +27,5 @@ export default {
     align-items: center;
     color: white;
 }
+
 </style>

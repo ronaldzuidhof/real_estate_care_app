@@ -1,3 +1,5 @@
+<!--HTML----------------------------------------------------------------------------------------------->
+
 <template lang="">
     <div class="button">
         <!--=injected content comes here-->
@@ -5,11 +7,16 @@
     </div>
 </template>
 
+<!--SCRIPT--------------------------------------------------------------------------------------------->
+
 <script>
+// export shared component
 export default {
     name: "MainContentButton",
 }
 </script>
+
+<!--STYLE--------------------------------------------------------------------------------------------->
 
 <style scoped>
 .button {
@@ -24,4 +31,5 @@ export default {
     border: 1px solid black;
     border-radius: 10px;
 }
+
 </style>

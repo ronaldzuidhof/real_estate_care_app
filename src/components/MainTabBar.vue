@@ -1,3 +1,5 @@
+<!--HTML----------------------------------------------------------------------------------------------->
+
 <template lang="">
     <section>
         <TabBarButton v-touch:tap="touchHandler" class="selected">
@@ -9,34 +11,43 @@
             <p>Search</p>
         </TabBarButton> 
         <TabBarButton v-touch:tap="touchHandler">
-            <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="path[2]" class="icon"></svg-icon>
             <p>Information</p>
         </TabBarButton> 
     </section>
 </template>
+
+<!--SCRIPT--------------------------------------------------------------------------------------------->
+
 <script>
 // imports
 import SvgIcon from '@jamescoyle/vue-icon'
-import {mdiWrench, mdiMagnify } from '@mdi/js'
+import {mdiWrench, mdiMagnify, mdiInformation  } from '@mdi/js'
 import TabBarButton from '@/shared/TabBarButton.vue'
 
 export default {
     name: "MainTabBar",
+    // Load used components
     components: {
         TabBarButton, SvgIcon
     },
     data() {
         return {
-            path: [mdiWrench, mdiMagnify ]
+            // put icon objects in path array of object data
+            path: [mdiWrench, mdiMagnify, mdiInformation]
         }
     },
     methods: {
+         // print event object to the console that called the method
         touchHandler(event){
             console.log(event);
         }
     }
 }
 </script>
+
+<!--STYLE--------------------------------------------------------------------------------------------->
+
 <style scoped>
 
 section {

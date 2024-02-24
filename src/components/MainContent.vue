@@ -1,8 +1,10 @@
+<!--HTML----------------------------------------------------------------------------------------------->
+
 <template lang="">
     <section>
         <ContentButton v-touch:tap="touchHandler" class="positon1">
-                <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
-                Scheduled
+            <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
+            Scheduled
         </ContentButton> 
         <ContentButton v-touch:tap="touchHandler" class="positon2">
             <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
@@ -17,31 +19,41 @@
             Settings        
         </ContentButton> 
     </section>
-
 </template>
+
+<!--SCRIPT--------------------------------------------------------------------------------------------->
+
 <script>
 // imports
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiCalendar, mdiCheckCircle, mdiApps, mdiCog } from '@mdi/js'
 import ContentButton from '@/shared/ContentButton.vue'
 
+// export component
 export default {
     name: "MainContent",
     components: {
+        // load used components
         ContentButton, SvgIcon,
     },
     data() {
         return {
+            // put icon objects in path array of object data
             path: [mdiCalendar, mdiCheckCircle, mdiApps, mdiCog]
         }
     },
     methods: {
+        // print event object to the console that called the method
         touchHandler(event){
             console.log(event);
         }
     }
 }
+
 </script>
+
+<!--STYLE--------------------------------------------------------------------------------------------->
+
 <style scoped>
 
 section {
