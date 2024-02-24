@@ -1,9 +1,7 @@
 <template lang="">
-    <div class="container">
-        <div class="button h-100">
-            <!--=injected content comes here-->
-            <slot></slot>
-        </div>
+    <div class="button">
+        <!--=injected content comes here-->
+        <slot></slot>
     </div>
 </template>
 
@@ -14,9 +12,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-    padding: 0;
-}
 .button {
     font-weight: bold;
     font-size: 1.5rem;
@@ -25,8 +20,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     border: 1px solid black;
     border-radius: 10px;
-    padding-block: 60px;
 }
 </style>

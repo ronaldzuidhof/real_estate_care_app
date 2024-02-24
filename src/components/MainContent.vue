@@ -1,26 +1,21 @@
 <template lang="">
-    <div class="container border-start border-end">
-        <div class="row p-2 h-50">
-        <ContentButton @click="click('Scheduled')" class="col-6 pe-1">
+    <section>
+        <ContentButton @click="click('Scheduled')" class="positon1">
             <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
-            <text>Scheduled</text>
+            Scheduled
         </ContentButton> 
-        <ContentButton @click="click('Completed')" class="col-6 ps-1">
+        <ContentButton @click="click('Completed')" class="positon2">
             <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
-            <text>Completed</text>
-        </ContentButton>
-        </div>
-        <div class="row pb-2 px-2 h-50">
-            <ContentButton @click="click('Knowledge base')" class="col-6 pe-1">
-                <svg-icon type="mdi" :path="path[2]" class="icon"></svg-icon>
-                <text>Knowledge base</text>
-            </ContentButton>
-            <ContentButton @click="click('Settings')" class="col-6 ps-1">
-                <svg-icon type="mdi" :path="path[3]" class="icon"></svg-icon>
-                <text>Settings</text>
-            </ContentButton>
-        </div>
-    </div>
+            Completed
+        </ContentButton> 
+        <ContentButton @click="click('Knowledge base')" class="positon3">
+            <svg-icon type="mdi" :path="path[2]" class="icon"></svg-icon>
+            Knowledge base
+        </ContentButton> 
+        <ContentButton @click="click('Settings')" class="positon4">
+            <svg-icon type="mdi" :path="path[3]" class="icon"></svg-icon>
+            Settings        </ContentButton> 
+    </section>
 
 </template>
 <script>
@@ -48,12 +43,32 @@ export default {
 </script>
 <style scoped>
 
+section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:"position1 position2" "position3 position4";
+    height: 80%;
+    gap: 5px;
+    padding: 5px;
+    background-color: rgba(255,255,255,1);
+    border-inline: 1px solid black;
+}
+.position1 {
+    grid-area: position1;
+}
+.position2 {
+    grid-area: position2;
+}
+.position3 {
+    grid-area: position3;
+}
+.position4 {
+    grid-area: position4;
+}
 .icon {
     height: auto;
     width: 50%;
-}
-.row {
-    background-color: white;
 }
 
 </style>

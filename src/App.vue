@@ -14,7 +14,21 @@ export default {
 </script>
 
 <style>
+
+body {
+  margin: 0;
+}
+
 #app {
   /*Styling for id app*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding: 0;
+    margin: auto;
+    max-width: 700px;
+    min-height: 650px;
 }
+
 </style>

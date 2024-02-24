@@ -1,20 +1,18 @@
 <template lang="">
-    <div class="vh-20">
-        <div class="row d-flex justify-content-between">
-            <TabBarButton @click="click('Active task')" class="col-4 selected">
-                <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
-                <text>Active task</text>
-            </TabBarButton> 
-            <TabBarButton @click="click('Active task')" class="col-4">
-                <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
-                <text>Search</text>
-            </TabBarButton> 
-            <TabBarButton @click="click('Active task')" class="col-4">
-                <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
-                <text>Active task</text>
-            </TabBarButton> 
-        </div>
-    </div>
+    <section>
+        <TabBarButton @click="click('Active task')" class="selected">
+            <svg-icon type="mdi" :path="path[0]" class="icon selected"></svg-icon>
+            <p class="selected">Active task</p>
+        </TabBarButton> 
+        <TabBarButton @click="click('Search')">
+            <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
+            <p>Search</p>
+        </TabBarButton> 
+        <TabBarButton @click="click('Information')">
+            <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
+            <p>Information</p>
+        </TabBarButton> 
+    </section>
 </template>
 <script>
 // imports
@@ -41,18 +39,27 @@ export default {
 </script>
 <style scoped>
 
-text {
-    color: rgba(255,255,255,0.4)
-}
-.icon {
-    color: rgba(255,255,255,0.4)
-}
-.selected .icon {
-    color: rgba(255,255,255, 1)
+section {
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5px;
+    background-color: rgba(0,170,162,.5);
 }
 
-.selected text {
-    color: rgba(255,255,255, 1)
+p {
+    margin: 0;
+    color: rgba(255,255,255,0.4);
+}
+.icon {
+    height: auto;
+    width: 20%;
+    color: rgba(255,255,255,0.4);
+
+}
+.selected {
+    color: rgba(255,255,255, 1);
 }
     
 </style>

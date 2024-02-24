@@ -1,15 +1,11 @@
 <template lang="">
-    <div class="container">
-        <div class="row py-2">
-            <div class="col-7 d-flex">
-                <img src="@/assets/RealEstateMainLogoWhite.png" class="overflow-auto" @click="click('logo image')" >
-            </div>
-            <div class="col-5 d-flex justify-content-end align-items-center">
-                <svg-icon type="mdi" :path="path[0]" class="icon" @click="click('bell')"></svg-icon>
-                <svg-icon type="mdi" :path="path[1]" class="icon" @click="click('cog')"></svg-icon>
-            </div>
-        </div>
-    </div>
+    <section>
+        <img src="@/assets/RealEstateMainLogoWhite.png" @click="click('logo image')" >
+        <picture>
+            <svg-icon type="mdi" :path="path[0]" @click="click('bell')" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="path[1]" @click="click('cog')" class="icon"></svg-icon>
+        </picture>
+    </section>
 </template>
 
 <script>
@@ -36,12 +32,31 @@ export default {
 </script>
 
 <style scoped>
-.row {
-    background-color: rgba(41,52,57,1)
+
+section {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 1%;
+    padding-inline: 1%;
+    height: 10%;
+    background-color: rgba(41,52,57,1);
+}
+
+img {
+    display: flex;
+    height: 100%;
+    padding-inline-end: 10%;
+    object-fit: contain;
+    overflow: auto;
+}
+
+picture {
+    display: flex;
+    align-items: center;
 }
 
 .icon {
-    height: 35%;
+    height: 60%;
     width: auto;
     margin-inline-end: 10%;
     color: white;
