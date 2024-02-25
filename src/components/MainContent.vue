@@ -62,8 +62,8 @@ section {
     grid-template-rows: repeat(2, 1fr);
     grid-template-areas:"position1 position2" "position3 position4";
     height: 80%;
-    gap: 5px;
-    padding: 5px;
+    gap: 7px;
+    padding: 7px;
     background-color: rgba(255,255,255,1);
     border-inline: 1px solid black;
 }

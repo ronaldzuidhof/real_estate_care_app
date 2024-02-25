@@ -25,6 +25,12 @@ export default {
 
 <style>
 
+html {
+/* Variables */
+    --color-1: rgba(41,52,57,1);
+    --color-1-shadow: rgba(41,52,57,.4);
+}
+
 body {
   margin: 0;
 }
