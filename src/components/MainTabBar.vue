@@ -56,21 +56,22 @@ section {
     flex-direction: row;
     justify-content: space-around;
     padding: 5px;
-    background-color: rgba(0,170,162,.5);
+    background-color: var(--color-2);
+    border: 1px solid var(--color-1);
 }
 
 p {
     margin: 0;
-    color: rgba(255,255,255,0.4);
+    color: var(--color-3-unselected);
 }
 .icon {
     height: auto;
     width: 20%;
-    color: rgba(255,255,255,0.4);
+    color: var(--color-3-unselected);;
 
 }
 .selected {
-    color: rgba(255,255,255, 1);
+    color: var(--color-3-selected);;
 }
     
 </style>

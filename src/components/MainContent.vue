@@ -64,8 +64,9 @@ section {
     height: 80%;
     gap: 7px;
     padding: 7px;
+    text-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
     background-color: rgba(255,255,255,1);
-    border-inline: 1px solid black;
+    border-inline: 1px solid var(--color-1);
 }
 .position1 {
     grid-area: position1;
@@ -82,6 +83,7 @@ section {
 .icon {
     height: auto;
     width: 50%;
+    filter: drop-shadow(3px 3px 1px rgb(0 0 0 / 0.2));
 }
 
 </style>

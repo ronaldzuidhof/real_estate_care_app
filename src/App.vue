@@ -29,6 +29,9 @@ html {
 /* Variables */
     --color-1: rgba(41,52,57,1);
     --color-1-shadow: rgba(41,52,57,.4);
+    --color-2: rgba(0,170,162,.5);
+    --color-3-unselected: rgba(255,255,255,0.4);
+    --color-3-selected: rgba(255,255,255,1);
 }
 
 body {

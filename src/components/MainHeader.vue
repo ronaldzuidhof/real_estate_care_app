@@ -49,7 +49,8 @@ section {
     padding-block: 1%;
     padding-inline: 1%;
     height: 10%;
-    background-color: rgba(41,52,57,1);
+    background-color: var(--color-1);
+    border: 1px solid var(--color-1);
 }
 
 img {
