@@ -1,0 +1,136 @@
+[
+        {
+            "id": 0,
+            "location": "Pietstraat 12 Breda",
+            "inpsectionDate": "2024-10-02T10:00:00.0+1:00",
+            "reports": [
+                {
+                    "id": 0,
+                    "nameReport": "damageInspection",
+                    "required": true,
+                    "details": [
+                        {
+                            "id": 0,
+                            "location": "slaapkamer voorkant",
+                            "newDamage": true,
+                            "immediateAction": false,
+                            "description": "Gat in de muur",
+                            "pictures": "foto_1.jpg"
+                        },
+                        {
+                            "id": 1,
+                            "location": "woonkamer muur tegen de keuken",
+                            "newDamage": false,
+                            "immediateAction": true,
+                            "description": "stopcontact gebroken",
+                            "pictures": "foto_2.jpg, foto_3.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "nameReport": "overdueMaintenance",
+                    "required": true,
+                    "details": [
+                        {
+                            "id": 0,
+                            "location": "voorraam beneden",
+                            "typeMaintenance": "houtrot",
+                            "immediateAction": true,
+                            "costIndication": "0-500",
+                            "pictures": "foto_4.jpg, foto_5.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "nameReport": "technicalInstallation",
+                    "required": true,
+                    "details": [
+                        {
+                            "id": 0,
+                            "location": "slaapkamer voorkant",
+                            "typeInstallation": "koeling",
+                            "notifiedErrors": "",
+                            "testProcedure": "koeling_test_beschrijving.pdf",
+                            "approved": true,
+                            "comments": "",
+                            "pictures": ""
+                        }, 
+                        {
+                            "id": 1,
+                            "location": "gehele huis",
+                            "typeInstallation": "verwarming",
+                            "notifiedErrors": "Code A4 op ketel",
+                            "testProcedure": "cv_test_beschrijving.pdf",
+                            "approved": false,
+                            "comments": "monteur laten controleren",
+                            "pictures": "foto_6.jpg"
+                        },   
+                        {
+                            "id": 2,
+                            "location": "badkamer",
+                            "typeInstallation": "luchtverversing",
+                            "notifiedErrors": "",
+                            "testProcedure": "luchtsysteem_test_beschrijving.pdf",
+                            "approved": true,
+                            "comments": "monteur laten controleren",
+                            "pictures": ""
+                        },
+                        {
+                            "id": 3,
+                            "location": "gehele huis",
+                            "typeInstallation": "elektra",
+                            "notifiedErrors": "",
+                            "testProcedure": "elektra_test_beschrijving.pdf",
+                            "approved": true,
+                            "comments": "",
+                            "pictures": ""
+                        }, 
+                        {
+                            "id": 4,
+                            "location": "gehele huis",
+                            "typeInstallation": "beveiliging",
+                            "notifiedErrors": "slot achterdeur defect",
+                            "testProcedure": "beveiliging_test_beschrijving.pdf",
+                            "approved": false,
+                            "comments": "slot laten vervangen",
+                            "pictures": "foto_7.jpg"
+                        }
+                    ]       
+                },
+                {
+                    "id": 3,
+                    "nameReport": "modifications",
+                    "required": true,
+                    "details": [
+                        {
+                            "id": 0,
+                            "currentSituation": "modificaties_aangemeld.pdf",
+                            "location": "keuken",
+                            "executedBy": "contractor",
+                            "description": "nieuwe keuken geplaatst",
+                            "action": "accepteren",
+                            "comments": "",
+                            "pictures": "foto_8.jpg"
+                        },
+                        {
+                            "id": 1,
+                            "currentSituation": "modificaties_aangemeld.pdf",
+                            "location": "achtertuin",
+                            "executedBy": "huurder",
+                            "description": "vijver ingegraven",
+                            "action": "laten verwijderen",
+                            "comments": "vijver weg halen en grasveld opnieuw aanleggen",
+                            "pictures": "foto_9.jpg, foto_10.jpg"
+                        }    
+                    ]
+                }
+            ]
+        },
+        {
+            "_comments": "// volgende entrys aanmaken"
+        }
+
+]
+
