@@ -1,19 +1,6 @@
 <template lang="">
     <section>
-        <table>
-            <tr>
-                <th>Datum</th>
-                <th>Tijd</th>
-                <th>Stad</th>
-                <th>Adres</th>
-            </tr>
-            <tr v-for="report in reports" :key=report.id>
-                <td>{{dateConversion(report.inspectionDate)}}</td>
-                <td>{{timeConversion(report.inspectionDate)}}</td>
-                <td>{{report.city}}</td>
-                <td>{{report.streetname}} {{report.houseNumber}}</td>
-            </tr>
-        </table>
+        <v-data-table :items="items"></v-data-table>
     </section>
 </template>
 <script>
@@ -25,7 +12,7 @@ export default {
     name: "InspectionList",
     data() {
         return{
-            reports: reportData,
+            items: reportData
         }
     }, 
     methods: {
@@ -35,8 +22,14 @@ export default {
         timeConversion(dateIsoFormat){
             return moment(dateIsoFormat).format('HH:mm');
         },
+        getHeadersJson(){
+            
+        }
     }
 }
+
+//https://vuetifyjs.com/en/components/data-tables/basics/#server-side-tables
+
 </script>
 <style scoped>
 
