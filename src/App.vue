@@ -25,6 +25,12 @@ export default {
 
 <style>
 
+/* load popping font styles */
+@font-face {
+    font-family: poppins;
+    src: url('~@/assets/fonts/Poppins-Regular.ttf');
+}
+
 html {
 /* Variables */
     --color-1: rgba(41,52,57,1);
@@ -35,6 +41,7 @@ html {
 }
 
 body {
+  font-family: poppins;
   margin: 0;
 }
 
