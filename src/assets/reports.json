@@ -10,7 +10,7 @@
             "reports": [
                 {
                     "id": 0,
-                    "nameReport": "damageInspection",
+                    "nameReport": "Schade",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -34,7 +34,7 @@
                 },
                 {
                     "id": 1,
-                    "nameReport": "overdueMaintenance",
+                    "nameReport": "Achterstallig onderhoud",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -50,7 +50,7 @@
                 },
                 {
                     "id": 2,
-                    "nameReport": "technicalInstallation",
+                    "nameReport": "Technische installatie",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -108,7 +108,7 @@
                 },
                 {
                     "id": 3,
-                    "nameReport": "modifications",
+                    "nameReport": "Modificaties",
                     "required": true,
                     "currentSituation": "modificaties_aangemeld.pdf",
                     "finished": true,

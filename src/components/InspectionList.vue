@@ -1,32 +1,42 @@
+<!--HTML----------------------------------------------------------------------------------------------->
+
 <template lang="">
     <section>
         <h1>Inspectie rapporten:</h1>
-       <table>
-            <tr>
-                <th>Datum</th>
-                <th>Tijd</th>
-                <th>Stad</th>
-                <th>Adres</th>
-            </tr>
-            <tr v-for="inspection in inspections" :key="inspection.id">
-                <td>
-                    <svg-icon type="mdi" :path="path" class="icon"></svg-icon>
-                    {{this.dateConversion(inspection.inspectionDate)}}
-                </td>
-                <td>{{this.timeConversion(inspection.inspectionDate)}}</td>
-                <td>{{this.stringCapital(inspection.city)}}</td>
-                <td>{{this.stringCapital(inspection.streetName) + " " +inspection.houseNumber}}</td>
+        <div class="header">
+            <div class="headerText">Datum</div>
+            <div class="headerText">Stad</div>
+            <div class="headerText">Adres</div>
+        </div>
+        <div class="content" v-for="inspection in inspections" :key="inspection.id">
+            <div class="rowInspection">
+                <div class="rowItemInspection" :data-id="inspection.id" v-touch:tap="touchHandler">
+                    <svg-icon type="mdi" :path="path[1]" class="icon" :data-id="inspection.id" v-if="indexSelected === inspection.id"></svg-icon>
+                    <svg-icon type="mdi" :path="path[0]" class="icon" :data-id="inspection.id" v-else></svg-icon>
+                    <p :data-id="inspection.id">{{this.dateConversion(inspection.inspectionDate)}}</p>
+                </div>
+                <p class="rowItem">{{this.stringCapital(inspection.city)}}</p>
+                <p class="rowItem">{{this.stringCapital(inspection.streetName) + " " +inspection.houseNumber}}</p>
+            </div>
+            
+            <div v-if="indexSelected === inspection.id">
+                <div v-for="report in inspection.reports" :key="report.id" class="rowReport">
+                    <p class="rowItemReport">Rapport -</p>
+                    <p class="rowItemReport">{{report.nameReport}}</p>
+                </div>
+            </div>
+        </div>
 
-
-            </tr> 
-        </table>
     </section>
 </template>
+
+<!--SCRIPT--------------------------------------------------------------------------------------------->
+
 <script>
 // imports
 import inspections from '@/assets/reports.json';
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiPlusBoxOutline } from '@mdi/js'
+import { mdiPlusBoxOutline, mdiMinusBoxOutline } from '@mdi/js'
 import moment from 'moment';
 
 export default {
@@ -36,14 +46,9 @@ export default {
     },
     data() {
         return{
-            path: mdiPlusBoxOutline,
+            path: [mdiPlusBoxOutline, mdiMinusBoxOutline],
             inspections: inspections,
             indexSelected: null,
-            // Add function v-if indexSelected has a value show repports in the table under the selected (+) table row
-            //
-            //
-            //
-            
         }
     }, 
     methods: {
@@ -58,14 +63,24 @@ export default {
         // function to convert a string. All letters to lowerCase, First letter to upperCase
         stringCapital(string){
             return string[0].toUpperCase() + string.slice(1).toLowerCase();
+        },
+        // print event object to the console that called the method
+        touchHandler(event){
+            if (Number(event.target.getAttribute("data-id")) === this.indexSelected){
+                this.indexSelected = null
+            } else {
+                this.indexSelected = Number(event.target.getAttribute("data-id"));
+            }
+            // Debugging
+            // console.log((event.target.getAttribute("data-id")))
         }
-    },
-    created(){
-        // placeholder
     }
 }
 
 </script>
+
+<!--STYLE--------------------------------------------------------------------------------------------->
+
 <style scoped>
 
 section {
@@ -81,47 +96,65 @@ section {
 h1 {
     width: 100%;
     text-align: left;
-    padding: 7px
-}
-
-table {
     padding: 7px;
+    text-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 2fr;
     width: 100%;
-    box-shadow: 2px 2px 3px var(--color-1-shadow);
+    border-inline: 1px solid black;
+    border-block-start: 1px solid black;
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
 }
-
-table, tr {
-    border: 1px solid var(--color-1);
-    border-collapse: collapse;
-    border-radius: 12px;
-    text-align: left;
+.headerText {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-block: .4rem;
+    padding-inline-start: 0.5rem;
 }
-
-th {
-    padding: 5px;
+.headerText:first-child {
+    font-size: 1.1rem;
+    padding-inline-start: 2rem;
 }
-
-th:first-child {
-    padding-inline-start: 9%;
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
-
-td {
-    padding: 5px;
-    font-size: 0.85rem; 
-    white-space: nowrap
+.rowInspection {
+    display: grid;
+    grid-template-columns: 1.7fr 1.5fr 2fr;
+    width: 100%;
+    padding-block: .4rem;
+    border-inline: 1px solid black;
+    border-block-start: 1px solid black;
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
 }
-
-td:first-child {
+.rowReport {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-inline-start: 2.5rem;
+    border-inline: 1px solid black;
+}
+.rowItemInspection {
     display: flex;
     align-items: center;
+    justify-content: cent;
+    padding-inline-start: 0.5rem;
+    font-size: 0.9rem;
 }
-
+.rowItemReport {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline-start: 0.5rem;
+    font-size: 0.9rem;
+}
 .icon {
-    height: 60%;
-    width: auto;
-    padding-inline-end: 8px;
-    filter: drop-shadow(2px 2px 1px rgb(0 0 0 / 0.2));
+    padding-inline-end: 0.5rem
 }
-
 
 </style>
