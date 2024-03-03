@@ -35,6 +35,7 @@
 <script>
 // imports
 import inspections from '@/assets/reports.json';
+import EventService from '@/services/EventService'
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiPlusBoxOutline, mdiMinusBoxOutline } from '@mdi/js'
 import moment from 'moment';
@@ -49,6 +50,7 @@ export default {
             path: [mdiPlusBoxOutline, mdiMinusBoxOutline],
             inspections: this.sortJson(inspections),
             indexSelected: null,
+            test_inspections: null,
         }
     }, 
     methods: {
@@ -86,7 +88,16 @@ export default {
             // return the sorted JSON object (Javascript)
             return json;
         }
-    }
+    }, 
+    created(){
+        EventService.getPage()
+            .then(response => {
+                this.test_inspections = response.data;
+                console.log(this.test_inspections);
+            }).catch(error => {
+                console.log(error);
+        })
+  }
 }
 
 </script>
