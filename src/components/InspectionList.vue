@@ -90,7 +90,7 @@ export default {
         }
     }, 
     created(){
-        EventService.getPage('/events')
+        EventService.getPage()
             .then(response => {
                 this.test_inspections = response.data;
                 console.log(this.test_inspections);
