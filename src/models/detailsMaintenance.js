@@ -1,19 +1,19 @@
 
-// define CLASS DetailsDamage
-export default class DetailsDamage {
+// define CLASS DetailMaintenance
+export default class DetailMaintenance {
     id = null;
     location = "";
-    newDamage = false;
+    typeMaintenance = "";
     immediateAction = false;
-    description = "";
+    costIndication = "";
     pictures = "";
     
     constructor(data){
         this.id = data.id
         this.location = this.stringCapital(data.location);
-        this.newDamage = data.newDamage;
+        this.typeMaintenance = data.typeMaintenance;
         this.immediateAction = data.immediateAction;
-        this.description = data.description;
+        this.costIndication = data.costIndication;
         this.pictures = data.pictures
     }
 
@@ -22,4 +22,3 @@ export default class DetailsDamage {
         return string[0].toUpperCase() + string.slice(1).toLowerCase();
     }
 }
-
