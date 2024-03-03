@@ -34,7 +34,6 @@
 
 <script>
 // imports
-import inspections from '@/assets/reports.json';
 import EventService from '@/services/EventService'
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiPlusBoxOutline, mdiMinusBoxOutline } from '@mdi/js'
@@ -48,7 +47,6 @@ export default {
     data() {
         return{
             path: [mdiPlusBoxOutline, mdiMinusBoxOutline],
-            test_inspections: this.sortJson(inspections),
             indexSelected: null,
             inspections: null,
         }
