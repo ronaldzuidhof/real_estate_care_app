@@ -146,7 +146,7 @@
             "reports": [
                 {
                     "id": 0,
-                    "nameReport": "damageInspection",
+                    "nameReport": "Schade",
                     "required": false,
                     "finished": true,
                     "details": [
@@ -162,7 +162,7 @@
                 },
                 {
                     "id": 1,
-                    "nameReport": "overdueMaintenance",
+                    "nameReport": "Achterstallig onderhoud",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -178,7 +178,7 @@
                 },
                 {
                     "id": 2,
-                    "nameReport": "technicalInstallation",
+                    "nameReport": "Technische installatie",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -236,7 +236,7 @@
                 },
                 {
                     "id": 3,
-                    "nameReport": "modifications",
+                    "nameReport": "Modificaties",
                     "required": true,
                     "currentSituation": "modificaties_aangemeld.pdf",
                     "finished": true,
@@ -265,14 +265,14 @@
             "reports": [
                 {
                     "id": 0,
-                    "nameReport": "damageInspection",
+                    "nameReport": "Schade",
                     "required": true,
                     "finished": true,
                     "details": []
                 },
                 {
                     "id": 1,
-                    "nameReport": "overdueMaintenance",
+                    "nameReport": "Achterstallig onderhoud",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -288,7 +288,7 @@
                 },
                 {
                     "id": 2,
-                    "nameReport": "technicalInstallation",
+                    "nameReport": "Technische installatie",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -346,7 +346,7 @@
                 },
                 {
                     "id": 3,
-                    "nameReport": "modifications",
+                    "nameReport": "Modificaties",
                     "required": true,
                     "currentSituation": "modificaties_aangemeld.pdf",
                     "finished": true,
@@ -365,21 +365,21 @@
             "reports": [
                 {
                     "id": 0,
-                    "nameReport": "damageInspection",
+                    "nameReport": "Schade",
                     "required": true,
                     "finished": true,
                     "details": []
                 },
                 {
                     "id": 1,
-                    "nameReport": "overdueMaintenance",
+                    "nameReport": "Achterstallig onderhoud",
                     "required": true,
                     "finished": true,
                     "details": []
                 },
                 {
                     "id": 2,
-                    "nameReport": "technicalInstallation",
+                    "nameReport": "Technische installatie",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -437,7 +437,7 @@
                 },
                 {
                     "id": 3,
-                    "nameReport": "modifications",
+                    "nameReport": "Modificaties",
                     "required": true,
                     "currentSituation": "modificaties_aangemeld.pdf",
                     "finished": true,
@@ -456,7 +456,7 @@
             "reports": [
                 {
                     "id": 0,
-                    "nameReport": "damageInspection",
+                    "nameReport": "Schade",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -472,7 +472,7 @@
                 },
                 {
                     "id": 1,
-                    "nameReport": "overdueMaintenance",
+                    "nameReport": "Achterstallig onderhoud",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -496,7 +496,7 @@
                 },
                 {
                     "id": 2,
-                    "nameReport": "technicalInstallation",
+                    "nameReport": "Technische installatie",
                     "required": true,
                     "finished": true,
                     "details": [
@@ -554,589 +554,7 @@
                 },
                 {
                     "id": 3,
-                    "nameReport": "modifications",
-                    "required": true,
-                    "currentSituation": "modificaties_aangemeld.pdf",
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "slaapkamer achter",
-                            "executedBy": "huurder",
-                            "description": "raam geblindeerd",
-                            "action": "laten verwijderen",
-                            "comments": "folie laten verwijderen",
-                            "pictures": "foto_8889.jpg"
-                        },
-                        {
-                            "id": 1,
-                            "location": "slaapkamer voor",
-                            "executedBy": "contractor",
-                            "description": "zonwering geplaatst",
-                            "action": "geen actie",
-                            "comments": "accepteren",
-                            "pictures": "foto_88.jpg"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "city": "amsterdam",
-            "streetName": "klaasstraat",
-            "houseNumber": "122",
-            "inspectionDate": "2024-01-02T11:00:00+01:00",
-            "inspector": "Miranda Zuidhof",
-            "finished": true,
-            "reports": [
-                {
-                    "id": 0,
-                    "nameReport": "damageInspection",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "slaapkamer voorkant",
-                            "newDamage": true,
-                            "immediateAction": false,
-                            "description": "Gat in de muur",
-                            "pictures": "foto_1.jpg"
-                        },
-                        {
-                            "id": 1,
-                            "location": "woonkamer muur tegen de keuken",
-                            "newDamage": false,
-                            "immediateAction": true,
-                            "description": "stopcontact gebroken",
-                            "pictures": "foto_2.jpg, foto_3.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 1,
-                    "nameReport": "overdueMaintenance",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "voorraam beneden",
-                            "typeMaintenance": "houtrot",
-                            "immediateAction": true,
-                            "costIndication": "0-500",
-                            "pictures": "foto_4.jpg, foto_5.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "nameReport": "technicalInstallation",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "slaapkamer voorkant",
-                            "typeInstallation": "koeling",
-                            "notifiedErrors": "",
-                            "testProcedure": "koeling_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        }, 
-                        {
-                            "id": 1,
-                            "location": "gehele huis",
-                            "typeInstallation": "verwarming",
-                            "notifiedErrors": "Code A4 op ketel",
-                            "testProcedure": "cv_test_beschrijving.pdf",
-                            "approved": false,
-                            "comments": "monteur laten controleren",
-                            "pictures": "foto_6.jpg"
-                        },   
-                        {
-                            "id": 2,
-                            "location": "badkamer",
-                            "typeInstallation": "luchtverversing",
-                            "notifiedErrors": "",
-                            "testProcedure": "luchtsysteem_test_beschrijving.pdf",
-                            "approved": false,
-                            "comments": "monteur laten controleren",
-                            "pictures": ""
-                        },
-                        {
-                            "id": 3,
-                            "location": "gehele huis",
-                            "typeInstallation": "elektra",
-                            "notifiedErrors": "",
-                            "testProcedure": "elektra_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        }, 
-                        {
-                            "id": 4,
-                            "location": "gehele huis",
-                            "typeInstallation": "beveiliging",
-                            "notifiedErrors": "slot achterdeur defect",
-                            "testProcedure": "beveiliging_test_beschrijving.pdf",
-                            "approved": false,
-                            "comments": "slot laten vervangen",
-                            "pictures": "foto_7.jpg"
-                        }
-                    ]       
-                },
-                {
-                    "id": 3,
-                    "nameReport": "modifications",
-                    "required": true,
-                    "currentSituation": "modificaties_aangemeld.pdf",
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "keuken",
-                            "executedBy": "contractor",
-                            "description": "nieuwe keuken geplaatst",
-                            "action": "accepteren",
-                            "comments": "",
-                            "pictures": "foto_8.jpg"
-                        },
-                        {
-                            "id": 1,
-                            "location": "achtertuin",
-                            "executedBy": "huurder",
-                            "description": "vijver ingegraven",
-                            "action": "laten verwijderen",
-                            "comments": "vijver weg halen en grasveld opnieuw aanleggen",
-                            "pictures": "foto_9.jpg, foto_10.jpg"
-                        }    
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 6,
-            "city": "rotterdam",
-            "streetName": "hugostraat",
-            "houseNumber": "333",
-            "inspectionDate": "2023-12-11T09:00:00+01:00",
-            "inspector": "Miranda Zuidhof",
-            "finished": true,
-            "reports": [
-                {
-                    "id": 0,
-                    "nameReport": "damageInspection",
-                    "required": false,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "",
-                            "newDamage": false,
-                            "immediateAction": false,
-                            "description": "",
-                            "pictures": ""
-                        }
-                    ]
-                },
-                {
-                    "id": 1,
-                    "nameReport": "overdueMaintenance",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "wc",
-                            "typeMaintenance": "leidingwerk",
-                            "immediateAction": true,
-                            "costIndication": "0-500",
-                            "pictures": "foto_25.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "nameReport": "technicalInstallation",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "slaapkamer voorkant",
-                            "typeInstallation": "koeling",
-                            "notifiedErrors": "",
-                            "testProcedure": "koeling_test_beschrijving.pdf",
-                            "approved": false,
-                            "comments": "Koelunit gaat niet aan",
-                            "pictures": ""
-                        }, 
-                        {
-                            "id": 1,
-                            "location": "gehele huis",
-                            "typeInstallation": "verwarming",
-                            "notifiedErrors": "",
-                            "testProcedure": "cv_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        },   
-                        {
-                            "id": 2,
-                            "location": "badkamer",
-                            "typeInstallation": "luchtverversing",
-                            "notifiedErrors": "",
-                            "testProcedure": "luchtsysteem_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        },
-                        {
-                            "id": 3,
-                            "location": "gehele huis",
-                            "typeInstallation": "elektra",
-                            "notifiedErrors": "",
-                            "testProcedure": "elektra_test_beschrijving.pdf",
-                            "approved": false,
-                            "comments": "Groep 2 blijft uitvallen",
-                            "pictures": "foto_123.jpg"
-                        }, 
-                        {
-                            "id": 4,
-                            "location": "gehele huis",
-                            "typeInstallation": "beveiliging",
-                            "notifiedErrors": "",
-                            "testProcedure": "beveiliging_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        }
-                    ]       
-                },
-                {
-                    "id": 3,
-                    "nameReport": "modifications",
-                    "required": true,
-                    "currentSituation": "modificaties_aangemeld.pdf",
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "slaapkamer achter",
-                            "executedBy": "onbekend",
-                            "description": "plafond aangepast",
-                            "action": "laten aanpassen en keuren",
-                            "comments": "nieuwe constructie laten controleren",
-                            "pictures": "foto_88.jpg"
-                        }    
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 7,
-            "city": "Breda",
-            "streetName": "vanhogestraat",
-            "houseNumber": "111",
-            "inspectionDate": "2023-12-15T16:00:00+01:00",
-            "inspector": "Ronald Zuidhof",
-            "finished": true,
-            "reports": [
-                {
-                    "id": 0,
-                    "nameReport": "damageInspection",
-                    "required": true,
-                    "finished": true,
-                    "details": []
-                },
-                {
-                    "id": 1,
-                    "nameReport": "overdueMaintenance",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "achterraam woonkamer",
-                            "typeMaintenance": "beglazing",
-                            "immediateAction": false,
-                            "costIndication": "500-1500",
-                            "pictures": "foto_2355.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "nameReport": "technicalInstallation",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "slaapkamer voorkant",
-                            "typeInstallation": "koeling",
-                            "notifiedErrors": "",
-                            "testProcedure": "koeling_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        }, 
-                        {
-                            "id": 1,
-                            "location": "gehele huis",
-                            "typeInstallation": "verwarming",
-                            "notifiedErrors": "",
-                            "testProcedure": "cv_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        },   
-                        {
-                            "id": 2,
-                            "location": "badkamer",
-                            "typeInstallation": "luchtverversing",
-                            "notifiedErrors": "",
-                            "testProcedure": "luchtsysteem_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        },
-                        {
-                            "id": 3,
-                            "location": "gehele huis",
-                            "typeInstallation": "elektra",
-                            "notifiedErrors": "",
-                            "testProcedure": "elektra_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        }, 
-                        {
-                            "id": 4,
-                            "location": "gehele huis",
-                            "typeInstallation": "beveiliging",
-                            "notifiedErrors": "",
-                            "testProcedure": "beveiliging_test_beschrijving.pdf",
-                            "approved": false,
-                            "comments": "klink achterdeur zit niet goed vast",
-                            "pictures": "foto_453.jpg"
-                        }
-                    ]       
-                },
-                {
-                    "id": 3,
-                    "nameReport": "modifications",
-                    "required": true,
-                    "currentSituation": "modificaties_aangemeld.pdf",
-                    "finished": true,
-                    "details": []
-                }
-            ]
-        },
-        {
-            "id": 8,
-            "city": "breda",
-            "streetName": "janstraat",
-            "houseNumber": "8",
-            "inspectionDate": "2024-01-11T11:00:00+01:00",
-            "inspector": "Ronald Zuidhof",
-            "finished": true,
-            "reports": [
-                {
-                    "id": 0,
-                    "nameReport": "damageInspection",
-                    "required": true,
-                    "finished": true,
-                    "details": []
-                },
-                {
-                    "id": 1,
-                    "nameReport": "overdueMaintenance",
-                    "required": true,
-                    "finished": true,
-                    "details": []
-                },
-                {
-                    "id": 2,
-                    "nameReport": "technicalInstallation",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "slaapkamer voorkant",
-                            "typeInstallation": "koeling",
-                            "notifiedErrors": "",
-                            "testProcedure": "koeling_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        }, 
-                        {
-                            "id": 1,
-                            "location": "gehele huis",
-                            "typeInstallation": "verwarming",
-                            "notifiedErrors": "",
-                            "testProcedure": "cv_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        },   
-                        {
-                            "id": 2,
-                            "location": "badkamer",
-                            "typeInstallation": "luchtverversing",
-                            "notifiedErrors": "",
-                            "testProcedure": "luchtsysteem_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        },
-                        {
-                            "id": 3,
-                            "location": "gehele huis",
-                            "typeInstallation": "elektra",
-                            "notifiedErrors": "",
-                            "testProcedure": "elektra_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        }, 
-                        {
-                            "id": 4,
-                            "location": "gehele huis",
-                            "typeInstallation": "beveiliging",
-                            "notifiedErrors": "",
-                            "testProcedure": "beveiliging_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        }
-                    ]       
-                },
-                {
-                    "id": 3,
-                    "nameReport": "modifications",
-                    "required": true,
-                    "currentSituation": "modificaties_aangemeld.pdf",
-                    "finished": true,
-                    "details": []
-                }
-            ]
-        },
-        {
-            "id": 9,
-            "city": "tilburg",
-            "streetName": "groteplein",
-            "houseNumber": "13b",
-            "inspectionDate": "2024-01-15T17:00:00+01:00",
-            "inspector": "Roman Zuidhof",
-            "finished": true,
-            "reports": [
-                {
-                    "id": 0,
-                    "nameReport": "damageInspection",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "badkamer",
-                            "newDamage": true,
-                            "immediateAction": false,
-                            "description": "spiegel gebroken",
-                            "pictures": "foto_12345.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 1,
-                    "nameReport": "overdueMaintenance",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "kozijnen bovenverdieping",
-                            "typeMaintenance": "schilderwerk",
-                            "immediateAction": false,
-                            "costIndication": "1500+",
-                            "pictures": "foto_255.jpg"
-                        },
-                        {
-                            "id": 1,
-                            "location": "kozijnen bovenverdieping",
-                            "typeMaintenance": "houtrot",
-                            "immediateAction": true,
-                            "costIndication": "500-1500",
-                            "pictures": "foto_256.jpg, foto_257.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "nameReport": "technicalInstallation",
-                    "required": true,
-                    "finished": true,
-                    "details": [
-                        {
-                            "id": 0,
-                            "location": "slaapkamer voorkant",
-                            "typeInstallation": "koeling",
-                            "notifiedErrors": "",
-                            "testProcedure": "koeling_test_beschrijving.pdf",
-                            "approved": false,
-                            "comments": "koelunit barst in voorkant",
-                            "pictures": "foto_263.jpg"
-                        }, 
-                        {
-                            "id": 1,
-                            "location": "gehele huis",
-                            "typeInstallation": "verwarming",
-                            "notifiedErrors": "",
-                            "testProcedure": "cv_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        },   
-                        {
-                            "id": 2,
-                            "location": "badkamer",
-                            "typeInstallation": "luchtverversing",
-                            "notifiedErrors": "",
-                            "testProcedure": "luchtsysteem_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        },
-                        {
-                            "id": 3,
-                            "location": "gehele huis",
-                            "typeInstallation": "elektra",
-                            "notifiedErrors": "",
-                            "testProcedure": "elektra_test_beschrijving.pdf",
-                            "approved": true,
-                            "comments": "",
-                            "pictures": ""
-                        }, 
-                        {
-                            "id": 4,
-                            "location": "slaapkamer voorkant",
-                            "typeInstallation": "beveiliging",
-                            "notifiedErrors": "",
-                            "testProcedure": "beveiliging_test_beschrijving.pdf",
-                            "approved": false,
-                            "comments": "raamklink verbogen",
-                            "pictures": "foto_4545.jpg"
-                        }
-                    ]       
-                },
-                {
-                    "id": 3,
-                    "nameReport": "modifications",
+                    "nameReport": "Modificaties",
                     "required": true,
                     "currentSituation": "modificaties_aangemeld.pdf",
                     "finished": true,

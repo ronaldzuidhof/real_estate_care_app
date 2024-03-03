@@ -3,29 +3,29 @@
 <template lang="">
     <section>
         <h1>Inspectie rapporten:</h1>
-        <div class="header">
-            <div class="headerText">Datum</div>
-            <div class="headerText">Stad</div>
-            <div class="headerText">Adres</div>
-        </div>
-        <div class="content" v-for="inspection in inspections" :key="inspection.id">
-            <div class="rowInspection">
-                <div class="rowItemInspection" :data-id="inspection.id" v-touch:tap="touchHandler">
-                    <svg-icon type="mdi" :path="path[1]" class="icon" :data-id="inspection.id" v-if="indexSelected === inspection.id"></svg-icon>
-                    <svg-icon type="mdi" :path="path[0]" class="icon" :data-id="inspection.id" v-else></svg-icon>
-                    <p :data-id="inspection.id">{{this.dateConversion(inspection.inspectionDate)}}</p>
-                </div>
-                <p class="rowItem">{{this.stringCapital(inspection.city)}}</p>
-                <p class="rowItem">{{this.stringCapital(inspection.streetName) + " " +inspection.houseNumber}}</p>
-            </div>
-            
-            <div v-if="indexSelected === inspection.id">
-                <div v-for="report in inspection.reports" :key="report.id" class="rowReport">
-                    <p class="rowItemReport">Rapport -</p>
-                    <p class="rowItemReport">{{report.nameReport}}</p>
-                </div>
-            </div>
-        </div>
+        <header>
+            <ul>
+                <li>Datum</li>
+                <li>Stad</li>
+                <li>Adres</li>
+            </ul>
+        </header>
+        <article>
+            <ul v-for="inspection in inspections" :key="inspection.id">
+                <li :data-id="inspection.id" v-touch:tap="touchHandler">
+                        <svg-icon type="mdi" :path="path[1]" :data-id="inspection.id" class="icon" v-if="indexSelected === inspection.id"></svg-icon>
+                        <svg-icon type="mdi" :path="path[0]" :data-id="inspection.id" class="icon" v-else></svg-icon>
+                        {{this.dateConversion(inspection.inspectionDate, 'DD-MM-YYYY')}}
+                </li>
+                <li>{{this.stringCapital(inspection.city)}}</li>
+                <li>{{this.stringCapital(inspection.streetName) + " " +inspection.houseNumber}}</li>
+                <ul v-if="indexSelected === inspection.id">
+                    <li v-for="report in inspection.reports" :key="report.id">
+                        {{report.nameReport}} rapport
+                    </li>
+                </ul>
+            </ul>
+        </article>
 
     </section>
 </template>
@@ -47,32 +47,44 @@ export default {
     data() {
         return{
             path: [mdiPlusBoxOutline, mdiMinusBoxOutline],
-            inspections: inspections,
+            inspections: this.sortJson(inspections),
             indexSelected: null,
         }
     }, 
     methods: {
         // function to convert date ISO format to defined date format
-        dateConversion(dateIsoFormat){
-            return moment(dateIsoFormat).format('DD-MM-YYYY');
+        dateConversion(dateIsoFormat, format){
+            return moment(dateIsoFormat).format(format);
         },
-        // function to convert date ISO format to defined time format
-        timeConversion(dateIsoFormat){
-            return moment(dateIsoFormat).format('HH:mm');
-        }, 
         // function to convert a string. All letters to lowerCase, First letter to upperCase
         stringCapital(string){
             return string[0].toUpperCase() + string.slice(1).toLowerCase();
         },
-        // print event object to the console that called the method
+        // function to show/hide ul with inspection reports
         touchHandler(event){
+            // Hide ul insepction reports (set indexSelected to null)
             if (Number(event.target.getAttribute("data-id")) === this.indexSelected){
-                this.indexSelected = null
-            } else {
+                this.indexSelected = null;
+            // Show ul insepction reports (set indexSelected to received event number)
+            } else if (event.target.getAttribute("data-id") !== null) {
                 this.indexSelected = Number(event.target.getAttribute("data-id"));
             }
-            // Debugging
-            // console.log((event.target.getAttribute("data-id")))
+        },
+        // function to sort JSON file based on inspectionDate entry
+        sortJson(json){
+            json.sort(function(a, b , typeSort= "asc"){
+                // convert strings to date object and get the time since Epoch in mS
+                const date1 = new Date(a.inspectionDate).getTime();
+                const date2 = new Date(b.inspectionDate).getTime();
+                // compare both dates and sort according supplied property
+                if (typeSort === "desc"){
+                    return date1 - date2;
+                } else {
+                    return date2 - date1; 
+                }
+            })
+            // return the sorted JSON object (Javascript)
+            return json;
         }
     }
 }
@@ -82,6 +94,58 @@ export default {
 <!--STYLE--------------------------------------------------------------------------------------------->
 
 <style scoped>
+
+header, article {
+    width: 100%;
+    border: 1px solid var(--color-1);
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
+}
+
+header{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
+    border-block-end: 0;
+    border-radius: 10px 10px 0px 0px
+}
+
+article {
+    font-size: .8rem;
+    border-radius: 0px 0px 10px 10px
+}
+
+ul {
+    display: grid;
+    grid-template-columns: 1.8fr 1.4fr 2fr;
+    grid-template-rows: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 0.25rem;
+}
+
+ul ul {
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline-start: 1.3rem;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
+}
+
+li:first-child {
+    padding-inline-start: 1rem;
+}
+
+ul ul li {
+    padding-inline-start: 1rem;
+}
 
 section {
     height: 40%;
@@ -100,59 +164,6 @@ h1 {
     text-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
 }
 
-.header {
-    display: grid;
-    grid-template-columns: 1.5fr 1.5fr 2fr;
-    width: 100%;
-    border-inline: 1px solid black;
-    border-block-start: 1px solid black;
-    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
-}
-.headerText {
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding-block: .4rem;
-    padding-inline-start: 0.5rem;
-}
-.headerText:first-child {
-    font-size: 1.1rem;
-    padding-inline-start: 2rem;
-}
-.content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-.rowInspection {
-    display: grid;
-    grid-template-columns: 1.7fr 1.5fr 2fr;
-    width: 100%;
-    padding-block: .4rem;
-    border-inline: 1px solid black;
-    border-block-start: 1px solid black;
-    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
-}
-.rowReport {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding-inline-start: 2.5rem;
-    border-inline: 1px solid black;
-}
-.rowItemInspection {
-    display: flex;
-    align-items: center;
-    justify-content: cent;
-    padding-inline-start: 0.5rem;
-    font-size: 0.9rem;
-}
-.rowItemReport {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-inline-start: 0.5rem;
-    font-size: 0.9rem;
-}
 .icon {
     padding-inline-end: 0.5rem
 }
