@@ -10,7 +10,7 @@ const apiClient = axios.create({
 })
 
 export default {
-    getPage(subURL){
+    getData(subURL){
         return apiClient.get(subURL)
     }
 }

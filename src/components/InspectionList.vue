@@ -34,10 +34,11 @@
 
 <script>
 // imports
-import EventService from '@/services/EventService'
+import ReportService from '@/services/ReportService'
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiPlusBoxOutline, mdiMinusBoxOutline } from '@mdi/js'
 import moment from 'moment';
+import Inspection from '@/models/inspection';
 
 export default {
     name: "InspectionList",
@@ -65,7 +66,7 @@ export default {
             // Hide ul insepction reports (set indexSelected to null)
             if (Number(event.target.getAttribute("data-id")) === this.indexSelected){
                 this.indexSelected = null;
-            // Show ul insepction reports (set indexSelected to received event number)
+            // Show ul inspection reports (set indexSelected to received event number)
             } else if (event.target.getAttribute("data-id") !== null) {
                 this.indexSelected = Number(event.target.getAttribute("data-id"));
             }
@@ -88,11 +89,18 @@ export default {
         }
     }, 
     created(){
-        // Function to get the JSON file with a event service (getPage)
-        EventService.getPage('/inspections')
+        // Function to get the JSON file with a event service (getData)
+        ReportService.getData('/inspections')
             .then(response => {
-                const result = response.data;
+                let result = response.data;
                 this.inspections = this.sortJson(result)
+                // debugging
+                console.log(result);
+                result = result.map(inspection => new Inspection(inspection))
+                console.log(result)
+                result = this.sortJson(result)
+                
+
             }).catch(error => {
                 console.log(error);
         })
@@ -178,4 +186,4 @@ h1 {
     padding-inline-end: 0.5rem
 }
 
-</style>
+</style>@/services/ReportService
