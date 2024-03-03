@@ -48,9 +48,9 @@ export default {
     data() {
         return{
             path: [mdiPlusBoxOutline, mdiMinusBoxOutline],
-            inspections: this.sortJson(inspections),
+            test_inspections: this.sortJson(inspections),
             indexSelected: null,
-            test_inspections: null,
+            inspections: null,
         }
     }, 
     methods: {
@@ -90,10 +90,11 @@ export default {
         }
     }, 
     created(){
+        // Function to get the JSON file with a event service (getPage)
         EventService.getPage('/inspections')
             .then(response => {
-                this.test_inspections = response.data;
-                console.log(this.test_inspections);
+                const result = response.data;
+                this.inspections = this.sortJson(result)
             }).catch(error => {
                 console.log(error);
         })
