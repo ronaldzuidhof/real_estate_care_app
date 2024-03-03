@@ -11,22 +11,19 @@
             </ul>
         </header>
         <article>
-            <ul v-for="inspection in inspections" :key="inspection.id">
-                <li :data-id="inspection.id" v-touch:tap="touchHandler">
+            <ul v-for="inspection in inspections" :key="inspection.getId()">
+                <li :data-id="inspection.getId()" v-touch:tap="touchHandler">
                         <svg-icon type="mdi" :path="path[1]" :data-id="inspection.id" class="icon" v-if="indexSelected === inspection.id"></svg-icon>
                         <svg-icon type="mdi" :path="path[0]" :data-id="inspection.id" class="icon" v-else></svg-icon>
-                        {{this.dateConversion(inspection.inspectionDate, 'DD-MM-YYYY')}}
+                        {{inspection.getDate()}}
                 </li>
-                <li>{{this.stringCapital(inspection.city)}}</li>
-                <li>{{this.stringCapital(inspection.streetName) + " " +inspection.houseNumber}}</li>
-                <ul v-if="indexSelected === inspection.id">
-                    <li v-for="report in inspection.reports" :key="report.id">
-                        {{report.nameReport}} rapport
-                    </li>
+                <li>{{inspection.getCity()}}</li>
+                <li>{{inspection.getAddress()}}</li>
+                <ul v-if="indexSelected === inspection.getId()">
+                    <li v-for="report in inspection.reports" :key="report.getId()">{{report.getReportName()}}</li>
                 </ul>
             </ul>
         </article>
-
     </section>
 </template>
 
@@ -37,7 +34,6 @@
 import ReportService from '@/services/ReportService'
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiPlusBoxOutline, mdiMinusBoxOutline } from '@mdi/js'
-import moment from 'moment';
 import Inspection from '@/models/inspection';
 
 export default {
@@ -53,14 +49,6 @@ export default {
         }
     }, 
     methods: {
-        // function to convert date ISO format to defined date format
-        dateConversion(dateIsoFormat, format){
-            return moment(dateIsoFormat).format(format);
-        },
-        // function to convert a string. All letters to lowerCase, First letter to upperCase
-        stringCapital(string){
-            return string[0].toUpperCase() + string.slice(1).toLowerCase();
-        },
         // function to show/hide ul with inspection reports
         touchHandler(event){
             // Hide ul insepction reports (set indexSelected to null)
@@ -71,37 +59,30 @@ export default {
                 this.indexSelected = Number(event.target.getAttribute("data-id"));
             }
         },
-        // function to sort JSON file based on inspectionDate entry
-        sortJson(json){
-            json.sort(function(a, b , typeSort= "asc"){
-                // convert strings to date object and get the time since Epoch in mS
-                const date1 = new Date(a.inspectionDate).getTime();
-                const date2 = new Date(b.inspectionDate).getTime();
-                // compare both dates and sort according supplied property
-                if (typeSort === "desc"){
-                    return date1 - date2;
-                } else {
-                    return date2 - date1; 
-                }
+        // function to sort an object based on getEpocTime()
+        sort(object){
+            object.sort(function(a, b){
+                // compare both EPOC times and sort accordingly
+                return b.getEpocTime() - a.getEpocTime();
             })
-            // return the sorted JSON object (Javascript)
-            return json;
-        }
+            // return the sorted object
+            return object;
+        },
     }, 
     created(){
-        // Function to get the JSON file with a event service (getData)
+        // Function to get the data with the event service (getData)
         ReportService.getData('/inspections')
             .then(response => {
-                let result = response.data;
-                this.inspections = this.sortJson(result)
+                // map over the response data Array and create Inspection instances
+                let result = response.data.map(inspection => new Inspection(inspection));
+                // sort the Inspection instances inside the inspections object with method "sortJson()"
+                result = this.sort(result);
+                // return the inspections object
+                this.inspections = result;
                 // debugging
-                console.log(result);
-                result = result.map(inspection => new Inspection(inspection))
-                console.log(result)
-                result = this.sortJson(result)
-                
-
+                console.log(this.inspections)
             }).catch(error => {
+                // error to console
                 console.log(error);
         })
   }
