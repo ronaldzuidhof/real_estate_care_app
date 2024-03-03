@@ -79,7 +79,7 @@ export default {
                 result = this.sort(result);
                 // return the inspections object
                 this.inspections = result;
-                // debugging
+                // debugging to see the data object with its classes (reports, inspections and details)
                 console.log(this.inspections)
             }).catch(error => {
                 // error to console
