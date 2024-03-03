@@ -1,55 +1,206 @@
 {
     "inspections": 
         [
-            {
-                "id": 0,
-                "city": "BREDA",
-                "streetName": "Pietstraat",
-                "houseNumber": "12",
-                "inspectionDate": "2024-02-10T10:00:00+01:00",
-                "inspector": "Ronald Zuidhof",
-                "finished": true,
-                "reports": []
-            },
-            {
-                "id": 1,
-                "city": "tilburg",
-                "streetName": "karelstraat",
-                "houseNumber": "3",
-                "inspectionDate": "2024-02-11T13:00:00+01:00",
-                "inspector": "Ronald Zuidhof",
-                "finished": true,
-                "reports": []
-            },
-            {
-                "id": 2,
-                "city": "oosterhout",
-                "streetName": "peterusstraat",
-                "houseNumber": "113",
-                "inspectionDate": "2024-01-15T08:00:00+01:00",
-                "inspector": "Roman Zuidhof",
-                "finished": true,
-                "reports": []
-            },
-            {
-                "id": 3,
-                "city": "breda",
-                "streetName": "janstraat",
-                "houseNumber": "4",
-                "inspectionDate": "2024-02-10T12:00:00+01:00",
-                "inspector": "Ronald Zuidhof",
-                "finished": true,
-                "reports": []
-            },
-            {
-                "id": 4,
-                "city": "oosterhout",
-                "streetName": "karelplein",
-                "houseNumber": "24a",
-                "inspectionDate": "2024-02-05T15:00:00+01:00",
-                "inspector": "Roman Zuidhof",
-                "finished": true,
-                "reports": []
-            }
-        ]
+        {
+            "id": 0,
+            "city": "BREDA",
+            "streetName": "Pietstraat",
+            "houseNumber": "12",
+            "inspectionDate": "2024-02-10T10:00:00+01:00",
+            "inspector": "Ronald Zuidhof",
+            "finished": true,
+            "reports": [
+                {
+                    "id": 0,
+                    "nameReport": "Schade",
+                    "required": true,
+                    "finished": true,
+                    "details": []
+                },
+                {
+                    "id": 1,
+                    "nameReport": "Achterstallig onderhoud",
+                    "required": true,
+                    "finished": true,
+                    "details": []
+                },
+                {
+                    "id": 2,
+                    "nameReport": "Technische installatie",
+                    "required": true,
+                    "finished": true,
+                    "details": []       
+                },
+                {
+                    "id": 3,
+                    "nameReport": "Modificaties",
+                    "required": true,
+                    "currentSituation": "modificaties_aangemeld.pdf",
+                    "finished": true,
+                    "details": []
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "city": "tilburg",
+            "streetName": "karelstraat",
+            "houseNumber": "3",
+            "inspectionDate": "2024-02-11T13:00:00+01:00",
+            "inspector": "Ronald Zuidhof",
+            "finished": true,
+            "reports": [
+                {
+                    "id": 0,
+                    "nameReport": "Schade",
+                    "required": false,
+                    "finished": true,
+                    "details": []
+                },
+                {
+                    "id": 1,
+                    "nameReport": "Achterstallig onderhoud",
+                    "required": true,
+                    "finished": true,
+                    "details": []
+                },
+                {
+                    "id": 2,
+                    "nameReport": "Technische installatie",
+                    "required": true,
+                    "finished": true,
+                    "details": []       
+                },
+                {
+                    "id": 3,
+                    "nameReport": "Modificaties",
+                    "required": true,
+                    "currentSituation": "modificaties_aangemeld.pdf",
+                    "finished": true,
+                    "details": []
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "city": "oosterhout",
+            "streetName": "peterusstraat",
+            "houseNumber": "113",
+            "inspectionDate": "2024-01-15T08:00:00+01:00",
+            "inspector": "Roman Zuidhof",
+            "finished": true,
+            "reports": [
+                {
+                    "id": 0,
+                    "nameReport": "Schade",
+                    "required": true,
+                    "finished": true,
+                    "details": []
+                },
+                {
+                    "id": 1,
+                    "nameReport": "Achterstallig onderhoud",
+                    "required": true,
+                    "finished": true,
+                    "details": []
+                },
+                {
+                    "id": 2,
+                    "nameReport": "Technische installatie",
+                    "required": true,
+                    "finished": true,
+                    "details": []       
+                },
+                {
+                    "id": 3,
+                    "nameReport": "Modificaties",
+                    "required": true,
+                    "currentSituation": "modificaties_aangemeld.pdf",
+                    "finished": true,
+                    "details": []
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "city": "breda",
+            "streetName": "janstraat",
+            "houseNumber": "4",
+            "inspectionDate": "2024-02-10T12:00:00+01:00",
+            "inspector": "Ronald Zuidhof",
+            "finished": true,
+            "reports": [
+                {
+                    "id": 0,
+                    "nameReport": "Schade",
+                    "required": true,
+                    "finished": true,
+                    "details": []
+                },
+                {
+                    "id": 1,
+                    "nameReport": "Achterstallig onderhoud",
+                    "required": true,
+                    "finished": true,
+                    "details": []
+                },
+                {
+                    "id": 2,
+                    "nameReport": "Technische installatie",
+                    "required": true,
+                    "finished": true,
+                    "details": []       
+                },
+                {
+                    "id": 3,
+                    "nameReport": "Modificaties",
+                    "required": true,
+                    "currentSituation": "modificaties_aangemeld.pdf",
+                    "finished": true,
+                    "details": []
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "city": "oosterhout",
+            "streetName": "karelplein",
+            "houseNumber": "24a",
+            "inspectionDate": "2024-02-05T15:00:00+01:00",
+            "inspector": "Roman Zuidhof",
+            "finished": true,
+            "reports": [
+                {
+                    "id": 0,
+                    "nameReport": "Schade",
+                    "required": true,
+                    "finished": true,
+                    "details": []
+                },
+                {
+                    "id": 1,
+                    "nameReport": "Achterstallig onderhoud",
+                    "required": true,
+                    "finished": true,
+                    "details": []
+                },
+                {
+                    "id": 2,
+                    "nameReport": "Technische installatie",
+                    "required": true,
+                    "finished": true,
+                    "details": []       
+                },
+                {
+                    "id": 3,
+                    "nameReport": "Modificaties",
+                    "required": true,
+                    "currentSituation": "modificaties_aangemeld.pdf",
+                    "finished": true,
+                    "details": []
+                }
+            ]
+        }
+]
+
 }
