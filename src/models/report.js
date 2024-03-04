@@ -1,8 +1,11 @@
+// define CLASS Report
+
 // imports
 import DetailDamage from '@/models/detailsDamage';
 import DetailMaintenance from '@/models/detailsMaintenance';
 import DetailInstallation from '@/models/detailsInstallation';
 import DetailModifications from '@/models/detailsModifications';
+import { useStringCapital } from '@/composables/GlobalFunctions'
 
 // define CLASS Report
 export default class Report {
@@ -14,7 +17,7 @@ export default class Report {
 
     constructor(data){
         this.id = data.id
-        this.nameReport = this.stringCapital(data.nameReport);
+        this.nameReport = useStringCapital(data.nameReport);
         this.required = data.required;
         this.finished = data.finished;
         this.details = this.detailsModel(data)
@@ -23,10 +26,6 @@ export default class Report {
     // function to return the id number
     getId(){
         return this.id;
-    }
-    // function to convert a string. All letters to lowerCase, First letter to upperCase
-    stringCapital(string){
-        return string[0].toUpperCase() + string.slice(1).toLowerCase();
     }
     // function to return the report name with "rapport" added to the string
     getReportName(){
@@ -47,5 +46,4 @@ export default class Report {
                 return data.details;
         }
     }
-
 }

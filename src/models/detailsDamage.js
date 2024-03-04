@@ -1,5 +1,8 @@
-
 // define CLASS DetailsDamage
+
+//imports
+import { useStringCapital } from '@/composables/GlobalFunctions'
+
 export default class DetailDamage {
     id = null;
     location = "";
@@ -10,15 +13,10 @@ export default class DetailDamage {
     
     constructor(data){
         this.id = data.id
-        this.location = this.stringCapital(data.location);
+        this.location = useStringCapital(data.location);
         this.newDamage = data.newDamage;
         this.immediateAction = data.immediateAction;
         this.description = data.description;
         this.pictures = data.pictures
-    }
-
-    // function to convert a string. All letters to lowerCase, First letter to upperCase
-    stringCapital(string){
-        return string[0].toUpperCase() + string.slice(1).toLowerCase();
     }
 }

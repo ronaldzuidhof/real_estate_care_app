@@ -13,7 +13,7 @@
         <article>
             <ul v-for="inspection in inspections" :key="inspection.getId()">
                 <li :data-id="inspection.getId()" v-touch:tap="touchHandler">
-                        <svg-icon type="mdi" :path="path[1]" :data-id="inspection.id" class="icon" v-if="indexSelected === inspection.id"></svg-icon>
+                        <svg-icon type="mdi" :path="path[1]" :data-id="inspection.id" class="icon" v-if="indexSelected === inspection.id" ></svg-icon>
                         <svg-icon type="mdi" :path="path[0]" :data-id="inspection.id" class="icon" v-else></svg-icon>
                         {{inspection.getDate()}}
                 </li>
@@ -43,6 +43,7 @@ export default {
     },
     data() {
         return{
+            // put icon objects in path array of object data
             path: [mdiPlusBoxOutline, mdiMinusBoxOutline],
             indexSelected: null,
             inspections: null,
@@ -167,4 +168,4 @@ h1 {
     padding-inline-end: 0.5rem
 }
 
-</style>@/services/ReportService
+</style>

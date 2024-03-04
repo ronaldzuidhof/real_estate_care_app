@@ -1,6 +1,9 @@
+// define CLASS Inspection
+
 // imports
 import moment from 'moment';
 import Report from '@/models/report';
+import { useStringCapital } from '@/composables/GlobalFunctions'
 
 // define CLASS Inspection
 export default class Inspection {
@@ -15,8 +18,8 @@ export default class Inspection {
 
     constructor(data){
         this.id = data.id
-        this.city = this.stringCapital(data.city);
-        this.streetName = this.stringCapital(data.streetName);
+        this.city = useStringCapital(data.city);
+        this.streetName = useStringCapital(data.streetName);
         this.houseNumber = data.houseNumber;
         this.inspectionDate = data.inspectionDate;
         this.finished = data.finished;
@@ -43,9 +46,5 @@ export default class Inspection {
     // function to return the date in format "Day-Month-Year"
     getDate(){
         return moment(this.inspectionDate).format('DD-MM-YYYY');
-    }
-    // function to convert a string. All letters to lowerCase, First letter to upperCase
-    stringCapital(string){
-        return string[0].toUpperCase() + string.slice(1).toLowerCase();
     }
 }

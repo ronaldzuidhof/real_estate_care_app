@@ -1,5 +1,8 @@
-
 // define CLASS DetailInstallation
+
+//imports
+import { useStringCapital } from '@/composables/GlobalFunctions'
+
 export default class DetailInstallation {
     id = null;
     location = "";
@@ -12,17 +15,12 @@ export default class DetailInstallation {
     
     constructor(data){
         this.id = data.id
-        this.location = this.stringCapital(data.location);
+        this.location = useStringCapital(data.location);
         this.typeInstallation = data.typeInstallation;
         this.notifiedErrors = data.notifiedErrors;
         this.testProdcedure = data.testProcedure;
         this.approved = data.approved;
         this.comments = data.comments
         this.pictures = data.pictures
-    }
-
-    // function to convert a string. All letters to lowerCase, First letter to upperCase
-    stringCapital(string){
-        return string[0].toUpperCase() + string.slice(1).toLowerCase();
     }
 }
