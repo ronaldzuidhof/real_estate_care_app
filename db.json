@@ -54,7 +54,7 @@
                         "id": 2,
                         "nameReport": "Technische installatie",
                         "required": true,
-                        "finished": false,
+                        "finished": true,
                         "details": [
                             {
                                 "id": 0,
@@ -135,7 +135,7 @@
             "houseNumber": "113",
             "inspectionDate": "2024-01-15T08:00:00+01:00",
             "inspector": "Roman Zuidhof",
-            "finished": true,
+            "finished": false,
             "reports": [
                 {
                     "id": 0,
