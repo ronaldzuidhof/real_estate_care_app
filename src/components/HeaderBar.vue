@@ -2,7 +2,7 @@
 
 <template lang="">
     <section>
-        <img src="@/assets/RealEstateMainLogoWhite.png" v-touch:tap="touchHandler" >
+        <img src="@/assets/RealEstateMainLogoWhite.png" v-touch:tap="touchHandler" id="home">
         <picture>
             <svg-icon type="mdi" :path="path[0]" v-touch:tap="touchHandler" class="icon"></svg-icon>
             <svg-icon type="mdi" :path="path[1]" v-touch:tap="touchHandler" class="icon"></svg-icon>
@@ -31,9 +31,9 @@ export default {
         }
     }, 
     methods: {
-        // print event object to the console that called the method
+        // push currenTarget id of event to router (load view)
         touchHandler(event){
-            console.log(event);
+            this.$router.push({name: event.currentTarget.id});
         }
     }
 }

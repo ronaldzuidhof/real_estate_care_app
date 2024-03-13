@@ -1,10 +1,9 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
 <template lang="">
-    <MainHeader class="main_header"/>
-    <MainContent class="main_content"/>
-    <MainTabBar class="main_tab_bar"/>
-    <InspectionList />
+    <HeaderBar class="main_header"/>
+    <HomeButtons class="main_content"/>
+    <FooterBar class="main_tab_bar"/>
 </template>
 
 <!--SCRIPT--------------------------------------------------------------------------------------------->
@@ -12,17 +11,16 @@
 <script>
 
 // imports
-import MainHeader from '@/components/MainHeader.vue';
-import MainContent from '@/components/MainContent.vue';
-import MainTabBar from '@/components/MainTabBar.vue';
-import InspectionList from './InspectionList.vue';
+import HeaderBar from '@/components/HeaderBar.vue';
+import HomeButtons from '@/components/HomeButtons.vue';
+import FooterBar from '@/components/FooterBar.vue';
 
 // Export App
 export default {
-    name: "RealEstacteCare",
+    name: "HomeView",
     components: {
         // Load used components
-        MainHeader, MainContent, MainTabBar, InspectionList
+        HeaderBar, HomeButtons, FooterBar
     },
     mounted() {
         // Set page title when component is mounted (tab browser)

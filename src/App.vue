@@ -1,22 +1,20 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
 <template>
-  <RealEstateCare/>
+  <Router-view />
 </template>
 
 <!--SCRIPT--------------------------------------------------------------------------------------------->
 
 <script>
-// imports
-import RealEstateCare from './components/RealEstateCare.vue';
 
 // export App
 export default {
   name: 'App',
-  components: {
-    // Load used component
-    RealEstateCare
-  }
+  mounted() {
+        // Set page title when component is mounted (tab browser)
+        document.title = "RealEstateCare";
+    },
 }
 
 </script>

@@ -13,8 +13,8 @@
         <article>
             <ul v-for="inspection in inspections" :key="inspection.getId()">
                 <li :data-id="inspection.getId()" v-touch:tap="touchHandler">
-                        <svg-icon type="mdi" :path="path[1]" :data-id="inspection.id" class="icon" v-if="indexSelected === inspection.id" ></svg-icon>
-                        <svg-icon type="mdi" :path="path[0]" :data-id="inspection.id" class="icon" v-else></svg-icon>
+                        <svg-icon type="mdi" :path="path[1]" class="icon" v-if="indexSelected === inspection.id" ></svg-icon>
+                        <svg-icon type="mdi" :path="path[0]" class="icon" v-else></svg-icon>
                         {{inspection.getDate()}}
                 </li>
                 <li>{{inspection.getCity()}}</li>
@@ -53,11 +53,11 @@ export default {
         // function to show/hide ul with inspection reports
         touchHandler(event){
             // Hide ul insepction reports (set indexSelected to null)
-            if (Number(event.target.getAttribute("data-id")) === this.indexSelected){
+            if (Number(event.currentTarget.getAttribute("data-id")) === this.indexSelected){
                 this.indexSelected = null;
             // Show ul inspection reports (set indexSelected to received event number)
-            } else if (event.target.getAttribute("data-id") !== null) {
-                this.indexSelected = Number(event.target.getAttribute("data-id"));
+            } else {
+                this.indexSelected = Number(event.currentTarget.getAttribute("data-id"));
             }
         },
         // function to sort an object based on getEpocTime()
@@ -69,6 +69,10 @@ export default {
             // return the sorted object
             return object;
         },
+        // function to filter inspections by state "finished"
+        filterFinished(object){
+            return object.filter(inspection => inspection.finished === true)
+        }
     }, 
     created(){
         // Function to get the data with the event service (getData)
@@ -76,12 +80,14 @@ export default {
             .then(response => {
                 // map over the response data Array and create Inspection instances
                 let result = response.data.map(inspection => new Inspection(inspection));
+                // Filter the inspection with function filterFinished()
+                result = this.filterFinished(result)
                 // sort the Inspection instances inside the inspections object with method "sortJson()"
                 result = this.sort(result);
                 // return the inspections object
                 this.inspections = result;
                 // debugging to see the data object with its classes (reports, inspections and details)
-                console.log(this.inspections)
+                // console.log(this.inspections)
             }).catch(error => {
                 // error to console
                 console.log(error);
@@ -148,7 +154,7 @@ ul ul li {
 }
 
 section {
-    height: 40%;
+    height: 80%;
     padding: 7px;
     display: flex;
     align-items: center;
