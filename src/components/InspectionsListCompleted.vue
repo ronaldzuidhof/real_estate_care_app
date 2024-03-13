@@ -2,7 +2,7 @@
 
 <template lang="">
     <section>
-        <h1>Inspectie rapporten:</h1>
+        <h1>Inspectie rapporten: "Completed"</h1>
         <header>
             <ul>
                 <li>Datum</li>
@@ -70,8 +70,8 @@ export default {
             return object;
         },
         // function to filter inspections by state "finished"
-        filterFinished(object){
-            return object.filter(inspection => inspection.finished === true)
+        filterFinished(object, state){
+            return object.filter(inspection => inspection.finished === state)
         }
     }, 
     created(){
@@ -81,7 +81,7 @@ export default {
                 // map over the response data Array and create Inspection instances
                 let result = response.data.map(inspection => new Inspection(inspection));
                 // Filter the inspection with function filterFinished()
-                result = this.filterFinished(result)
+                result = this.filterFinished(result, true)
                 // sort the Inspection instances inside the inspections object with method "sortJson()"
                 result = this.sort(result);
                 // return the inspections object
