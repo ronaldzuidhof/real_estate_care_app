@@ -7,6 +7,9 @@ import App from './App.vue'
 // import router
 import router from '@/router';
 
+// import store
+import store from '@/store'
+
 // import vue3-touch events and use with vue app
 import Vue3TouchEvents from "vue3-touch-events";
 
@@ -27,6 +30,7 @@ const app = createApp(App);
 app.use(Vue3TouchEvents);
 app.use(vuetify);
 app.use(router);
+app.use(store);
 
 // mount the create app to id=#app
 app.mount("#app");

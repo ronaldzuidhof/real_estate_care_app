@@ -2,7 +2,7 @@
 
 <template lang="">
     <HeaderBar class="main_header"/>
-    <InspectionsListScheduled />
+    <InspectionsList />
     <FooterBar class="main_tab_bar"/>
 </template>
 
@@ -13,14 +13,14 @@
 // imports
 import HeaderBar from '@/components/HeaderBar.vue';
 import FooterBar from '@/components/FooterBar.vue';
-import InspectionsListScheduled from '@/components/InspectionsListScheduled.vue';
+import InspectionsList from '@/components/InspectionsList';
 
 // Export App
 export default {
     name: "ScheduledView",
     components: {
         // Load used components
-        HeaderBar, FooterBar, InspectionsListScheduled
+        HeaderBar, FooterBar, InspectionsList
     },
 }
 </script>

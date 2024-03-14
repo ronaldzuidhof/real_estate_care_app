@@ -2,7 +2,7 @@
 
 <template lang="">
     <HeaderBar class="main_header"/>
-    <InspectionsListCompleted />
+    <InspectionsList />
     <FooterBar class="main_tab_bar"/>
 </template>
 
@@ -13,14 +13,14 @@
 // imports
 import HeaderBar from '@/components/HeaderBar.vue';
 import FooterBar from '@/components/FooterBar.vue';
-import InspectionsListCompleted from '@/components/InspectionsListCompleted';
+import InspectionsList from '@/components/InspectionsList';
 
 // Export App
 export default {
     name: "CompletedView",
     components: {
         // Load used components
-        HeaderBar, FooterBar, InspectionsListCompleted
+        HeaderBar, FooterBar, InspectionsList
     },
 }
 </script>
