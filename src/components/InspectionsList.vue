@@ -13,8 +13,8 @@
         <article>
             <ul v-for="inspection in inspections" :key="inspection.getId()">
                 <li :data-id="inspection.getId()" v-touch:tap="SelectInspection">
-                        <svg-icon type="mdi" :path="icons[1]" class="icon" v-if="inspectionSelected === inspection.id" ></svg-icon>
-                        <svg-icon type="mdi" :path="icons[0]" class="icon" v-else></svg-icon>
+                        <svg-icon type="mdi" :path="icons[3]" class="icon" v-if="inspectionSelected === inspection.id" ></svg-icon>
+                        <svg-icon type="mdi" :path="icons[2]" class="icon" v-else></svg-icon>
                         {{inspection.getDate()}}
                 </li>
                 <li>{{inspection.getCity()}}</li>
@@ -41,9 +41,9 @@ export default {
     methods: {
         // function to show/hide ul with inspection reports
         SelectInspection(event){
-            // save data-id to variable
+            // save data-id from event to variable
             const id = event.currentTarget.getAttribute("data-id")
-            // compare if 'id' is already selected or not
+            // compare if 'id' is already selected or not (fold-out)
             if (this.$store.state.inspectionSelected === +id){
                 this.$store.dispatch('inspectionSelected', -1)
             } else {

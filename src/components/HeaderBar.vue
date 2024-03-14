@@ -4,8 +4,8 @@
     <section>
         <img src="@/assets/RealEstateMainLogoWhite.png" v-touch:tap="touchHandler" id="home">
         <picture>
-            <svg-icon type="mdi" :path="path[0]" v-touch:tap="touchHandler" class="icon"></svg-icon>
-            <svg-icon type="mdi" :path="path[1]" v-touch:tap="touchHandler" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="icons[0]" v-touch:tap="touchHandler" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="icons[1]" v-touch:tap="touchHandler" class="icon"></svg-icon>
         </picture>
     </section>
 </template>
@@ -15,7 +15,6 @@
 <script>
 // imports
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiBell, mdiCog } from '@mdi/js'
 
 // export component
 export default {
@@ -24,12 +23,11 @@ export default {
     components: {
         SvgIcon
     },
-    data() {
-        return {
-            // put icon objects in path array of object data
-            path: [mdiBell, mdiCog]
-        }
-    }, 
+    computed: {
+        icons() {
+            return this.$store.state.icons
+        },
+    },
     methods: {
         // push currenTarget id of event to router (load view)
         touchHandler(event){

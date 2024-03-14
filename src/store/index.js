@@ -4,7 +4,7 @@
 import { createStore } from 'vuex'
 import ReportService from '@/services/ReportService'
 import Inspection from '@/models/inspection';
-import { mdiPlusBoxOutline, mdiMinusBoxOutline } from '@mdi/js'
+import {mdiBell, mdiCog, mdiPlusBoxOutline, mdiMinusBoxOutline} from '@mdi/js'
 
 export default createStore({
     state: {
@@ -12,7 +12,7 @@ export default createStore({
         inspections: [],
         inspectionSelected: -1,
         errors: [],
-        icons: [mdiPlusBoxOutline, mdiMinusBoxOutline],
+        icons: [mdiBell, mdiCog, mdiPlusBoxOutline, mdiMinusBoxOutline],
     },
     mutations: {
         // mutation to set the loadingStatus in the store
