@@ -2,7 +2,7 @@
     <section>
         <header>
             <h1>Rapporten</h1>
-            <div id="status">
+            <div class="status">
                 <h2>Status:</h2>
                 <h2 v-if="inspectionStatus" class="finished"> Gereed</h2> 
                 <h2 v-else class="unfinished"> Open</h2>
@@ -17,13 +17,29 @@
             <tr><th>Inspecteur:</th><td>{{inspectionSelected.getInspector()}}</td></tr>
         </table>
 
-        <table v-for="report in inspectionSelected.getReports()" :key="report.id">
-            <tr v-if="report.required">
-                <th>Naam rapport:</th><td>{{report.nameReport}}</td>  
-            </tr>   
-        </table>
 
-        {{inspectionSelected}}
+        <article v-for="report in inspectionSelected.getReports()" :key="report.id">
+            <header>
+                <h4>Naam rapport: {{report.nameReport}}</h4>
+                <div class="status">
+                    <h5>Status:</h5>
+                    <h5 v-if="!reportRequired(report.id)" class="finished">Niet benodigd</h5>
+                    <h5 v-else-if="reportStatus(report.id)" class="finished">Gereed</h5> 
+                    <h5 v-else class="unfinished">Open</h5>
+                </div>
+            </header>
+            <table>
+                <tr><th>Locatie:</th><td>Slaapkamer voorkant</td></tr>
+                <tr><th>Nieuwe schade:</th><td>Ja</td></tr>
+                <tr><th>Beschrijving:</th><td>Gat in de muur</td></tr>
+                <tr><th>Foto's: </th><td>Foto_1.jpg</td></tr>
+            </table>
+
+        </article>
+
+        
+
+        <!--{{inspectionSelected.getReports()}}-->
 
     </section>
 </template>
@@ -33,13 +49,22 @@ export default {
     methods: {
         // function to filter inspection from inspections array (store)
         filterInspections(id) {
-            // get all inspection from the store
+            // get all inspections from the store
             let inspections = this.$store.state.inspections;
             // filter all inspections and select where inspection.id is equal to 'id'
             let inspection = inspections.filter(inspection => inspection.id === Number(id))
             // return inspection object
             return inspection[0];
+        },
+        // function to get the status for the selected report 'id'
+        reportStatus(id){
+            return this.$store.state.inspectionSelected.getReportStatus(id)
+        },
+        reportRequired(id){
+            return this.$store.state.inspectionSelected.getReportRequired(id)
         }
+        
+
     },
     computed: {
         // function to get the selected inspection from the store
@@ -66,8 +91,17 @@ h1 {
     text-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
 }
 
-h2 {
+h4 {
+    padding-block: .5rem
+}
+
+h2, h5 {
     padding-inline-start: .5rem
+}
+
+img {
+    width: 200px;
+    height: auto;
 }
 
 section {
@@ -89,19 +123,27 @@ header {
     text-wrap: nowrap;
 }
 
+article {
+    width: 100%;
+    padding-inline-start: 7px;
+    margin-block-end: 7px;
+    border: 1px solid black;
+}
+
 table {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: left;
-    border: 1px solid black;
+    text-align: left;
+    padding-inline-start: 7px;
 }
 
 td {
     padding-inline-start: .5rem
 }
 
-#status {
+.status {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

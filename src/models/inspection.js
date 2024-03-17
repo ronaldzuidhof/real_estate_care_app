@@ -57,7 +57,13 @@ export default class Inspection {
     getStatus(){
         return this.finished;
     }
+    getReportStatus(id){
+        return this.reports[id].finished;
+    }
     getReports(){
         return this.reports;
+    }
+    getReportRequired(id){
+        return this.reports[id].required;
     }
 }
