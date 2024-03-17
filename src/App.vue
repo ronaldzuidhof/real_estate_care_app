@@ -36,6 +36,8 @@ html {
     --color-2: rgba(0,170,162,.5);
     --color-3-unselected: rgba(255,255,255,0.4);
     --color-3-selected: rgba(255,255,255,1);
+    --color-4: rgba(0,230,180,.15);
+    --color-5: rgba(0,200,170,.3);
 }
 
 body {

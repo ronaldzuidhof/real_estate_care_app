@@ -10,7 +10,7 @@ export default createStore({
     state: {
         loadingStatus : 'notLoading',
         inspections: [],
-        inspectionSelected: -1,
+        inspectionSelected: [],
         errors: [],
         icons: [mdiBell, mdiCog, mdiPlusBoxOutline, mdiMinusBoxOutline],
     },
@@ -23,13 +23,17 @@ export default createStore({
         SET_INSPECTIONS(state, payload){
             state.inspections = payload;
         },
-        // mutation to set the inspection selected in the store
+        // mutation to clear the inspection in the store
+        CLEAR_INSPECTIONS(state){
+            state.inspections = [];
+        },
+        // mutation to set the selected inspection in the store
         SET_INSPECTION_SELECTED(state, payload){
             state.inspectionSelected = payload;
         },
         // mutation to clear the inspection in the store
-        CLEAR_INSPECTIONS(state){
-            state.inspections = [];
+        CLEAR_INSPECTION_SELECTED(state){
+            state.inspectionSelected = [];
         },
         // mutation to set the errors in the store
         ADD_ERROR(state, payload){
@@ -60,10 +64,13 @@ export default createStore({
                     context.commit('ADD_ERROR', error)
                 })
         },
-        // action to set the 'inspectionSelected' in the store to 'index'
-        inspectionSelected(context, value){
+        // action to set the 'inspectionSelected' in the store to
+        fetchInspectionSelected(context, value){
+            // clear the inspection selected store entry
+            context.commit('CLEAR_INSPECTION_SELECTED')
+            // set the inspected selected store entry
             context.commit('SET_INSPECTION_SELECTED', value)
-        }
+        },
     },
     modules: {
 

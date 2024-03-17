@@ -39,6 +39,9 @@ export default class Inspection {
     getCity(){
         return this.city;
     }
+    getInspector(){
+        return this.inspector;
+    }
     // function to return the EPOC time
     getEpocTime(){
         return new Date(this.inspectionDate).getTime();
@@ -46,5 +49,15 @@ export default class Inspection {
     // function to return the date in format "Day-Month-Year"
     getDate(){
         return moment(this.inspectionDate).format('DD-MM-YYYY');
+    }
+    // function to return the time in format "Hours:Minutes"
+    getTime(){
+        return moment(this.inspectionDate).format('h:mm');
+    }
+    getStatus(){
+        return this.finished;
+    }
+    getReports(){
+        return this.reports;
     }
 }
