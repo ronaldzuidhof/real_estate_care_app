@@ -241,7 +241,7 @@
                 {
                     "id": 3,
                     "nameReport": "Modificaties",
-                    "required": true,
+                    "required": false,
                     "currentSituation": "modificaties_aangemeld.pdf",
                     "finished": true,
                     "details": []
