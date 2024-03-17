@@ -135,7 +135,7 @@
             "houseNumber": "113",
             "inspectionDate": "2024-01-15T08:00:00+01:00",
             "inspector": "Roman Zuidhof",
-            "finished": false,
+            "finished": true,
             "reports": [
                 {
                     "id": 0,
@@ -215,7 +215,7 @@
             "houseNumber": "24a",
             "inspectionDate": "2024-02-05T15:00:00+01:00",
             "inspector": "Roman Zuidhof",
-            "finished": true,
+            "finished": false,
             "reports": [
                 {
                     "id": 0,
