@@ -235,7 +235,7 @@
                     "id": 2,
                     "nameReport": "Technische installatie",
                     "required": true,
-                    "finished": true,
+                    "finished": false,
                     "details": []       
                 },
                 {
