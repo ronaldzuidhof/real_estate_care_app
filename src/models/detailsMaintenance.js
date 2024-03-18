@@ -19,4 +19,23 @@ export default class DetailMaintenance {
         this.costIndication = data.costIndication;
         this.pictures = data.pictures
     }
+    // function to convert the key to a description in dutch language
+    convertKeyToText(key){
+        switch(key){
+            case ("id"):
+                return(null);
+            case ("location"):
+                return "Locatie";
+            case ("typeMaintenance"):
+                return "Type onderhoud";
+            case ("immediateAction"):
+                return "Onmiddelijke actie";
+            case ("costIndication"):
+                return "Kosten indicatie";
+            case ("pictures"):
+                return "Foto's";
+            default:
+                break;
+        }
+    }
 }

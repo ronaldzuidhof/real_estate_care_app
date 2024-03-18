@@ -17,35 +17,20 @@
             <tr><th>Inspecteur:</th><td>{{inspectionSelected.getInspector()}}</td></tr>
         </table>
 
-
-        <article v-for="report in inspectionSelected.getReports()" :key="report.id">
-            <header>
-                <h4>Naam rapport: {{report.nameReport}}</h4>
-                <div class="status">
-                    <h5>Status:</h5>
-                    <h5 v-if="!reportRequired(report.id)" class="finished">Niet benodigd</h5>
-                    <h5 v-else-if="reportStatus(report.id)" class="finished">Gereed</h5> 
-                    <h5 v-else class="unfinished">Open</h5>
-                </div>
-            </header>
-            <table>
-                <tr><th>Locatie:</th><td>Slaapkamer voorkant</td></tr>
-                <tr><th>Nieuwe schade:</th><td>Ja</td></tr>
-                <tr><th>Beschrijving:</th><td>Gat in de muur</td></tr>
-                <tr><th>Foto's: </th><td>Foto_1.jpg</td></tr>
-            </table>
-
-        </article>
-
-        
-
-        <!--{{inspectionSelected.getReports()}}-->
+        <ReportDetails />
 
     </section>
 </template>
 <script>
+
+// imports
+import ReportDetails from '@/components/ReportDetails.vue';
+
 export default {
     name: 'InspectionDetails',
+    components: {
+        ReportDetails,
+    },
     methods: {
         // function to filter inspection from inspections array (store)
         filterInspections(id) {
@@ -56,15 +41,6 @@ export default {
             // return inspection object
             return inspection[0];
         },
-        // function to get the status for the selected report 'id'
-        reportStatus(id){
-            return this.$store.state.inspectionSelected.getReportStatus(id)
-        },
-        reportRequired(id){
-            return this.$store.state.inspectionSelected.getReportRequired(id)
-        }
-        
-
     },
     computed: {
         // function to get the selected inspection from the store
@@ -82,6 +58,8 @@ export default {
     }
 }
 </script>
+
+
 <style scoped>
 
 h1 {
@@ -91,17 +69,8 @@ h1 {
     text-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
 }
 
-h4 {
-    padding-block: .5rem
-}
-
-h2, h5 {
+h2 {
     padding-inline-start: .5rem
-}
-
-img {
-    width: 200px;
-    height: auto;
 }
 
 section {
@@ -121,13 +90,6 @@ header {
     font-size: 1.25rem;
     padding-inline-end: 1rem;
     text-wrap: nowrap;
-}
-
-article {
-    width: 100%;
-    padding-inline-start: 7px;
-    margin-block-end: 7px;
-    border: 1px solid black;
 }
 
 table {
@@ -158,6 +120,4 @@ td {
     color: green
 }
 
-
-    
 </style>

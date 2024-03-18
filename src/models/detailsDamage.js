@@ -19,4 +19,23 @@ export default class DetailDamage {
         this.description = data.description;
         this.pictures = data.pictures
     }
+    // function to convert the key to a description in dutch language
+    convertKeyToText(key){
+        switch(key){
+            case ("id"):
+                return(null);
+            case ("location"):
+                return "Locatie";
+            case ("newDamage"):
+                return "Nieuwe schade";
+            case ("immediateAction"):
+                return "Onmiddelijke actie";
+            case ("description"):
+                return "Beschrijving";
+            case ("pictures"):
+                return "Foto's";
+            default:
+                break;
+        }
+    }
 }

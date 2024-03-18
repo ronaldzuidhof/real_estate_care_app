@@ -21,4 +21,25 @@ export default class DetailModifications {
         this.comments = data.comments;
         this.pictures = data.pictures;
     }
+    // function to convert the key to a description in dutch language
+    convertKeyToText(key){
+        switch(key){
+            case ("id"):
+                return(null);
+            case ("location"):
+                return "Locatie";
+            case ("executedBy"):
+                return "Uitgevoerd door";
+            case ("description"):
+                return "Beschrijving";
+            case ("action"):
+                return "Aktie";
+            case ("comments"):
+                return "Opmerkingen";
+            case ("pictures"):
+                return "Foto's";
+            default:
+                break;
+        }
+    }
 }

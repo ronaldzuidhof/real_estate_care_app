@@ -63,7 +63,4 @@ export default class Inspection {
     getReports(){
         return this.reports;
     }
-    getReportRequired(id){
-        return this.reports[id].required;
-    }
 }

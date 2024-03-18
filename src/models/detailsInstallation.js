@@ -23,4 +23,27 @@ export default class DetailInstallation {
         this.comments = data.comments
         this.pictures = data.pictures
     }
+    // function to convert the key to a description in dutch language
+    convertKeyToText(key){
+        switch(key){
+            case ("id"):
+                return(null);
+            case ("location"):
+                return "Locatie";
+            case ("typeInstallation"):
+                return "Type installatie";
+            case ("notifiedErrors"):
+                return "Gemelde fouten";
+            case ("testProdcedure"):
+                return "Test procedure";
+            case ("approved"):
+                return "Goedgekeurd";
+            case ("comments"):
+                return "Opmerkingen";
+            case ("pictures"):
+                return "Foto's";
+            default:
+                break;
+        }
+    }
 }

@@ -22,7 +22,6 @@ export default class Report {
         this.finished = data.finished;
         this.details = this.detailsModel(data)
     }
-
     // function to return the id number
     getId(){
         return this.id;
@@ -30,6 +29,14 @@ export default class Report {
     // function to return the report name with "rapport" added to the string
     getReportName(){
         return this.nameReport + " " + "rapport";
+    }
+    // function to return the report required value
+    getReportRequired(){
+        return this.required;
+    }
+    // function to return the report details object (consiting off instances of the appropriate model)
+    getReportDetails(){
+        return this.details;
     }
     // function to determine details class
     detailsModel(data){
