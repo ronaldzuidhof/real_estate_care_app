@@ -10,6 +10,7 @@
                 <th>Adres</th>
             </tr>
             <tr v-for="inspection in inspections" :key="inspection.getId()" :data-id="inspection.getId()" v-touch:tap="SelectInspection">
+                <!--Touch event hiervoor in developer mode mobile wordt er bij een touch event 2 keer door geklikt (@touchstart = vue eigen touch functie)-->
                 <td>{{inspection.getDate()}}</td>
                 <td>{{inspection.getCity()}}</td>
                 <td>{{inspection.getAddress()}}</td>
@@ -28,7 +29,7 @@ export default {
     methods: {
         // function to load the DetailsView for selected inspection
         SelectInspection(event){
-            // open DetailsView with id from event
+            // open DetailsView with data-id from event
             this.$router.push({
                 name: 'details',
                 params: {
@@ -36,10 +37,23 @@ export default {
                 }
             })
         },
+        // function to sort an object based on getEpocTime()
+        sort(object){
+            object.sort(function(a, b){
+                // compare both EPOC times and sort accordingly
+                return b.getEpocTime() - a.getEpocTime();
+            })
+            // return the sorted object
+            return object;
+        },
     }, 
     computed: {
         inspections() {
-            return this.$store.state.inspections
+            //return this.$store.state.inspections
+            // sort result with method "sort" and return the sorted object
+            const result = this.$store.state.inspections;
+            return this.sort(result)
+            // bovenstaande if fout wat je moet hem gesorteerd ophalen vanuit de store
         },
         icons() {
             return this.$store.state.icons
@@ -53,6 +67,7 @@ export default {
         this.$store.dispatch('fetchInspections')
     }
 }
+
 
 </script>
 

@@ -3,19 +3,19 @@
 <template lang="">
     <section>
         <ContentButton v-touch:tap="touchHandler" id="scheduled">
-            <svg-icon type="mdi" :path="path[0]" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="icons[2]" class="icon"></svg-icon>
             Scheduled
         </ContentButton> 
         <ContentButton v-touch:tap="touchHandler" id="completed">
-            <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="icons[3]" class="icon"></svg-icon>
             Completed
         </ContentButton> 
         <ContentButton v-touch:tap="touchHandler" id="knowledgeBase">
-            <svg-icon type="mdi" :path="path[2]" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="icons[4]" class="icon"></svg-icon>
             Knowledge base
         </ContentButton> 
         <ContentButton v-touch:tap="touchHandler" id="settings">
-            <svg-icon type="mdi" :path="path[3]" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="icons[1]" class="icon"></svg-icon>
             Settings        
         </ContentButton> 
     </section>
@@ -26,7 +26,6 @@
 <script>
 // imports
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiCalendar, mdiCheckCircle, mdiApps, mdiCog } from '@mdi/js'
 import ContentButton from '@/shared/ContentButton.vue'
 
 // export component
@@ -36,17 +35,20 @@ export default {
         // load used components
         ContentButton, SvgIcon,
     },
-    data() {
-        return {
-            // put icon objects in path array of object data
-            path: [mdiCalendar, mdiCheckCircle, mdiApps, mdiCog]
-        }
+    computed: {
+        icons() {
+            return this.$store.state.icons
+        },
     },
     methods: {
         // push currenTarget id (name) of event to router (load view)
         touchHandler(event){
             this.$router.push({name: event.currentTarget.id});
         }
+    },
+    created(){
+        // clear the inspection selected entry in the store
+        this.$store.state.clearInspectionSelected;
     }
 }
 

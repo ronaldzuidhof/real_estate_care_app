@@ -1,3 +1,5 @@
+<!--HTML----------------------------------------------------------------------------------------------->
+
 <template lang="">
     <article v-for="report in inspectionSelected.getReports()" :key="report.id">
         <header>
@@ -21,6 +23,8 @@
     </article>
 </template>
 
+<!--SCRIPT--------------------------------------------------------------------------------------------->
+
 <script>
 export default {
     name: 'ReportDetails',
@@ -42,6 +46,8 @@ export default {
 }
 </script>
 
+<!--STYLE--------------------------------------------------------------------------------------------->
+
 <style scoped>
 
 h4 {
@@ -59,6 +65,7 @@ header {
     font-size: 1.25rem;
     padding-inline-end: 1rem;
     text-wrap: nowrap;
+    overflow-wrap: break-word;
 }
 
 article {

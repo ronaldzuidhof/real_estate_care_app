@@ -39,6 +39,7 @@ export default class Inspection {
     getCity(){
         return this.city;
     }
+    // function to return the inspector
     getInspector(){
         return this.inspector;
     }
@@ -54,12 +55,15 @@ export default class Inspection {
     getTime(){
         return moment(this.inspectionDate).format('h:mm');
     }
+    // function to return the status finished
     getStatus(){
         return this.finished;
     }
+    // function to return the report status finished
     getReportStatus(id){
         return this.reports[id].finished;
     }
+    // function to return the reports (instances)
     getReports(){
         return this.reports;
     }

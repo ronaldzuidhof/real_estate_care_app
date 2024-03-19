@@ -1,3 +1,5 @@
+<!--HTML----------------------------------------------------------------------------------------------->
+
 <template lang="">
     <section>
         <header>
@@ -21,8 +23,10 @@
 
     </section>
 </template>
-<script>
 
+<!--SCRIPT--------------------------------------------------------------------------------------------->
+
+<script>
 // imports
 import ReportDetails from '@/components/ReportDetails.vue';
 
@@ -33,7 +37,7 @@ export default {
     },
     methods: {
         // function to filter inspection from inspections array (store)
-        filterInspections(id) {
+        filterInspection(id) {
             // get all inspections from the store
             let inspections = this.$store.state.inspections;
             // filter all inspections and select where inspection.id is equal to 'id'
@@ -54,11 +58,12 @@ export default {
     },
     created(){
         // set the selected inspection to the store
-        this.$store.dispatch('fetchInspectionSelected', this.filterInspections(this.$route.params.id))
+        this.$store.dispatch('fetchInspectionSelected', this.filterInspection(this.$route.params.id))
     }
 }
 </script>
 
+<!--STYLE--------------------------------------------------------------------------------------------->
 
 <style scoped>
 

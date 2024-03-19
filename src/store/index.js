@@ -4,7 +4,7 @@
 import { createStore } from 'vuex'
 import ReportService from '@/services/ReportService'
 import Inspection from '@/models/inspection';
-import {mdiBell, mdiCog, mdiPlusBoxOutline, mdiMinusBoxOutline} from '@mdi/js'
+import {mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps} from '@mdi/js'
 
 export default createStore({
     state: {
@@ -12,7 +12,7 @@ export default createStore({
         inspections: [],
         inspectionSelected: [],
         errors: [],
-        icons: [mdiBell, mdiCog, mdiPlusBoxOutline, mdiMinusBoxOutline],
+        icons: [mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps],
     },
     mutations: {
         // mutation to set the loadingStatus in the store
@@ -70,6 +70,10 @@ export default createStore({
             context.commit('CLEAR_INSPECTION_SELECTED')
             // set the inspected selected store entry
             context.commit('SET_INSPECTION_SELECTED', value)
+        },
+        clearInspectionSelected(context){
+            // clear the inspection selected store entry
+            context.commit('CLEAR_INSPECTION_SELECTED')
         },
     },
     modules: {
