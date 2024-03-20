@@ -6,7 +6,7 @@
             "city": "BREDA",
             "streetName": "Pietstraat",
             "houseNumber": "12",
-            "inspectionDate": "2024-02-10T10:00:00+01:00",
+            "inspectionDate": "2024-02-10T12:00:00+01:00",
             "inspector": "Ronald Zuidhof",
             "finished": true,
             "reports": [
@@ -173,7 +173,7 @@
             "city": "breda",
             "streetName": "janstraat",
             "houseNumber": "4",
-            "inspectionDate": "2024-02-10T12:00:00+01:00",
+            "inspectionDate": "2024-02-10T10:00:00+01:00",
             "inspector": "Ronald Zuidhof",
             "finished": true,
             "reports": [
