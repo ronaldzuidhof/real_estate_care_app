@@ -10,7 +10,6 @@
                 <th>Adres</th>
             </tr>
             <tr v-for="inspection in inspections" :key="inspection.getId()" :data-id="inspection.getId()" v-touch:tap="SelectInspection">
-                <!--Touch event hiervoor in developer mode mobile wordt er bij een touch event 2 keer door geklikt (@touchstart = vue eigen touch functie)-->
                 <td>{{inspection.getDate()}}</td>
                 <td>{{inspection.getCity()}}</td>
                 <td>{{inspection.getAddress()}}</td>
@@ -37,23 +36,10 @@ export default {
                 }
             })
         },
-        // function to sort an object based on getEpocTime()
-        sort(object){
-            object.sort(function(a, b){
-                // compare both EPOC times and sort accordingly
-                return b.getEpocTime() - a.getEpocTime();
-            })
-            // return the sorted object
-            return object;
-        },
     }, 
     computed: {
         inspections() {
-            //return this.$store.state.inspections
-            // sort result with method "sort" and return the sorted object
-            const result = this.$store.state.inspections;
-            return this.sort(result)
-            // bovenstaande if fout wat je moet hem gesorteerd ophalen vanuit de store
+            return this.$store.state.inspections
         },
         icons() {
             return this.$store.state.icons

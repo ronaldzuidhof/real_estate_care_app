@@ -1,17 +1,9 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
 <template lang="">
-    <article v-for="report in inspectionSelected.getReports()" :key="report.id">
-        <header>
-            <h4>Naam rapport: {{report.getReportName()}}</h4>
-            <div class="status">
-                <h5>Status:</h5>
-                <h5 v-if="!report.getReportRequired()" class="finished">Niet benodigd</h5>
-                <h5 v-else-if="reportStatus(report.id)" class="finished">Gereed</h5> 
-                <h5 v-else class="unfinished">Open</h5>
-            </div>
-        </header>
-        <table v-for="detail in report.getReportDetails()" :key="detail.id">
+    
+    <div v-if="report.length">
+        <table v-for="detail in report" :key="detail.id">
             <tr v-for="(value, key) in detail" :key="key">
                 <div v-if="detail.convertKeyToText(key)">
                     <th>{{detail.convertKeyToText(key)}}:</th>
@@ -20,61 +12,39 @@
                 </div>
             </tr>
         </table>
-    </article>
+    </div>
+    <div v-else>
+        <table>
+            <tr class="noData"><td>Geen data aanwezig</td></tr>
+        </table>
+    </div>
+
 </template>
 
 <!--SCRIPT--------------------------------------------------------------------------------------------->
 
 <script>
 export default {
-    name: 'ReportDetails',
-    methods: {
-        // function to get the status for the selected report 'id'
-        reportStatus(id){
-            return this.$store.state.inspectionSelected.getReportStatus(id)
-        },
-        reportRequired(id){
-            return this.$store.state.inspectionSelected.getReportRequired(id)
+    name: 'reportDetails',
+    props: {
+        id: {
+            type: Number,
+            required: true
         }
     },
     computed: {
-        // function to get the selected inspection from the store
-        inspectionSelected() {
-            return this.$store.state.inspectionSelected
-        }
-    },
+        // function to get the selected report from the store based on the id (prop)
+        report(){
+            return this.$store.state.inspectionSelected.getReports()[this.id].getReportDetails()
+        },
+    }
 }
 </script>
 
 <!--STYLE--------------------------------------------------------------------------------------------->
 
 <style scoped>
-
-h4 {
-    padding-block: .5rem
-}
-
-h5 {
-    padding-inline-start: .5rem
-}
-
-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.25rem;
-    padding-inline-end: 1rem;
-    text-wrap: nowrap;
-    overflow-wrap: break-word;
-}
-
-article {
-    width: 100%;
-    padding-inline: 7px;
-    margin-block-end: 7px;
-    border: 1px solid black;
-}
-
+    
 table {
     width: 100%;
     display: flex;
@@ -83,28 +53,13 @@ table {
     text-align: left;
     padding-inline-start: 7px;
     margin-block-end: 10px;
-    border: 1px solid black;
-    border-radius: 10px;
-    
+    padding-block-start: 7px;
+    border-block-start: 1px solid black;
 }
 
-td {
-    padding-inline-start: .5rem
-}
-
-.status {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center
-}
-
-.unfinished {
+.noData {
     color: red;
 }
 
-.finished {
-    color: green
-}
 
 </style>

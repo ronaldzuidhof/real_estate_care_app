@@ -43,6 +43,9 @@ export default {
     methods: {
         // push currenTarget id (name) of event to router (load view)
         touchHandler(event){
+            // load preventDefault to stop propagnation on the loaded route
+            event.preventDefault();
+            // push target event to the router
             this.$router.push({name: event.currentTarget.id});
         }
     },

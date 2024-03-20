@@ -15,11 +15,11 @@
             <tr><th>Adres:</th><td>{{inspectionSelected.getAddress()}}</td></tr>
             <tr><th>Stad:</th><td>{{inspectionSelected.getCity()}}</td></tr>
             <tr><th>Datum:</th><td>{{inspectionSelected.getDate()}}</td></tr>
-            <tr><th>Tijd:</th><td>{{inspectionSelected.getDate()}}</td></tr>
+            <tr><th>Tijd:</th><td>{{inspectionSelected.getTime()}}</td></tr>
             <tr><th>Inspecteur:</th><td>{{inspectionSelected.getInspector()}}</td></tr>
         </table>
 
-        <ReportDetails />
+        <ReportsList />
 
     </section>
 </template>
@@ -28,12 +28,12 @@
 
 <script>
 // imports
-import ReportDetails from '@/components/ReportDetails.vue';
+import ReportsList from '@/components/ReportsList.vue';
 
 export default {
     name: 'InspectionDetails',
     components: {
-        ReportDetails,
+        ReportsList,
     },
     methods: {
         // function to filter inspection from inspections array (store)
@@ -68,14 +68,14 @@ export default {
 <style scoped>
 
 h1 {
-    width: 100%;
     text-align: left;
     padding-block: 7px;
     text-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
 }
 
 h2 {
-    padding-inline-start: .5rem
+    padding-inline-start: .5rem;
+    font-size: 1.2rem;
 }
 
 section {
@@ -91,6 +91,7 @@ section {
 header {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     font-size: 1.25rem;
     padding-inline-end: 1rem;
