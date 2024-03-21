@@ -2,7 +2,7 @@
 
 <template lang="">
     <section>
-        <h1>Inspectie rapporten: "Completed"</h1>
+        <h1>Inspectie rapporten: {{title}}</h1>
         <table>
             <tr>
                 <th>Datum</th>
@@ -12,7 +12,13 @@
             <tr v-for="inspection in inspections" :key="inspection.getId()" :data-id="inspection.getId()" v-touch:tap="SelectInspection">
                 <td>{{inspection.getDate()}}</td>
                 <td>{{inspection.getCity()}}</td>
-                <td>{{inspection.getAddress()}}</td>
+                <td>
+                    <div class="status">
+                        {{inspection.getAddress()}}
+                        <div v-if="inspection.getStatus()" class="dot finished" ></div>
+                        <div v-else class="dot unfinished" ></div> 
+                    </div>
+                </td>
             </tr>
         </table>
     </section>
@@ -38,14 +44,21 @@ export default {
         },
     }, 
     computed: {
+        // function to
         inspections() {
             return this.$store.state.inspections
         },
+        // function to
         icons() {
             return this.$store.state.icons
         },
+        // function to
         inspectionSelected() {
             return this.$store.state.inspectionSelected
+        },
+        // function to
+        title() {
+            return this.$route.name;
         }
     },
     created(){
@@ -108,6 +121,28 @@ tr:first-child {
 
 tr:hover {
     background-color: var(--color-5);
+}
+
+.status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline-end: .4rem;
+}
+
+.dot {
+  height: .9rem;
+  width: .9rem;
+  border-radius: 50%;
+}
+
+.unfinished {
+    background-color: red;
+}
+
+.finished {
+    background-color: green
 }
 
 

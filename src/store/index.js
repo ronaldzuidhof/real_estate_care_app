@@ -9,9 +9,9 @@ import {mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown,  
 export default createStore({
     state: {
         loadingStatus : 'notLoading',
-        inspections: [],
-        inspectionSelected: [],
-        reportSelected: [],
+        inspections: null,
+        inspectionSelected: null,
+        reportSelected: null,
         errors: [],
         icons: [mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown, mdiChevronUp]
     },
@@ -26,7 +26,7 @@ export default createStore({
         },
         // mutation to clear the inspection in the store
         CLEAR_INSPECTIONS(state){
-            state.inspections = [];
+            state.inspections = null;
         },
         // mutation to set the selected inspection in the store
         SET_INSPECTION_SELECTED(state, payload){
@@ -34,7 +34,7 @@ export default createStore({
         },
         // mutation to clear the inspection in the store
         CLEAR_INSPECTION_SELECTED(state){
-            state.inspectionSelected = [];
+            state.inspectionSelected = null;
         },
         // mutation to set the selected inspection in the store
         SET_REPORT_SELECTED(state, payload){
@@ -42,7 +42,7 @@ export default createStore({
         },
         // mutation to clear the inspection in the store
         CLEAR_REPORT_SELECTED(state){
-            state.reportSelected = [];
+            state.reportSelected = null;
         },
         // mutation to set the errors in the store
         ADD_ERROR(state, payload){

@@ -10,11 +10,18 @@
                 <h5 v-else-if="reportStatus(report.id)" class="finished">Gereed</h5> 
                 <h5 v-else class="unfinished">Open</h5>
             </div>
-            <svg-icon type="mdi" :path="icons[5]" class="icon" v-if="reportSelected"></svg-icon>
-            <svg-icon type="mdi" :path="icons[6]" class="icon" v-else></svg-icon>
+            <div v-if="reportSelected">
+                <svg-icon type="mdi" :path="icons[6]" class="icon" v-if="reportSelected.getId() === report.id"></svg-icon>
+                <svg-icon type="mdi" :path="icons[5]" class="icon" v-else></svg-icon>
+            </div>
+            <div v-else>
+                <svg-icon type="mdi" :path="icons[5]" class="icon"></svg-icon>
+            </div>
         </header>
 
-        <reportDetails :id="report.id" v-if="reportSelected"/>
+        <div v-if="reportSelected">
+            <reportDetails :id="report.id" v-if="reportSelected.getId() === report.id"/>
+        </div>
 
     </article>
 </template>
@@ -41,11 +48,21 @@ export default {
         },
         // function to set the selected report to the store
         SelectReport(event){
-            // set the selected report to the store
-            this.$store.dispatch('fetchReportSelected', this.$store.state.inspectionSelected.getReports()[event.currentTarget.getAttribute("data-id")])
-            // debug
-            console.log(this.reportSelected)
-            console.log(this.reportSelected.getId())
+            // load preventDefault to stop propagnation
+            event.preventDefault();
+            // check if reportSelected has content
+            if (!this.reportSelected){
+                // set the selected report to the store
+                this.$store.dispatch('fetchReportSelected', this.$store.state.inspectionSelected.getReports()[event.currentTarget.getAttribute("data-id")]) 
+            }
+            // check if report is already selected
+            else if (this.reportSelected.getId() === Number(event.currentTarget.getAttribute("data-id"))){
+                // reset the selected report in the store
+                this.$store.dispatch('clearReportSelected')
+            } else {
+                // set the selected report to the store
+                this.$store.dispatch('fetchReportSelected', this.$store.state.inspectionSelected.getReports()[event.currentTarget.getAttribute("data-id")])
+            } 
         }
     },
     computed: {
@@ -59,9 +76,6 @@ export default {
         icons() {
             return this.$store.state.icons
         },
-    },
-    created(){
-        console.log(this.reportSelected)
     }
 }
 </script>

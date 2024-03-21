@@ -51,7 +51,7 @@ export default {
         inspectionSelected() {
             return this.$store.state.inspectionSelected
         },
-        // function to determine the state of the inspection (return as html format)
+        // function to determine the state of the inspection
         inspectionStatus(){
             return this.$store.state.inspectionSelected.getStatus()
         },
