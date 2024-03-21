@@ -54,6 +54,7 @@ body {
     padding: 0;
     margin-inline: auto;
     max-width: 700px;
+    min-width: 400px;
     min-height: 650px;
     max-height: 1200px;
 }

@@ -64,6 +64,8 @@ export default {
     created(){
         // get all inspections to the store with action 'fetchInspections'
         this.$store.dispatch('fetchInspections')
+        // reset reportSelected entrie from the store
+        this.$store.dispatch('clearReportSelected')
     }
 }
 
@@ -121,6 +123,10 @@ tr:first-child {
 
 tr:hover {
     background-color: var(--color-5);
+}
+
+tr:first-child {
+    pointer-events: none;
 }
 
 .status {

@@ -6,12 +6,26 @@
         <table v-for="detail in report" :key="detail.id">
             <tr v-for="(value, key) in detail" :key="key">
                 <div v-if="detail.convertKeyToText(key)">
-                    <th>{{detail.convertKeyToText(key)}}:</th>
-                    <td v-if="value">{{value}}</td>
-                    <td v-else>n.v.t</td>
+                    <td>
+                        <label :for="detail.key">{{detail.convertKeyToText(key)}}:</label>
+                    </td>
+                    <td>
+                        <div v-if="value">
+                            <input v-if="value === true" :id="detail.key" value="Ja" disabled>
+                            <input v-else-if="value === false" :id="detail.key" value="Nee" disabled>
+                            <input v-else :id="detail.key" :value="value" disabled>
+                        </div>
+                        <div v-else>
+                            <input :id="detail.key" value="n.v.t" disabled>
+                        </div>
+                    </td>
                 </div>
             </tr>
+            <tr>
+                <button>Bewerken</button>
+            </tr>
         </table>
+        
     </div>
     <div v-else>
         <table>
@@ -57,9 +71,54 @@ table {
     border-block-start: 1px solid black;
 }
 
-.noData {
-    color: red;
+label {
+    font-weight: bold;
 }
 
+input {
+    width: 100%;
+    padding-inline-start: .3rem;
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3); 
+}
+
+button {
+    padding-inline: .5rem;
+    padding-block: .2rem;
+    border:1px solid black;
+    border-radius: 5px;
+    background-color: var(--color-4);
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3); 
+}
+
+tr div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-block-end: .3rem;
+    padding-inline-end: .5rem;
+}
+
+td:nth-child(odd) {
+    width: 45%;
+}
+
+td:nth-child(even) {
+    width: 55%;
+}
+
+tr:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-inline-end: 1rem;
+    padding-block: .5rem;
+}
+
+.noData td {
+    width: 100%;
+    color: red;
+}
 
 </style>
