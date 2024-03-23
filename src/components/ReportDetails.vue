@@ -11,19 +11,17 @@
                     </td>
                     <td>
                         <div v-if="value">
-                            <input v-if="value === true" :id="detail.key" value="Ja" disabled>
-                            <input v-else-if="value === false" :id="detail.key" value="Nee" disabled>
-                            <input v-else :id="detail.key" :value="value" disabled>
+                            <input v-if="value === true" :id="detail.key" value="Ja" :disabled="!reportSelectedEdit">
+                            <input v-else-if="value === false" :id="detail.key" value="Nee" :disabled="!reportSelectedEdit">
+                            <input v-else :id="detail.key" :value="value" :disabled="!reportSelectedEdit">
                         </div>
                         <div v-else>
-                            <input :id="detail.key" value="n.v.t" disabled>
+                            <input :id="detail.key" value="n.v.t" :disabled="!reportSelectedEdit">
                         </div>
                     </td>
                 </div>
             </tr>
-            <tr>
-                <button>Bewerken</button>
-            </tr>
+            
         </table>
         
     </div>
@@ -40,17 +38,14 @@
 <script>
 export default {
     name: 'reportDetails',
-    props: {
-        id: {
-            type: Number,
-            required: true
-        }
-    },
     computed: {
-        // function to get the selected report from the store based on the id (prop)
+        // function to get the selected report details from the store 
         report(){
-            return this.$store.state.inspectionSelected.getReports()[this.id].getReportDetails()
+            return this.$store.state.reportSelected.getReportDetails()
         },
+        reportSelectedEdit(){
+            return this.$store.state.reportSelectedEdit
+        }
     }
 }
 </script>
@@ -106,14 +101,6 @@ td:nth-child(odd) {
 
 td:nth-child(even) {
     width: 55%;
-}
-
-tr:last-child {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding-inline-end: 1rem;
-    padding-block: .5rem;
 }
 
 .noData td {

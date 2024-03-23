@@ -2,7 +2,7 @@
 
 <template lang="">
     <article v-for="report in inspectionSelected.getReports()" :key="report.id">
-        <header v-touch:tap="SelectReport" :data-id="report.id">
+        <header v-touch:tap="selectReport" :data-id="report.id">
             <h4>{{report.getReportName()}}</h4>
             <div class="status">
                 <h5>Status:</h5>
@@ -21,6 +21,10 @@
 
         <div v-if="reportSelected">
             <reportDetails :id="report.id" v-if="reportSelected.getId() === report.id"/>
+            <div v-if="reportSelected.getId() == report.id" class="control">
+                <button v-if="reportSelectedEdit" v-touch:tap="editReport">Rapport opslaan</button>
+                <button v-else v-touch:tap="editReport">Rapport bewerken</button>
+            </div>
         </div>
 
     </article>
@@ -47,9 +51,11 @@ export default {
             return this.$store.state.inspectionSelected.getReportRequired(id)
         },
         // function to set the selected report to the store
-        SelectReport(event){
+        selectReport(event){
             // load preventDefault to stop propagnation
             event.preventDefault();
+            // reset the report selected edit entry in the store
+            this.$store.dispatch('clearReportSelectedEdit')
             // check if reportSelected has content
             if (!this.reportSelected){
                 // set the selected report to the store
@@ -63,6 +69,13 @@ export default {
                 // set the selected report to the store
                 this.$store.dispatch('fetchReportSelected', this.$store.state.inspectionSelected.getReports()[event.currentTarget.getAttribute("data-id")])
             } 
+        },
+        editReport(){
+            if (this.reportSelectedEdit){
+                this.$store.dispatch('clearReportSelectedEdit')
+            } else {
+                this.$store.dispatch('setReportSelectedEdit')
+            }
         }
     },
     computed: {
@@ -76,6 +89,9 @@ export default {
         icons() {
             return this.$store.state.icons
         },
+        reportSelectedEdit() {
+            return this.$store.state.reportSelectedEdit
+        }
     }
 }
 </script>
@@ -128,12 +144,30 @@ td {
     padding-inline-start: .5rem
 }
 
+button {
+    font-size: 1rem;
+    padding-inline: .5rem;
+    padding-block: .2rem;
+    margin-inline-end: 1rem;
+    margin-block-end: 1rem;
+    border:1px solid black;
+    border-radius: 5px;
+    background-color: var(--color-4);
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3); 
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 .status {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-block-end: 0.4rem
+    padding-block-end: 0.6rem
 }
 
 .icon {

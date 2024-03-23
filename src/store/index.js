@@ -12,6 +12,7 @@ export default createStore({
         inspections: null,
         inspectionSelected: null,
         reportSelected: null,
+        reportSelectedEdit: false,
         errors: [],
         icons: [mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown, mdiChevronUp]
     },
@@ -43,6 +44,14 @@ export default createStore({
         // mutation to clear the inspection in the store
         CLEAR_REPORT_SELECTED(state){
             state.reportSelected = null;
+        },
+        // mutation to set the selected inspection in the store
+        SET_REPORT_SELECTED_EDIT(state){
+            state.reportSelectedEdit = true;
+        },
+        // mutation to clear the inspection in the store
+        CLEAR_REPORT_SELECTED_EDIT(state){
+            state.reportSelectedEdit = false;
         },
         // mutation to set the errors in the store
         ADD_ERROR(state, payload){
@@ -87,10 +96,19 @@ export default createStore({
         },
         // action to set the 'reportSelected' in the store
         fetchReportSelected(context, value){
-            // clear the inspection selected store entry
+            // clear the report selected store entry
             context.commit('CLEAR_REPORT_SELECTED')
-            // set the inspected selected store entry
+            // set the report selected store entry
             context.commit('SET_REPORT_SELECTED', value)
+        },
+        // action to set the 'reportSelectedEdit' in the store
+        setReportSelectedEdit(context){
+            // set the report selected edit entry to true
+            context.commit('SET_REPORT_SELECTED_EDIT')
+        },
+        // action to clear the reportSelectedEdit in the store
+        clearReportSelectedEdit(context){
+            context.commit('CLEAR_REPORT_SELECTED_EDIT')
         },
         // action to clear the inspection selected store entry
         clearInspectionSelected(context){

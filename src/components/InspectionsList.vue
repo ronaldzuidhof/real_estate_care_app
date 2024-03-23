@@ -34,13 +34,17 @@ export default {
     methods: {
         // function to load the DetailsView for selected inspection
         SelectInspection(event){
+            // set the selected inspection to the store
+            this.$store.dispatch('fetchInspectionSelected', this.filterInspection(event.currentTarget.getAttribute("data-id")))
             // open DetailsView with data-id from event
-            this.$router.push({
-                name: 'details',
-                params: {
-                    id: event.currentTarget.getAttribute("data-id")
-                }
-            })
+            this.$router.push('details')
+        },
+        // function to filter inspection from inspections array (store)
+        filterInspection(id) {
+            // filter all inspections and select where inspection.id is equal to 'id'
+            let inspection = this.inspections.filter(inspection => inspection.id === Number(id))
+            // return inspection object
+            return inspection[0];
         },
     }, 
     computed: {

@@ -35,17 +35,6 @@ export default {
     components: {
         ReportsList,
     },
-    methods: {
-        // function to filter inspection from inspections array (store)
-        filterInspection(id) {
-            // get all inspections from the store
-            let inspections = this.$store.state.inspections;
-            // filter all inspections and select where inspection.id is equal to 'id'
-            let inspection = inspections.filter(inspection => inspection.id === Number(id))
-            // return inspection object
-            return inspection[0];
-        },
-    },
     computed: {
         // function to get the selected inspection from the store
         inspectionSelected() {
@@ -56,10 +45,6 @@ export default {
             return this.$store.state.inspectionSelected.getStatus()
         },
     },
-    created(){
-        // set the selected inspection to the store
-        this.$store.dispatch('fetchInspectionSelected', this.filterInspection(this.$route.params.id))
-    }
 }
 </script>
 

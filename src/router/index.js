@@ -23,7 +23,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "CompletedView" */ '@/views/CompletedView.vue')
     },
     {
-        path: '/details/:id',
+        path: '/details',
         name: 'details',
         // Lazzy loading
         component: () => import(/* webpackChunkName: "DetailsView" */ '@/views/DetailsView.vue')

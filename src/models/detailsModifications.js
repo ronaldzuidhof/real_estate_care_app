@@ -21,6 +21,10 @@ export default class DetailModifications {
         this.comments = data.comments;
         this.pictures = data.pictures;
     }
+    // function to return the id number
+    getId(){
+        return this.id;
+    }
     // function to convert the key to a description in dutch language
     convertKeyToText(key){
         switch(key){
