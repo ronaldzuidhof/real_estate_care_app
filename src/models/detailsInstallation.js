@@ -50,4 +50,15 @@ export default class DetailInstallation {
                 break;
         }
     }
+    // function to return the options of as select input
+    getOptions(key) {
+        let options = {}
+        switch(key) {
+            case "typeInstallation":
+                options = {koeling: "Koeling", verwarming: "Verwarming", luchtverversing: "Luchtverversing", elektra: "Elektra", beveiliging: "Beveiliging"}
+                return options
+            default:
+                return null
+        }
+    }
 }

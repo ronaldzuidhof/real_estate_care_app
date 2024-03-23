@@ -42,4 +42,18 @@ export default class DetailDamage {
                 break;
         }
     }
+    // function to return the options of as select input
+    getOptions(key) {
+        let options = {}
+        switch(key) {
+            case "newDamage":
+                options = {true: "Ja", false: "Nee", null: ""}
+                return options
+            case "immediateAction":
+                options = {true: "Ja", false: "Nee", null: ""}
+                return options
+            default:
+                return null
+        }
+    }
 }

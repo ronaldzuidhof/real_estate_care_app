@@ -10,10 +10,13 @@
                         <label :for="detail.key">{{detail.convertKeyToText(key)}}:</label>
                     </td>
                     <td>
-                        <div v-if="value">
-                            <input v-if="value === true" :id="detail.key" value="Ja" :disabled="!reportSelectedEdit">
-                            <input v-else-if="value === false" :id="detail.key" value="Nee" :disabled="!reportSelectedEdit">
-                            <input v-else :id="detail.key" :value="value" :disabled="!reportSelectedEdit">
+                        <div v-if="detail.getOptions(key)">
+                            <select :disabled="!reportSelectedEdit">
+                                <option v-for="(value2, key2) in detail.getOptions(key)" :value="key2" :key="key2" :selected="key2 === value.toString()">{{value2}}</option>
+                            </select>
+                        </div>
+                        <div v-else-if="value">
+                            <input :value="value" :disabled="!reportSelectedEdit">
                         </div>
                         <div v-else>
                             <input :id="detail.key" value="n.v.t" :disabled="!reportSelectedEdit">
@@ -70,7 +73,7 @@ label {
     font-weight: bold;
 }
 
-input {
+input, select {
     width: 100%;
     padding-inline-start: .3rem;
     border: 1px solid black;

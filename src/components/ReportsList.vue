@@ -20,7 +20,7 @@
         </header>
 
         <div v-if="reportSelected">
-            <reportDetails :id="report.id" v-if="reportSelected.getId() === report.id"/>
+            <reportDetails v-if="reportSelected.getId() === report.id"/>
             <div v-if="reportSelected.getId() == report.id" class="control">
                 <button v-if="reportSelectedEdit" v-touch:tap="editReport">Rapport opslaan</button>
                 <button v-else v-touch:tap="editReport">Rapport bewerken</button>

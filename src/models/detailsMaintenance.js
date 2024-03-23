@@ -42,4 +42,18 @@ export default class DetailMaintenance {
                 break;
         }
     }
+    // function to return the options of as select input
+    getOptions(key) {
+        let options = {}
+        switch(key) {
+            case "typeMaintenance":
+                options = {schilderwerk: "Schilderwerk", houtrot: "Houtrot", elektra: "Elektra", leidingwerk: "Leidingwerk", beglazing: "Beglazing"}
+                return options
+            case "costIndication":
+                options = {"0-500": "0-500", "500-1500": "500-1500", "1500+": "1500+"}
+                return options
+            default:
+                return null
+        }
+    }
 }

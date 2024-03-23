@@ -46,4 +46,18 @@ export default class DetailModifications {
                 break;
         }
     }
+    // function to return the options of as select input
+    getOptions(key) {
+        let options = {}
+        switch(key) {
+            case "executedBy":
+                options = {"huurder": "Huurder", "aannemer": "Aannemer", "onbekend": "Onbekend"}
+                return options
+            case "action":
+                options = {"accepteren": "Accepteren", "laten keuren": "Laten keuren", "laten verwijderen": "Laten verwijderen", "laten aanpassen en keuren": "Laten aanpassen en keuren"}
+                return options
+            default:
+                return null
+        }
+    }
 }
