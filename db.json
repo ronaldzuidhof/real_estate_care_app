@@ -20,6 +20,7 @@
                                 "id": 0,
                                 "location": "slaapkamer voorkant",
                                 "newDamage": true,
+                                "typeDamage": "Geweld", 
                                 "immediateAction": false,
                                 "description": "Gat in de muur",
                                 "pictures": "foto_1.jpg"
@@ -28,6 +29,7 @@
                                 "id": 1,
                                 "location": "woonkamer muur tegen de keuken",
                                 "newDamage": false,
+                                "typeDamage": "Normaal gebruik",
                                 "immediateAction": true,
                                 "description": "stopcontact gebroken",
                                 "pictures": "foto_2.jpg, foto_3.jpg"
