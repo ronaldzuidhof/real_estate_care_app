@@ -60,4 +60,11 @@ export default class DetailModifications {
                 return null
         }
     }
+    // function to return true if the input type is "radio" based on the key
+    getCheckbox(key) {
+        switch(key) {
+            default:
+                return null
+        }
+    }
 }

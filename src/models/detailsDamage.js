@@ -7,6 +7,7 @@ export default class DetailDamage {
     id = null;
     location = "";
     newDamage = false;
+    typeDamage = "";
     immediateAction = false;
     description = "";
     pictures = "";
@@ -15,6 +16,7 @@ export default class DetailDamage {
         this.id = data.id
         this.location = useStringCapital(data.location);
         this.newDamage = data.newDamage;
+        this.typeDamage = data.typeDamage;
         this.immediateAction = data.immediateAction;
         this.description = data.description;
         this.pictures = data.pictures
@@ -32,6 +34,8 @@ export default class DetailDamage {
                 return "Locatie";
             case ("newDamage"):
                 return "Nieuwe schade";
+            case ("typeDamage"):
+                return "Type schade";
             case ("immediateAction"):
                 return "Onmiddelijke actie";
             case ("description"):
@@ -46,12 +50,20 @@ export default class DetailDamage {
     getOptions(key) {
         let options = {}
         switch(key) {
+            case "typeDamage":
+                options = {"moedwillig": "Moedwillig", "slijtage": "Slijtage", "geweld": "Geweld", "normaal gebruik": "Normaal gebruik", "calamiteit": "Calamiteit", "anders": "Anders"}
+                return options
+            default:
+                return null
+        }
+    }
+    // function to return true if the input type is "radio" based on the key
+    getCheckbox(key) {
+        switch(key) {
             case "newDamage":
-                options = {true: "Ja", false: "Nee", null: ""}
-                return options
+                return true
             case "immediateAction":
-                options = {true: "Ja", false: "Nee", null: ""}
-                return options
+                return true
             default:
                 return null
         }

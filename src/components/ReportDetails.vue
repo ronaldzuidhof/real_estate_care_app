@@ -7,27 +7,34 @@
             <tr v-for="(value, key) in detail" :key="key">
                 <div v-if="detail.convertKeyToText(key)">
                     <td>
-                        <label :for="detail.key">{{detail.convertKeyToText(key)}}:</label>
+                        <label>{{detail.convertKeyToText(key)}}:</label>
                     </td>
                     <td>
                         <div v-if="detail.getOptions(key)">
-                            <select :disabled="!reportSelectedEdit">
+                            <select :disabled="!reportSelectedEdit" v-model="this.reportSelected.details[detail.id][key]">
                                 <option v-for="(value2, key2) in detail.getOptions(key)" :value="key2" :key="key2" :selected="key2 === value.toString()">{{value2}}</option>
                             </select>
                         </div>
-                        <div v-else-if="value">
-                            <input :value="value" :disabled="!reportSelectedEdit">
+                        <div v-else-if="detail.getCheckbox(key)" class="checkbox">
+                            <input type="checkbox" :checked="value" :disabled="!reportSelectedEdit" v-model="this.reportSelected.details[detail.id][key]">
                         </div>
                         <div v-else>
-                            <input :id="detail.key" value="n.v.t" :disabled="!reportSelectedEdit">
+                            <!-- Original code that functions before v-model !!!!
+                                <input :value="value" :disabled="!reportSelectedEdit">-->
+                            <input :disabled="!reportSelectedEdit" v-model="this.reportSelected.details[detail.id][key]">
                         </div>
                     </td>
                 </div>
             </tr>
-            
         </table>
-        
+
+        <div class="control">
+            <button v-if="reportSelectedEdit" v-touch:tap="editReport">Rapport opslaan</button>
+            <button v-else v-touch:tap="editReport">Rapport bewerken</button>
+        </div>
+
     </div>
+
     <div v-else>
         <table>
             <tr class="noData"><td>Geen data aanwezig</td></tr>
@@ -48,6 +55,26 @@ export default {
         },
         reportSelectedEdit(){
             return this.$store.state.reportSelectedEdit
+        },
+        reportSelected() {
+            return this.$store.state.reportSelected
+        },
+    },
+    methods: {
+        // function to edit the selected report (enable fields)
+        editReport(event){
+            // load preventDefault to stop propagnation
+            event.preventDefault();
+            // check state of reportSelectedEdit store entry
+            if (this.reportSelectedEdit){
+                // debugging
+                console.log(this.reportSelected)
+                // disable all input fields of the reports
+                this.$store.dispatch('clearReportSelectedEdit')
+            } else {
+                // enable all input fields of the reports
+                this.$store.dispatch('setReportSelectedEdit')
+            }
         }
     }
 }
@@ -82,8 +109,11 @@ input, select {
 }
 
 button {
+    font-size: 1rem;
     padding-inline: .5rem;
     padding-block: .2rem;
+    margin-inline-end: 1rem;
+    margin-block-end: 1rem;
     border:1px solid black;
     border-radius: 5px;
     background-color: var(--color-4);
@@ -94,6 +124,7 @@ tr div {
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     padding-block-end: .3rem;
     padding-inline-end: .5rem;
 }
@@ -104,6 +135,18 @@ td:nth-child(odd) {
 
 td:nth-child(even) {
     width: 55%;
+}
+
+.checkbox input {
+    height: 1rem;
+    width: 1rem;
+    box-shadow: none;
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .noData td {

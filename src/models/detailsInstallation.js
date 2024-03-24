@@ -61,4 +61,13 @@ export default class DetailInstallation {
                 return null
         }
     }
+    // function to return true if the input type is "radio" based on the key
+    getCheckbox(key) {
+        switch(key) {
+            case "approved":
+                return true
+            default:
+                return null
+        }
+    }
 }

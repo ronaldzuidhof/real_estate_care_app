@@ -2,29 +2,27 @@
 
 <template lang="">
     <article v-for="report in inspectionSelected.getReports()" :key="report.id">
-        <header v-touch:tap="selectReport" :data-id="report.id">
+        <header>
             <h4>{{report.getReportName()}}</h4>
             <div class="status">
                 <h5>Status:</h5>
-                <h5 v-if="!report.getReportRequired()" class="finished">Niet benodigd</h5>
-                <h5 v-else-if="reportStatus(report.id)" class="finished">Gereed</h5> 
-                <h5 v-else class="unfinished">Open</h5>
+                <h5 v-if="!report.getReportRequired()">Niet benodigd</h5>
+                <select :disabled="!reportSelectedEdit">
+                    <option :selected="reportStatus(report.id)">Gereed</option>
+                    <option :selected="!reportStatus(report.id)">Open</option>
+                </select>
             </div>
-            <div v-if="reportSelected">
+            <div v-if="reportSelected" v-touch:tap="selectReport" :data-id="report.id">
                 <svg-icon type="mdi" :path="icons[6]" class="icon" v-if="reportSelected.getId() === report.id"></svg-icon>
                 <svg-icon type="mdi" :path="icons[5]" class="icon" v-else></svg-icon>
             </div>
-            <div v-else>
+            <div v-else v-touch:tap="selectReport" :data-id="report.id">
                 <svg-icon type="mdi" :path="icons[5]" class="icon"></svg-icon>
             </div>
         </header>
 
         <div v-if="reportSelected">
             <reportDetails v-if="reportSelected.getId() === report.id"/>
-            <div v-if="reportSelected.getId() == report.id" class="control">
-                <button v-if="reportSelectedEdit" v-touch:tap="editReport">Rapport opslaan</button>
-                <button v-else v-touch:tap="editReport">Rapport bewerken</button>
-            </div>
         </div>
 
     </article>
@@ -70,13 +68,6 @@ export default {
                 this.$store.dispatch('fetchReportSelected', this.$store.state.inspectionSelected.getReports()[event.currentTarget.getAttribute("data-id")])
             } 
         },
-        editReport(){
-            if (this.reportSelectedEdit){
-                this.$store.dispatch('clearReportSelectedEdit')
-            } else {
-                this.$store.dispatch('setReportSelectedEdit')
-            }
-        }
     },
     computed: {
         // function to get the selected inspection from the store
@@ -91,7 +82,7 @@ export default {
         },
         reportSelectedEdit() {
             return this.$store.state.reportSelectedEdit
-        }
+        },
     }
 }
 </script>
@@ -137,29 +128,15 @@ table {
     margin-block-end: 10px;
     border: 1px solid black;
     border-radius: 10px;
-    
 }
 
 td {
     padding-inline-start: .5rem
 }
 
-button {
-    font-size: 1rem;
+select {
     padding-inline: .5rem;
-    padding-block: .2rem;
-    margin-inline-end: 1rem;
-    margin-block-end: 1rem;
-    border:1px solid black;
-    border-radius: 5px;
-    background-color: var(--color-4);
-    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3); 
-}
-
-.control {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    font-weight: bold;
 }
 
 .status {
@@ -168,18 +145,6 @@ button {
     justify-content: space-between;
     align-items: center;
     padding-block-end: 0.6rem
-}
-
-.icon {
-    float: right;
-}
-
-.unfinished {
-    color: red;
-}
-
-.finished {
-    color: green
 }
 
 </style>

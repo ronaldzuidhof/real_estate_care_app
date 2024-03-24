@@ -56,4 +56,13 @@ export default class DetailMaintenance {
                 return null
         }
     }
+    // function to return true if the input type is "radio" based on the key
+    getCheckbox(key) {
+        switch(key) {
+            case "immediateAction":
+                return true
+            default:
+                return null
+        }
+    }
 }

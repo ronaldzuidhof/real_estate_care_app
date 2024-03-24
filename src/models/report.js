@@ -38,6 +38,10 @@ export default class Report {
     getReportDetails(){
         return this.details;
     }
+    // function to return the report status
+    getReportStatus(){
+        return this.finished;
+    }
     // function to determine details class
     detailsModel(data){
         switch(data.id){
