@@ -20,7 +20,7 @@
                                 "id": 0,
                                 "location": "slaapkamer voorkant",
                                 "newDamage": true,
-                                "typeDamage": "Geweld", 
+                                "typeDamage": "geweld", 
                                 "immediateAction": false,
                                 "description": "Gat in de muur",
                                 "pictures": "foto_1.jpg"
@@ -29,7 +29,7 @@
                                 "id": 1,
                                 "location": "woonkamer muur tegen de keuken",
                                 "newDamage": false,
-                                "typeDamage": "Normaal gebruik",
+                                "typeDamage": "normaal gebruik",
                                 "immediateAction": true,
                                 "description": "stopcontact gebroken",
                                 "pictures": "foto_2.jpg, foto_3.jpg"
@@ -120,7 +120,7 @@
                             {
                                 "id": 0,
                                 "location": "keuken",
-                                "executedBy": "contractor",
+                                "executedBy": "aannemer",
                                 "description": "nieuwe keuken geplaatst",
                                 "action": "accepteren",
                                 "comments": "",
