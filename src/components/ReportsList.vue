@@ -2,6 +2,7 @@
 
 <template lang="">
     <article v-for="report in inspectionSelected.getReports()" :key="report.id">
+
         <header>
             <h4>{{report.getReportName()}}</h4>
             <div class="status">

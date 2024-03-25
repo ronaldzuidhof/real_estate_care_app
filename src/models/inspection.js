@@ -13,7 +13,7 @@ export default class Inspection {
     houseNumber = null;
     inspectionDate = "";
     inspector = "";
-    finished = false;
+    finished = "unfinished";
     reports = [];
 
     constructor(data){
@@ -66,5 +66,13 @@ export default class Inspection {
     // function to return the reports (instances)
     getReports(){
         return this.reports;
+    }
+    // function to return the class of the finished status (coloring)
+    getClassStatus(){
+        if (this.finished){
+            return "finished"
+        } else {
+            return "unfinished"
+        }
     }
 }

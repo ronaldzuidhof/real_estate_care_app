@@ -11,6 +11,7 @@ export default createStore({
         loadingStatus : 'notLoading',
         inspections: null,
         inspectionSelected: null,
+        inspectionSelectedEdit: true,
         reportSelected: null,
         reportSelectedEdit: false,
         errors: [],

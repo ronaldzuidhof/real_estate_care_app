@@ -15,7 +15,7 @@
                 <td>
                     <div class="status">
                         {{inspection.getAddress()}}
-                        <div v-if="inspection.getStatus()" class="dot finished" ></div>
+                        <div v-if="inspection.getStatus() === 'finished'" class="dot finished" ></div>
                         <div v-else class="dot unfinished" ></div> 
                     </div>
                 </td>

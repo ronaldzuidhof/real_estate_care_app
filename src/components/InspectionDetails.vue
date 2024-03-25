@@ -6,8 +6,10 @@
             <h1>Rapporten</h1>
             <div class="status">
                 <h2>Status:</h2>
-                <h2 v-if="inspectionStatus" class="finished"> Gereed</h2> 
-                <h2 v-else class="unfinished"> Open</h2>
+                <select :disabled="!inspectionSelectedEdit" :class="inspectionStatus" v-model="this.inspectionSelected.finished">
+                    <option :selected="inspectionStatus === 'finished'" value="finished" :class="inspectionStatus">Gereed</option>
+                    <option :selected="inspectionStatus === 'unfinished'" value="unfinished" :class="inspectionStatus">Open</option>
+                </select>
             </div>
         </header>
         
@@ -42,7 +44,10 @@ export default {
         },
         // function to determine the state of the inspection
         inspectionStatus(){
-            return this.$store.state.inspectionSelected.getStatus()
+            return this.$store.state.inspectionSelected.finished
+        },
+        inspectionSelectedEdit() {
+            return this.$store.state.inspectionSelectedEdit
         },
     },
 }
@@ -94,6 +99,12 @@ table {
 
 td {
     padding-inline-start: .5rem
+}
+
+select {
+    padding-inline: .5rem;
+    font-weight: bold;
+    font-size: 1.4rem;
 }
 
 .status {

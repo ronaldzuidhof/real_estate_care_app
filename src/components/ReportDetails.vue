@@ -19,8 +19,6 @@
                             <input type="checkbox" :checked="value" :disabled="!reportSelectedEdit" v-model="this.reportSelected.details[detail.id][key]">
                         </div>
                         <div v-else>
-                            <!-- Original code that functions before v-model !!!!
-                                <input :value="value" :disabled="!reportSelectedEdit">-->
                             <input :disabled="!reportSelectedEdit" v-model="this.reportSelected.details[detail.id][key]">
                         </div>
                     </td>
@@ -29,7 +27,7 @@
         </table>
 
         <div class="control">
-            <button v-if="reportSelectedEdit" v-touch:tap="editReport">Rapport opslaan</button>
+            <button v-if="reportSelectedEdit" v-touch:tap="editReport">Rapport sluiten</button>
             <button v-else v-touch:tap="editReport">Rapport bewerken</button>
         </div>
 
@@ -67,10 +65,10 @@ export default {
             event.preventDefault();
             // check state of reportSelectedEdit store entry
             if (this.reportSelectedEdit){
-                // debugging
-                console.log(this.reportSelected)
                 // disable all input fields of the reports
                 this.$store.dispatch('clearReportSelectedEdit')
+                // clear the report selected entry in the store
+                this.$store.dispatch('clearReportSelected')
             } else {
                 // enable all input fields of the reports
                 this.$store.dispatch('setReportSelectedEdit')
