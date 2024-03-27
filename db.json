@@ -3,7 +3,7 @@
     [
         {
             "id": 0,
-            "city": "BREDA",
+            "city": "Breda",
             "streetName": "Pietstraat",
             "houseNumber": "12",
             "inspectionDate": "2024-02-10T12:00:00+01:00",
@@ -18,7 +18,7 @@
                         "details": [
                             {
                                 "id": 0,
-                                "location": "slaapkamer voorkant",
+                                "location": "slaapkamer voor",
                                 "newDamage": true,
                                 "typeDamage": "geweld", 
                                 "immediateAction": false,
@@ -27,7 +27,7 @@
                             },
                             {
                                 "id": 1,
-                                "location": "woonkamer muur tegen de keuken",
+                                "location": "woonkamer muur",
                                 "newDamage": false,
                                 "typeDamage": "normaal gebruik",
                                 "immediateAction": true,
