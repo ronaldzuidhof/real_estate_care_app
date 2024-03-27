@@ -4,14 +4,13 @@
         {
             "id": 0,
             "city": "BREDA",
-            "streetName": "Pietstraat",
-            "houseNumber": "12",
+            "address": "Pietstraat 12",
             "inspectionDate": "2024-02-10T12:00:00+01:00",
             "inspector": "Ronald Zuidhof",
             "finished": "finished",
             "reports": [
                 {
-                        "id": 0,
+                        "id": 0, 
                         "nameReport": "Schade",
                         "required": true,
                         "finished": true,
@@ -133,8 +132,7 @@
         {
             "id": 1,
             "city": "oosterhout",
-            "streetName": "peterusstraat",
-            "houseNumber": "113",
+            "address": "peterusstraat 113",
             "inspectionDate": "2024-01-15T08:00:00+01:00",
             "inspector": "Roman Zuidhof",
             "finished": "finished",
@@ -173,8 +171,7 @@
         {
             "id": 2,
             "city": "breda",
-            "streetName": "janstraat",
-            "houseNumber": "4",
+            "address": "janstraat 4",
             "inspectionDate": "2024-02-10T10:00:00+01:00",
             "inspector": "Ronald Zuidhof",
             "finished": "finished",
@@ -213,8 +210,7 @@
         {
             "id": 3,
             "city": "oosterhout",
-            "streetName": "karelplein",
-            "houseNumber": "24a",
+            "address": "karelplein 24a",
             "inspectionDate": "2024-02-05T15:00:00+01:00",
             "inspector": "Roman Zuidhof",
             "finished": "unfinished",
