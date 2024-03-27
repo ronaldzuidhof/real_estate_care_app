@@ -75,7 +75,7 @@
                                 "notifiedErrors": "Code A4 op ketel",
                                 "testProcedure": "cv_test_beschrijving.pdf",
                                 "approved": false,
-                                "comments": "monteur laten controleren",
+                                "comments": "monteur controle",
                                 "pictures": "foto_6.jpg"
                             },   
                             {
@@ -85,7 +85,7 @@
                                 "notifiedErrors": "",
                                 "testProcedure": "luchtsysteem_test_beschrijving.pdf",
                                 "approved": false,
-                                "comments": "monteur laten controleren",
+                                "comments": "monteur controle",
                                 "pictures": ""
                             },
                             {
@@ -105,7 +105,7 @@
                                 "notifiedErrors": "slot achterdeur defect",
                                 "testProcedure": "beveiliging_test_beschrijving.pdf",
                                 "approved": false,
-                                "comments": "slot laten vervangen",
+                                "comments": "slot vervangen",
                                 "pictures": "foto_7.jpg"
                             }
                         ]       
@@ -121,7 +121,7 @@
                                 "id": 0,
                                 "location": "keuken",
                                 "executedBy": "aannemer",
-                                "description": "nieuwe keuken geplaatst",
+                                "description": "nieuwe keuken",
                                 "action": "accepteren",
                                 "comments": "",
                                 "pictures": "foto_8.jpg"
