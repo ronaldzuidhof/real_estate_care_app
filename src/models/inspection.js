@@ -9,8 +9,7 @@ import { useStringCapital } from '@/composables/GlobalFunctions'
 export default class Inspection {
     id = null;
     city = "";
-    streetName = "";
-    houseNumber = null;
+    address = "";
     inspectionDate = "";
     inspector = "";
     finished = "unfinished";
@@ -19,8 +18,7 @@ export default class Inspection {
     constructor(data){
         this.id = data.id
         this.city = useStringCapital(data.city);
-        this.streetName = useStringCapital(data.streetName);
-        this.houseNumber = data.houseNumber;
+        this.address = useStringCapital(data.address);
         this.inspectionDate = data.inspectionDate;
         this.finished = data.finished;
         this.inspector = data.inspector;
@@ -33,7 +31,7 @@ export default class Inspection {
     }
     // function to return the full address
     getAddress(){
-        return this.streetName + " " + this.houseNumber; 
+        return this.address;
     }
     // function to return the city
     getCity(){
@@ -46,6 +44,10 @@ export default class Inspection {
     // function to return the EPOC time
     getEpocTime(){
         return new Date(this.inspectionDate).getTime();
+    }
+    // function to return the date in format "Year-Month-Day"
+    getDateInput(){
+        return moment(this.inspectionDate).format('YYYY-MM-DD');
     }
     // function to return the date in format "Day-Month-Year"
     getDate(){
@@ -66,13 +68,5 @@ export default class Inspection {
     // function to return the reports (instances)
     getReports(){
         return this.reports;
-    }
-    // function to return the class of the finished status (coloring)
-    getClassStatus(){
-        if (this.finished){
-            return "finished"
-        } else {
-            return "unfinished"
-        }
     }
 }

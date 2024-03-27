@@ -7,18 +7,43 @@
             <div class="status">
                 <h2>Status:</h2>
                 <select :disabled="!inspectionSelectedEdit" :class="inspectionStatus" v-model="this.inspectionSelected.finished">
-                    <option :selected="inspectionStatus === 'finished'" value="finished" :class="inspectionStatus">Gereed</option>
-                    <option :selected="inspectionStatus === 'unfinished'" value="unfinished" :class="inspectionStatus">Open</option>
+                    <option :selected="inspectionStatus === 'finished'" value="finished" class="finished">Gereed</option>
+                    <option :selected="inspectionStatus === 'unfinished'" value="unfinished" class="unfinished">Open</option>
                 </select>
             </div>
         </header>
         
         <table>
-            <tr><th>Adres:</th><td>{{inspectionSelected.getAddress()}}</td></tr>
-            <tr><th>Stad:</th><td>{{inspectionSelected.getCity()}}</td></tr>
-            <tr><th>Datum:</th><td>{{inspectionSelected.getDate()}}</td></tr>
-            <tr><th>Tijd:</th><td>{{inspectionSelected.getTime()}}</td></tr>
-            <tr><th>Inspecteur:</th><td>{{inspectionSelected.getInspector()}}</td></tr>
+            <tr>
+                <th>Adres:</th>
+                <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.address"></td>
+            </tr>
+            <tr>
+                <th>Stad:</th>
+                <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.city"></td>
+            </tr>
+            <tr>
+                <th>Datum:</th>
+                <td><input 
+                    type="date" 
+                    :disabled="!inspectionSelectedEdit" 
+                    :value="this.inspectionSelected.getDateInput()" 
+                    @input="this.inspectionSelected.inspectionDate = ($event.target.value.slice(0,10) + this.inspectionSelected.inspectionDate.slice(10) )">
+                </td>
+            </tr>
+            <tr>
+                <th>Tijd:</th>
+                <td><input 
+                    type="time" 
+                    :disabled="!inspectionSelectedEdit" 
+                    :value="this.inspectionSelected.getTime()" 
+                    @input="this.inspectionSelected.inspectionDate = (this.inspectionSelected.inspectionDate.slice(0,11) + $event.target.value.slice(0,5)) + this.inspectionSelected.inspectionDate.slice(16)">
+                </td>
+            </tr>
+            <tr>
+                <th>Inspecteur:</th>
+                <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.inspector"></td>
+            </tr>
         </table>
 
         <ReportsList />
@@ -36,6 +61,14 @@ export default {
     name: 'InspectionDetails',
     components: {
         ReportsList,
+    },
+    methods: {
+        // function to convert the dateTime to UTC format
+        convertDateTime(dateTime){
+            console.log(dateTime)
+            return dateTime
+            
+        }
     },
     computed: {
         // function to get the selected inspection from the store

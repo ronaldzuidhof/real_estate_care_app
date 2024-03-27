@@ -8,9 +8,9 @@
             <div class="status">
                 <h5>Status:</h5>
                 <h5 v-if="!report.getReportRequired()">Niet benodigd</h5>
-                <select :disabled="!reportSelectedEdit">
-                    <option :selected="reportStatus(report.id)">Gereed</option>
-                    <option :selected="!reportStatus(report.id)">Open</option>
+                <select :disabled="!reportSelectedEdit" :class="reportStatus(report.id)" v-model="this.inspectionSelected.reports[report.id].finished">
+                    <option :selected="reportStatus(report.id)" value=true>Gereed</option>
+                    <option :selected="!reportStatus(report.id)" value=false>Open</option>
                 </select>
             </div>
             <div v-if="reportSelected" v-touch:tap="selectReport" :data-id="report.id">
