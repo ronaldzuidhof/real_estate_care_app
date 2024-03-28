@@ -11,7 +11,7 @@ export default createStore({
         loadingStatus : 'notLoading',
         inspections: null,
         inspectionSelected: null,
-        inspectionSelectedEdit: true,
+        inspectionSelectedEdit: false,
         reportSelected: null,
         reportSelectedEdit: false,
         errors: [],
@@ -46,13 +46,21 @@ export default createStore({
         CLEAR_REPORT_SELECTED(state){
             state.reportSelected = null;
         },
-        // mutation to set the selected inspection in the store
+        // mutation to set the report selected edit in the store
         SET_REPORT_SELECTED_EDIT(state){
             state.reportSelectedEdit = true;
         },
-        // mutation to clear the inspection in the store
+        // mutation to clear the report selected edit in the store
         CLEAR_REPORT_SELECTED_EDIT(state){
             state.reportSelectedEdit = false;
+        },
+         // mutation to set the selected inspection in the store
+         SET_INSPECTION_SELECTED_EDIT(state){
+            state.inspectionSelectedEdit = true;
+        },
+        // mutation to clear the inspection in the store
+        CLEAR_INSPECTION_SELECTED_EDIT(state){
+            state.inspectionSelectedEdit = false;
         },
         // mutation to set the errors in the store
         ADD_ERROR(state, payload){
@@ -110,6 +118,15 @@ export default createStore({
         // action to clear the reportSelectedEdit in the store
         clearReportSelectedEdit(context){
             context.commit('CLEAR_REPORT_SELECTED_EDIT')
+        },
+        // action to set the 'inspectionSelectedEdit' in the store
+        setInspectionSelectedEdit(context){
+            // set the report selected edit entry to true
+            context.commit('SET_INSPECTION_SELECTED_EDIT')
+        },
+        // action to clear the inspectionSelectedEdit in the store
+        clearInspectionSelectedEdit(context){
+            context.commit('CLEAR_INSPECTION_SELECTED_EDIT')
         },
         // action to clear the inspection selected store entry
         clearInspectionSelected(context){

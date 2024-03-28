@@ -55,7 +55,7 @@ export default class Inspection {
     }
     // function to return the time in format "Hours:Minutes"
     getTime(){
-        return moment(this.inspectionDate).format('h:mm');
+        return moment(this.inspectionDate).format('hh:mm');
     }
     // function to return the status finished
     getStatus(){

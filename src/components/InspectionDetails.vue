@@ -28,7 +28,7 @@
                     type="date" 
                     :disabled="!inspectionSelectedEdit" 
                     :value="this.inspectionSelected.getDateInput()" 
-                    @input="this.inspectionSelected.inspectionDate = ($event.target.value.slice(0,10) + this.inspectionSelected.inspectionDate.slice(10) )">
+                    @input="this.inspectionSelected.inspectionDate = convertDate($event.target.value)">
                 </td>
             </tr>
             <tr>
@@ -37,7 +37,7 @@
                     type="time" 
                     :disabled="!inspectionSelectedEdit" 
                     :value="this.inspectionSelected.getTime()" 
-                    @input="this.inspectionSelected.inspectionDate = (this.inspectionSelected.inspectionDate.slice(0,11) + $event.target.value.slice(0,5)) + this.inspectionSelected.inspectionDate.slice(16)">
+                    @input="this.inspectionSelected.inspectionDate = convertTime($event.target.value)">
                 </td>
             </tr>
             <tr>
@@ -45,6 +45,11 @@
                 <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.inspector"></td>
             </tr>
         </table>
+
+        <div class="control">
+            <button v-if="inspectionSelectedEdit" v-touch:tap="editInspection">Inspectie sluiten</button>
+            <button v-else v-touch:tap="editInspection">Inspectie bewerken</button>
+        </div>
 
         <ReportsList />
 
@@ -63,11 +68,28 @@ export default {
         ReportsList,
     },
     methods: {
-        // function to convert the dateTime to UTC format
-        convertDateTime(dateTime){
-            console.log(dateTime)
-            return dateTime
-            
+        // function to update the date part of the inspectionSelected inspectionDate
+        convertDate(date){
+            // combine the received date with the last part of inspectionDate
+            return date.slice(0,10) + this.inspectionSelected.inspectionDate.slice(10)
+        },
+        // function to update the time part of the inspectionSelected inspectionDate
+        convertTime(time) {
+            // combine the received time with the first part of inspectionDate
+            return this.inspectionSelected.inspectionDate.slice(0,11) + time.slice(0,5) + this.inspectionSelected.inspectionDate.slice(16)
+        },
+        // function to edit the selected inspection (enable fields)
+        editInspection(event){
+            // load preventDefault to stop propagnation
+            event.preventDefault();
+            // check state of inspectionSelectedEdit store entry
+            if (this.inspectionSelectedEdit){
+                // disable all input fields of the reports
+                this.$store.dispatch('clearInspectionSelectedEdit')
+            } else {
+                // enable all input fields of the reports
+                this.$store.dispatch('setInspectionSelectedEdit')
+            }
         }
     },
     computed: {
@@ -140,11 +162,29 @@ select {
     font-size: 1.4rem;
 }
 
+button {
+    font-size: 1rem;
+    padding-inline: .5rem;
+    padding-block: .2rem;
+    margin-inline-end: 1rem;
+    margin-block-end: 1rem;
+    border:1px solid black;
+    border-radius: 5px;
+    background-color: var(--color-4);
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3); 
+}
+
 .status {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .unfinished {
