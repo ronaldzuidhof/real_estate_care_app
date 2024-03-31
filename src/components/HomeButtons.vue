@@ -2,11 +2,11 @@
 
 <template lang="">
     <section>
-        <ContentButton v-touch:tap="touchHandler" id="scheduled">
+        <ContentButton v-touch:tap="touchHandler" id="Scheduled">
             <svg-icon type="mdi" :path="icons[2]" class="icon"></svg-icon>
             Scheduled
         </ContentButton> 
-        <ContentButton v-touch:tap="touchHandler" id="completed">
+        <ContentButton v-touch:tap="touchHandler" id="Completed">
             <svg-icon type="mdi" :path="icons[3]" class="icon"></svg-icon>
             Completed
         </ContentButton> 
@@ -51,7 +51,9 @@ export default {
     },
     created(){
         // clear the inspection selected entry in the store
-        this.$store.state.clearInspectionSelected;
+        this.$store.dispatch('clearInspectionSelected')
+        // clear the inspection selected edit entry in the store
+        this.$store.dispatch('clearInspectionSelectedEdit')
     }
 }
 

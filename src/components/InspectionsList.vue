@@ -70,6 +70,8 @@ export default {
         this.$store.dispatch('fetchInspections')
         // reset reportSelected entrie from the store
         this.$store.dispatch('clearReportSelected')
+        // clear the inspection selected edit entry in the store
+        this.$store.dispatch('clearInspectionSelectedEdit')
     }
 }
 

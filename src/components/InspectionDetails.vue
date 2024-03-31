@@ -2,54 +2,56 @@
 
 <template lang="">
     <section>
-        <header>
-            <h1>Rapporten</h1>
-            <div class="status">
-                <h2>Status:</h2>
-                <select :disabled="!inspectionSelectedEdit" :class="inspectionStatus" v-model="this.inspectionSelected.finished">
-                    <option :selected="inspectionStatus === 'finished'" value="finished" class="finished">Gereed</option>
-                    <option :selected="inspectionStatus === 'unfinished'" value="unfinished" class="unfinished">Open</option>
-                </select>
-            </div>
-        </header>
-        
-        <table>
-            <tr>
-                <th>Adres:</th>
-                <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.address"></td>
-            </tr>
-            <tr>
-                <th>Stad:</th>
-                <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.city"></td>
-            </tr>
-            <tr>
-                <th>Datum:</th>
-                <td><input 
-                    type="date" 
-                    :disabled="!inspectionSelectedEdit" 
-                    :value="this.inspectionSelected.getDateInput()" 
-                    @input="this.inspectionSelected.inspectionDate = convertDate($event.target.value)">
-                </td>
-            </tr>
-            <tr>
-                <th>Tijd:</th>
-                <td><input 
-                    type="time" 
-                    :disabled="!inspectionSelectedEdit" 
-                    :value="this.inspectionSelected.getTime()" 
-                    @input="this.inspectionSelected.inspectionDate = convertTime($event.target.value)">
-                </td>
-            </tr>
-            <tr>
-                <th>Inspecteur:</th>
-                <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.inspector"></td>
-            </tr>
-        </table>
+        <article>
+            <header>
+                <h1>Rapporten</h1>
+                <div class="status">
+                    <h2>Status:</h2>
+                    <select :disabled="!inspectionSelectedEdit" :class="inspectionStatus" v-model="this.inspectionSelected.finished">
+                        <option :selected="inspectionStatus === 'finished'" value="finished" class="finished">Gereed</option>
+                        <option :selected="inspectionStatus === 'unfinished'" value="unfinished" class="unfinished">Open</option>
+                    </select>
+                </div>
+            </header>
+            
+            <table>
+                <tr>
+                    <th>Adres:</th>
+                    <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.address" :class="editClass"></td>
+                </tr>
+                <tr>
+                    <th>Stad:</th>
+                    <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.city" :class="editClass"></td>
+                </tr>
+                <tr>
+                    <th>Datum:</th>
+                    <td><input 
+                        type="date" 
+                        :disabled="!inspectionSelectedEdit" 
+                        :value="this.inspectionSelected.getDateInput()" 
+                        @input="this.inspectionSelected.inspectionDate = convertDate($event.target.value)">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tijd:</th>
+                    <td><input 
+                        type="time" 
+                        :disabled="!inspectionSelectedEdit" 
+                        :value="this.inspectionSelected.getTime()" 
+                        @input="this.inspectionSelected.inspectionDate = convertTime($event.target.value)">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Inspecteur:</th>
+                    <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.inspector" :class="editClass"></td>
+                </tr>
+            </table>
 
-        <div class="control">
-            <button v-if="inspectionSelectedEdit" v-touch:tap="editInspection">Inspectie sluiten</button>
-            <button v-else v-touch:tap="editInspection">Inspectie bewerken</button>
-        </div>
+            <div class="control">
+                <button v-if="inspectionSelectedEdit" v-touch:tap="editInspection">Inspectie sluiten</button>
+                <button v-else v-touch:tap="editInspection">Inspectie bewerken</button>
+            </div>
+        </article>
 
         <ReportsList />
 
@@ -101,9 +103,20 @@ export default {
         inspectionStatus(){
             return this.$store.state.inspectionSelected.finished
         },
+        // function
         inspectionSelectedEdit() {
             return this.$store.state.inspectionSelectedEdit
         },
+        // function to return the "editClass" if inspection selection edit is active
+        editClass(){
+            // return editClass
+            if(this.inspectionSelectedEdit){
+                return "editClass"
+            // return empty class
+            } else {
+                return ""
+            }
+        }
     },
 }
 </script>
@@ -120,7 +133,7 @@ h1 {
 
 h2 {
     padding-inline-start: .5rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 section {
@@ -133,12 +146,19 @@ section {
     border: 1px solid black;
 }
 
+article {
+    width: 100%;
+    padding-inline: 7px;
+    margin-block-end: 7px;
+    border: 1px solid black;
+}
+
 header {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     padding-inline-end: 1rem;
     text-wrap: nowrap;
 }
@@ -148,18 +168,36 @@ table {
     display: flex;
     flex-direction: column;
     justify-content: left;
+    font-size: 1rem;
     text-align: left;
     padding-inline-start: 7px;
+    margin-block-end: 10px;
+}
+
+tr {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-block-end: .3rem;
+    padding-inline-end: .5rem
 }
 
 td {
-    padding-inline-start: .5rem
+    width: 70%;
+    padding-inline-start: .5rem;
 }
 
 select {
     padding-inline: .5rem;
     font-weight: bold;
     font-size: 1.4rem;
+}
+
+input {
+    width: 100%;
+    padding-inline-start: .3rem;
+    border-radius: 2px; 
 }
 
 button {
@@ -182,9 +220,11 @@ button {
 }
 
 .control {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    padding-inline-start: .3rem;
 }
 
 .unfinished {
@@ -193,6 +233,12 @@ button {
 
 .finished {
     color: green
+}
+
+.editClass {
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
 }
 
 </style>

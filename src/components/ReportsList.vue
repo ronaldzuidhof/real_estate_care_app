@@ -5,10 +5,11 @@
 
         <header>
             <h4>{{report.getReportName()}}</h4>
+
             <div class="status">
                 <h5>Status:</h5>
                 <h5 v-if="!report.getReportRequired()">Niet benodigd</h5>
-                <select :disabled="!reportSelectedEdit" :class="reportStatus(report.id)" v-model="this.inspectionSelected.reports[report.id].finished">
+                <select :disabled="!inspectionSelectedEdit" :class="reportStatus(report.id)" v-model="this.inspectionSelected.reports[report.id].finished">
                     <option :selected="reportStatus(report.id)" value=true>Gereed</option>
                     <option :selected="!reportStatus(report.id)" value=false>Open</option>
                 </select>
@@ -22,7 +23,12 @@
             </div>
         </header>
 
-        <div v-if="reportSelected">
+        <div v-if="report.getLink(report.id) && reportSelected" class="document">
+            <h3>Aangemeld:</h3>
+            <a :href="'/documents/' + report.getLink(report.id)" target="_blank">{{report.getLink(report.id)}}</a>
+        </div>
+
+        <div v-if="reportSelected"> 
             <reportDetails v-if="reportSelected.getId() === report.id"/>
         </div>
 
@@ -81,8 +87,8 @@ export default {
         icons() {
             return this.$store.state.icons
         },
-        reportSelectedEdit() {
-            return this.$store.state.reportSelectedEdit
+        inspectionSelectedEdit() {
+            return this.$store.state.inspectionSelectedEdit
         },
     }
 }
@@ -91,6 +97,11 @@ export default {
 <!--STYLE--------------------------------------------------------------------------------------------->
 
 <style scoped>
+
+h3 {
+    font-size: 1rem;
+    padding-inline-end: .5rem;
+}
 
 h4 {
     width: 100%;
@@ -145,7 +156,17 @@ select {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-block-end: 0.6rem
+    padding-block-end: 0.3rem
+}
+
+.document {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-block: .3rem;
+    padding-inline-start: .5rem;
+    padding-inline-end: .5rem;
+    border-block-start: 1px solid black;
 }
 
 </style>

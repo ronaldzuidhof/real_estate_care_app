@@ -12,13 +12,13 @@ const routes = [
     },
     {
         path: '/scheduled',
-        name: 'scheduled',
+        name: 'Scheduled',
         // Lazzy loading
         component: () => import(/* webpackChunkName: "ScheduledView" */ '@/views/ScheduledView.vue')
     },
     {
         path: '/completed',
-        name: 'completed',
+        name: 'Completed',
         // Lazzy loading
         component: () => import(/* webpackChunkName: "CompletedView" */ '@/views/CompletedView.vue')
     },

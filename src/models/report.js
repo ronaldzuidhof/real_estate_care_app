@@ -12,6 +12,7 @@ export default class Report {
     id = null;
     nameReport = "";
     required = false;
+    currentSituation = "";
     finished = false;
     details = [];
 
@@ -19,6 +20,7 @@ export default class Report {
         this.id = data.id
         this.nameReport = useStringCapital(data.nameReport);
         this.required = data.required;
+        this.currentSituation = data.currentSituation;
         this.finished = data.finished;
         this.details = this.detailsModel(data)
     }
@@ -55,6 +57,17 @@ export default class Report {
                 return data.details.map(detail => new DetailModifications(detail));
             default:
                 return data.details;
+        }
+    }
+    // function to return a link to a document (pdf)
+    getLink(id) {
+        // check if key is equal to 3 (detail modifications)
+        if (id === 3){
+            // return the link
+            return this.currentSituation
+        } else {
+            // return empty "null"
+            return null
         }
     }
 }
