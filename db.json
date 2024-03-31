@@ -162,7 +162,7 @@
                     "id": 3,
                     "nameReport": "Modificaties",
                     "required": true,
-                    "currentSituation": "modificaties_aangemeld.pdf",
+                    "currentSituation": "",
                     "finished": true,
                     "details": []
                 }
@@ -201,7 +201,7 @@
                     "id": 3,
                     "nameReport": "Modificaties",
                     "required": true,
-                    "currentSituation": "modificaties_aangemeld.pdf",
+                    "currentSituation": "",
                     "finished": true,
                     "details": []
                 }
@@ -240,7 +240,7 @@
                     "id": 3,
                     "nameReport": "Modificaties",
                     "required": false,
-                    "currentSituation": "modificaties_aangemeld.pdf",
+                    "currentSituation": "",
                     "finished": true,
                     "details": []
                 }
