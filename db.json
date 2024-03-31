@@ -31,7 +31,7 @@
                                 "typeDamage": "normaal gebruik",
                                 "immediateAction": true,
                                 "description": "stopcontact gebroken",
-                                "pictures": "foto_2.jpg, foto_3.jpg"
+                                "pictures": "foto_2.jpg,foto_3.jpg"
                             }
                         ]
                 },
@@ -47,7 +47,7 @@
                                 "typeMaintenance": "houtrot",
                                 "immediateAction": true,
                                 "costIndication": "0-500",
-                                "pictures": "foto_4.jpg, foto_5.jpg"
+                                "pictures": "foto_4.jpg,foto_5.jpg"
                             }
                         ]
                 },
