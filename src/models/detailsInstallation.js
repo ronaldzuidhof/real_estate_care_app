@@ -80,14 +80,11 @@ export default class DetailInstallation {
             let pictures = this.pictures.split(',')
             // loop trough the created pictures array
             for (const picture in pictures) {
-                links[pictures[picture]] = "/images/" + pictures[picture];
+                links[pictures[picture]] = "/images/inspection_" + 0 + "/" + pictures[picture];
             }
             // return links object
             return links
-        } else {
-            // return empty "null"
-            return null
-        }
+        } 
     }
     // function to return a link to a document (pdf)
     getLink(key) {

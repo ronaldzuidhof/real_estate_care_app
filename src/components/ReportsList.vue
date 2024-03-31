@@ -23,9 +23,11 @@
             </div>
         </header>
 
-        <div v-if="report.getLink(report.id) && reportSelected" class="document">
-            <h3>Aangemeld:</h3>
-            <a :href="'/documents/' + report.getLink(report.id)" target="_blank">{{report.getLink(report.id)}}</a>
+        <div v-if="reportSelected">
+            <div v-if="report.getLink(report.id) && reportSelected.getId() === report.id" class="document">
+                <h3>Aangemeld:</h3>
+                <a :href="'/documents/modifications/inspection_' + inspectionSelectedId + '/' + report.getLink(report.id)" target="_blank">{{report.getLink(report.id)}}</a>
+            </div>
         </div>
 
         <div v-if="reportSelected"> 
@@ -81,14 +83,21 @@ export default {
         inspectionSelected() {
             return this.$store.state.inspectionSelected
         },
+        // function
         reportSelected() {
             return this.$store.state.reportSelected
         },
+        // function
         icons() {
             return this.$store.state.icons
         },
+        // function
         inspectionSelectedEdit() {
             return this.$store.state.inspectionSelectedEdit
+        },
+        // function to get the selected inspection from the store
+        inspectionSelectedId() {
+            return this.$store.state.inspectionSelected.getId()
         },
     }
 }

@@ -22,7 +22,7 @@
                             <a v-for="(valueLink, keyLink) in detail.getPictures(key)" :key="keyLink" :href="valueLink" target="_blank">{{keyLink}}</a>
                         </div>
                         <div v-else-if="detail.getLink(key) && !inspectionSelectedEdit">
-                            <a :href="'/documents/' + detail.getLink(key)" target="_blank">{{detail.getLink(key)}}</a>
+                            <a :href="'/documents/general/' + detail.getLink(key)" target="_blank">{{detail.getLink(key)}}</a>
                         </div>
                         <div v-else :class="editClass">
                             <input :disabled="!inspectionSelectedEdit" v-model="this.reportSelected.details[detail.id][key]">
@@ -51,6 +51,10 @@ export default {
         // function to get the selected report details from the store 
         report(){
             return this.$store.state.reportSelected.getReportDetails()
+        },
+        // function to get the selected inspection from the store
+        inspectionSelectedId() {
+            return this.$store.state.inspectionSelected.getId()
         },
         // function
         inspectionSelectedEdit(){
@@ -112,9 +116,14 @@ label {
     font-weight: bold;
 }
 
-input, select {
-    width: 100%;
+.checkbox {
+    padding-block-start: .3rem;
     padding-inline-start: .3rem;
+}
+
+input, select, a {
+    padding-inline-start: .3rem;
+    width: 100%;
 }
 
 button {
@@ -129,13 +138,16 @@ button {
     box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3); 
 }
 
+a {
+    word-break: break-all
+}
+
 tr div {
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
     padding-block-end: .3rem;
-}
+} 
 
 td:nth-child(odd) {
     width: 45%;
