@@ -1,11 +1,11 @@
 //imports
 import { createStore } from 'vuex'
 import inspections from './modules/inspection-store';
-import knowledgeBase from './modules/knowledgeBase-store';
+import documents from './modules/documents-store';
 
 export default createStore({
   modules: {
     inspections,
-    knowledgeBase
+    documents
   }
 })

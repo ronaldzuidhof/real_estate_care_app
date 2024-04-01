@@ -2,10 +2,10 @@
 
 <template lang="">
     <section>
-        <img src="@/assets/RealEstateMainLogoWhite.png" v-touch:tap="touchHandler" id="home">
+        <img src="@/assets/logo/RealEstateMainLogoWhite.png" v-touch:tap="touchHandler" id="home">
         <picture>
             <svg-icon type="mdi" :path="icons[0]" v-touch:tap="touchHandler" class="icon"></svg-icon>
-            <svg-icon type="mdi" :path="icons[1]" v-touch:tap="touchHandler" class="icon"></svg-icon>
+            <svg-icon type="mdi" :path="icons[1]" v-touch:tap="touchHandler" class="icon" id="settings"></svg-icon>
         </picture>
     </section>
 </template>
@@ -29,8 +29,11 @@ export default {
         },
     },
     methods: {
-        // push currenTarget id of event to router (load view)
+        // push currenTarget id (name) of event to router (load view)
         touchHandler(event){
+            // load preventDefault to stop propagnation on the loaded route
+            event.preventDefault();
+            // push target event to the router
             this.$router.push({name: event.currentTarget.id});
         }
     }

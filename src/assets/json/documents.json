@@ -1,0 +1,30 @@
+{
+    "documents": 
+        [
+            {
+                "id": 0,
+                "name": "beveiliging_test_beschrijving.pdf",
+                "description": "Test beschrijving beveiliging"
+            },
+            {
+                "id": 1,
+                "name": "cv_test_beschrijving.pdf.pdf",
+                "description": "Test beschrijving CV systeem"
+            },
+            {
+                "id": 2,
+                "name": "elektra_test_beschrijving.pdf",
+                "description": "Test beschrijving elektrische installatie"
+            },
+            {
+                "id": 3,
+                "name": "koeling_test_beschrijving.pdf",
+                "description": "Test beschrijving koel installatie (airco)"
+            },
+            {
+                "id": 4,
+                "name": "luchtsysteem_test_beschrijving.pdf",
+                "description": "Test beschrijving lucht behandeling systeem"
+            }
+        ]
+    }
