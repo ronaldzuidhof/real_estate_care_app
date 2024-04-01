@@ -52,52 +52,52 @@ export default {
     methods: {
         // function to get the status for the selected report 'id'
         reportStatus(id){
-            return this.$store.state.inspectionSelected.getReportStatus(id)
+            return this.$store.state.inspections.inspectionSelected.getReportStatus(id)
         },
         reportRequired(id){
-            return this.$store.state.inspectionSelected.getReportRequired(id)
+            return this.$store.state.inspections.inspectionSelected.getReportRequired(id)
         },
         // function to set the selected report to the store
         selectReport(event){
             // load preventDefault to stop propagnation
             event.preventDefault();
             // reset the report selected edit entry in the store
-            this.$store.dispatch('clearReportSelectedEdit')
+            this.$store.dispatch('inspections/clearReportSelectedEdit')
             // check if reportSelected has content
             if (!this.reportSelected){
                 // set the selected report to the store
-                this.$store.dispatch('fetchReportSelected', this.$store.state.inspectionSelected.getReports()[event.currentTarget.getAttribute("data-id")]) 
+                this.$store.dispatch('inspections/fetchReportSelected', this.$store.state.inspections.inspectionSelected.getReports()[event.currentTarget.getAttribute("data-id")]) 
             }
             // check if report is already selected
             else if (this.reportSelected.getId() === Number(event.currentTarget.getAttribute("data-id"))){
                 // reset the selected report in the store
-                this.$store.dispatch('clearReportSelected')
+                this.$store.dispatch('inspections/clearReportSelected')
             } else {
                 // set the selected report to the store
-                this.$store.dispatch('fetchReportSelected', this.$store.state.inspectionSelected.getReports()[event.currentTarget.getAttribute("data-id")])
+                this.$store.dispatch('inspections/fetchReportSelected', this.$store.state.inspections.inspectionSelected.getReports()[event.currentTarget.getAttribute("data-id")])
             } 
         },
     },
     computed: {
         // function to get the selected inspection from the store
         inspectionSelected() {
-            return this.$store.state.inspectionSelected
+            return this.$store.state.inspections.inspectionSelected
         },
         // function
         reportSelected() {
-            return this.$store.state.reportSelected
+            return this.$store.state.inspections.reportSelected
         },
         // function
         icons() {
-            return this.$store.state.icons
+            return this.$store.state.inspections.icons
         },
         // function
         inspectionSelectedEdit() {
-            return this.$store.state.inspectionSelectedEdit
+            return this.$store.state.inspections.inspectionSelectedEdit
         },
         // function to get the selected inspection from the store
         inspectionSelectedId() {
-            return this.$store.state.inspectionSelected.getId()
+            return this.$store.state.inspections.inspectionSelected.getId()
         },
     }
 }

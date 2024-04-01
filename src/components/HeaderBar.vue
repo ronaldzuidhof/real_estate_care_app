@@ -25,7 +25,7 @@ export default {
     },
     computed: {
         icons() {
-            return this.$store.state.icons
+            return this.$store.state.inspections.icons
         },
     },
     methods: {

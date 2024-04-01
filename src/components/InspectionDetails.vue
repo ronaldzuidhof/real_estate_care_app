@@ -87,25 +87,25 @@ export default {
             // check state of inspectionSelectedEdit store entry
             if (this.inspectionSelectedEdit){
                 // disable all input fields of the reports
-                this.$store.dispatch('clearInspectionSelectedEdit')
+                this.$store.dispatch('inspections/clearInspectionSelectedEdit')
             } else {
                 // enable all input fields of the reports
-                this.$store.dispatch('setInspectionSelectedEdit')
+                this.$store.dispatch('inspections/setInspectionSelectedEdit')
             }
         }
     },
     computed: {
         // function to get the selected inspection from the store
         inspectionSelected() {
-            return this.$store.state.inspectionSelected
+            return this.$store.state.inspections.inspectionSelected
         },
         // function to determine the state of the inspection
         inspectionStatus(){
-            return this.$store.state.inspectionSelected.finished
+            return this.$store.state.inspections.inspectionSelected.finished
         },
         // function
         inspectionSelectedEdit() {
-            return this.$store.state.inspectionSelectedEdit
+            return this.$store.state.inspections.inspectionSelectedEdit
         },
         // function to return the "editClass" if inspection selection edit is active
         editClass(){

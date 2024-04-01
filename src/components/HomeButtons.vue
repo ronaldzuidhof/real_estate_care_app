@@ -37,7 +37,7 @@ export default {
     },
     computed: {
         icons() {
-            return this.$store.state.icons
+            return this.$store.state.inspections.icons
         },
     },
     methods: {
@@ -51,9 +51,9 @@ export default {
     },
     created(){
         // clear the inspection selected entry in the store
-        this.$store.dispatch('clearInspectionSelected')
+        this.$store.dispatch('inspections/clearInspectionSelected')
         // clear the inspection selected edit entry in the store
-        this.$store.dispatch('clearInspectionSelectedEdit')
+        this.$store.dispatch('inspections/clearInspectionSelectedEdit')
     }
 }
 

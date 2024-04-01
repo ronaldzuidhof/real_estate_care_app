@@ -35,7 +35,7 @@ export default {
         // function to load the DetailsView for selected inspection
         SelectInspection(event){
             // set the selected inspection to the store
-            this.$store.dispatch('fetchInspectionSelected', this.filterInspection(event.currentTarget.getAttribute("data-id")))
+            this.$store.dispatch('inspections/fetchInspectionSelected', this.filterInspection(event.currentTarget.getAttribute("data-id")))
             // open DetailsView with data-id from event
             this.$router.push('details')
         },
@@ -50,15 +50,15 @@ export default {
     computed: {
         // function to
         inspections() {
-            return this.$store.state.inspections
+            return this.$store.state.inspections.inspections
         },
         // function to
         icons() {
-            return this.$store.state.icons
+            return this.$store.state.inspections.icons
         },
         // function to
         inspectionSelected() {
-            return this.$store.state.inspectionSelected
+            return this.$store.state.inspections.inspectionSelected
         },
         // function to
         title() {
@@ -67,11 +67,11 @@ export default {
     },
     created(){
         // get all inspections to the store with action 'fetchInspections'
-        this.$store.dispatch('fetchInspections')
+        this.$store.dispatch('inspections/fetchInspections')
         // reset reportSelected entrie from the store
-        this.$store.dispatch('clearReportSelected')
+        this.$store.dispatch('inspections/clearReportSelected')
         // clear the inspection selected edit entry in the store
-        this.$store.dispatch('clearInspectionSelectedEdit')
+        this.$store.dispatch('inspections/clearInspectionSelectedEdit')
     }
 }
 

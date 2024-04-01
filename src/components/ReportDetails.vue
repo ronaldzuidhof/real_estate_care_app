@@ -50,19 +50,19 @@ export default {
     computed: {
         // function to get the selected report details from the store 
         report(){
-            return this.$store.state.reportSelected.getReportDetails()
+            return this.$store.state.inspections.reportSelected.getReportDetails()
         },
         // function to get the selected inspection from the store
         inspectionSelectedId() {
-            return this.$store.state.inspectionSelected.getId()
+            return this.$store.state.inspections.inspectionSelected.getId()
         },
         // function
         inspectionSelectedEdit(){
-            return this.$store.state.inspectionSelectedEdit
+            return this.$store.state.inspections.inspectionSelectedEdit
         },
         // function
         reportSelected() {
-            return this.$store.state.reportSelected
+            return this.$store.state.inspections.reportSelected
         },
         // function to return the "editClass" if inspection selection edit is active
         editClass(){
@@ -83,12 +83,12 @@ export default {
             // check state of reportSelectedEdit store entry
             if (this.reportSelectedEdit){
                 // disable all input fields of the reports
-                this.$store.dispatch('clearReportSelectedEdit')
+                this.$store.dispatch('inspections/clearReportSelectedEdit')
                 // clear the report selected entry in the store
-                this.$store.dispatch('clearReportSelected')
+                this.$store.dispatch('inspections/clearReportSelected')
             } else {
                 // enable all input fields of the reports
-                this.$store.dispatch('setReportSelectedEdit')
+                this.$store.dispatch('inspections/setReportSelectedEdit')
             }
         }
     }
