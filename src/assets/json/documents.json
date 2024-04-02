@@ -4,27 +4,32 @@
             {
                 "id": 0,
                 "name": "beveiliging_test_beschrijving.pdf",
-                "description": "Test beschrijving beveiliging"
+                "description": "Test beschrijving beveiliging",
+                "category": "general"
             },
             {
                 "id": 1,
-                "name": "cv_test_beschrijving.pdf.pdf",
-                "description": "Test beschrijving CV systeem"
+                "name": "cv_test_beschrijving.pdf",
+                "description": "Test beschrijving CV systeem",
+                "category": "general"
             },
             {
                 "id": 2,
                 "name": "elektra_test_beschrijving.pdf",
-                "description": "Test beschrijving elektrische installatie"
+                "description": "Test beschrijving elektrische installatie",
+                "category": "general"
             },
             {
                 "id": 3,
                 "name": "koeling_test_beschrijving.pdf",
-                "description": "Test beschrijving koel installatie (airco)"
+                "description": "Test beschrijving koel installatie (airco)",
+                "category": "general"
             },
             {
                 "id": 4,
                 "name": "luchtsysteem_test_beschrijving.pdf",
-                "description": "Test beschrijving lucht behandeling systeem"
+                "description": "Test beschrijving lucht behandeling systeem",
+                "category": "general"
             }
         ]
     }

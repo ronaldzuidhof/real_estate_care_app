@@ -11,6 +11,8 @@
                         <option :selected="inspectionStatus === 'finished'" value="finished" class="finished">Gereed</option>
                         <option :selected="inspectionStatus === 'unfinished'" value="unfinished" class="unfinished">Open</option>
                     </select>
+                    <svg-icon v-if="inspectionSelectedEdit" type="mdi" :path="icons[8]" class="icon" v-touch:tap="editInspection"></svg-icon>
+                    <svg-icon v-else type="mdi" :path="icons[7]" class="icon" v-touch:tap="editInspection"></svg-icon>
                 </div>
             </header>
             
@@ -46,11 +48,6 @@
                     <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.inspector" :class="editClass"></td>
                 </tr>
             </table>
-
-            <div class="control">
-                <button v-if="inspectionSelectedEdit" v-touch:tap="editInspection">Inspectie sluiten</button>
-                <button v-else v-touch:tap="editInspection">Inspectie bewerken</button>
-            </div>
         </article>
 
         <ReportsList />
@@ -63,11 +60,12 @@
 <script>
 // imports
 import ReportsList from '@/components/ReportsList.vue';
+import SvgIcon from '@jamescoyle/vue-icon'
 
 export default {
     name: 'InspectionDetails',
     components: {
-        ReportsList,
+        ReportsList, SvgIcon
     },
     methods: {
         // function to update the date part of the inspectionSelected inspectionDate
@@ -116,7 +114,11 @@ export default {
             } else {
                 return ""
             }
-        }
+        },
+        // function to return the icons array
+        icons() {
+            return this.$store.state.inspections.icons
+        },
     },
 }
 </script>
@@ -219,12 +221,10 @@ button {
     align-items: center
 }
 
-.control {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-inline-start: .3rem;
+.icon {
+    padding-inline-start: .7rem;
+    height: auto;
+    width: 60%;
 }
 
 .unfinished {

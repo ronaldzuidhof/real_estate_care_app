@@ -54,6 +54,8 @@ export default {
         this.$store.dispatch('inspections/clearInspectionSelected')
         // clear the inspection selected edit entry in the store
         this.$store.dispatch('inspections/clearInspectionSelectedEdit')
+        // clear the document selected entry in the store
+        this.$store.dispatch('documents/clearDocumentSelected')
     }
 }
 

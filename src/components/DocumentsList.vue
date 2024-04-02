@@ -5,12 +5,10 @@
         <h1>Knowledge base:</h1>
         <table>
             <tr>
-                <th>Naam</th>
                 <th>Bechrijving</th>
-                <th>Link</th>
+                <th>Bestand naam</th>
             </tr>
-            <tr v-for="document in documents" :key="document.getId()" v-touch:tap="SelectDocument">
-                <td>{{document.getname()}}</td>
+            <tr v-for="document in documents" :key="document.getId()" v-touch:tap="SelectDocument" :data-id="document.getId()">
                 <td>{{document.getDescription()}}</td>
                 <td>{{document.getName()}}</td>
             </tr>
@@ -25,9 +23,25 @@
 export default {
     name: "DocumentsList",
     components: {},
-    methods: {},
+    methods: {
+        SelectDocument(event) {
+            // set the selected document to the store
+            this.$store.dispatch('documents/fetchDocumentSelected', this.filterDocument(event.currentTarget.getAttribute("data-id")))
+            // get the document selected from the store
+            let documentSelected = this.$store.state.documents.documentSelected
+            // open selected document in new browser window
+            window.open(documentSelected.getLink(), '_blank')
+        },
+        // function to filter document from documents array (store)
+        filterDocument(id) {
+            // filter all documents and select where document.id is equal to 'id'
+            let document = this.documents.filter(document => document.id === Number(id))
+            // return document object
+            return document[0];
+        },
+    },
     computed: {
-        // function to
+        // function to get the documents from the store
         documents() {
             return this.$store.state.documents.documents
         }

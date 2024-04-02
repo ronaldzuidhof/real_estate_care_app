@@ -8,7 +8,7 @@ export default class DetailInstallation {
     location = "";
     typeInstallation = false;
     notifiedErrors= "";
-    testProdcedure = "";
+    testProcedure = "";
     approved = false;
     comments = "";
     pictures = "";
@@ -18,7 +18,7 @@ export default class DetailInstallation {
         this.location = useStringCapital(data.location);
         this.typeInstallation = data.typeInstallation;
         this.notifiedErrors = data.notifiedErrors;
-        this.testProdcedure = data.testProcedure;
+        this.testProcedure = data.testProcedure;
         this.approved = data.approved;
         this.comments = data.comments
         this.pictures = data.pictures
@@ -38,7 +38,7 @@ export default class DetailInstallation {
                 return "Type installatie";
             case ("notifiedErrors"):
                 return "Gemelde fouten";
-            case ("testProdcedure"):
+            case ("testProcedure"):
                 return "Test procedure";
             case ("approved"):
                 return "Goedgekeurd";
@@ -89,9 +89,9 @@ export default class DetailInstallation {
     // function to return a link to a document (pdf)
     getLink(key) {
         // check if key is equal to pictures
-        if (key === "testProdcedure"){
+        if (key === "testProcedure"){
             // return the link
-            return this.testProdcedure
+            return this.testProcedure
         } else {
             // return empty "null"
             return null
