@@ -5,8 +5,8 @@
         <h1>Knowledge base:</h1>
         <table>
             <tr>
-                <th>Bechrijving</th>
-                <th>Bestand naam</th>
+                <th>Beschrijving</th>
+                <th>Bestands naam</th>
             </tr>
             <tr v-for="document in documents" :key="document.getId()" v-touch:tap="SelectDocument" :data-id="document.getId()">
                 <td>{{document.getDescription()}}</td>

@@ -31,7 +31,7 @@
         </div>
 
         <div v-if="reportSelected"> 
-            <reportDetails v-if="reportSelected.getId() === report.id"/>
+            <ReportDetails v-if="reportSelected.getId() === report.id"/>
         </div>
 
     </article>
@@ -41,13 +41,13 @@
 
 <script>
 // imports
-import reportDetails from '@/components/reportDetails.vue';
+import ReportDetails from '@/components/ReportDetails.vue';
 import SvgIcon from '@jamescoyle/vue-icon'
 
 export default {
     name: 'ReportList',
     components: {
-        reportDetails, SvgIcon
+        ReportDetails, SvgIcon
     },
     methods: {
         // function to get the status for the selected report 'id'
