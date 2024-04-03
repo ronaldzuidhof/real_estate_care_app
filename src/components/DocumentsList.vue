@@ -8,7 +8,12 @@
                 <th>Beschrijving</th>
                 <th>Bestands naam</th>
             </tr>
-            <tr v-for="document in documents" :key="document.getId()" v-touch:tap="SelectDocument" :data-id="document.getId()">
+            <tr 
+                v-for="document in documents" 
+                :key="document.getId()" 
+                v-touch:tap="SelectDocument" 
+                :data-id="document.getId()"
+            >
                 <td>{{document.getDescription()}}</td>
                 <td>{{document.getName()}}</td>
             </tr>

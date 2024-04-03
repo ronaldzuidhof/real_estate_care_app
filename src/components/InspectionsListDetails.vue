@@ -7,23 +7,49 @@
                 <h1>Rapporten</h1>
                 <div class="status">
                     <h2>Status:</h2>
-                    <select :disabled="!inspectionSelectedEdit" :class="inspectionStatus" v-model="this.inspectionSelected.finished">
+                    <select 
+                        :disabled="!inspectionSelectedEdit" 
+                        :class="inspectionStatus" 
+                        v-model="this.inspectionSelected.finished"
+                    >
                         <option :selected="inspectionStatus === 'finished'" value="finished" class="finished">Gereed</option>
                         <option :selected="inspectionStatus === 'unfinished'" value="unfinished" class="unfinished">Open</option>
                     </select>
-                    <svg-icon v-if="inspectionSelectedEdit" type="mdi" :path="icons[8]" class="icon" v-touch:tap="editInspection"></svg-icon>
-                    <svg-icon v-else type="mdi" :path="icons[7]" class="icon" v-touch:tap="editInspection"></svg-icon>
+                    <svg-icon 
+                        v-if="inspectionSelectedEdit" 
+                        type="mdi" 
+                        :path="icons[8]" 
+                        class="icon" 
+                        v-touch:tap="editInspection"
+                    ></svg-icon>
+                    <svg-icon 
+                        v-else 
+                        type="mdi" 
+                        :path="icons[7]" 
+                        class="icon" 
+                        v-touch:tap="editInspection"
+                    ></svg-icon>
                 </div>
             </header>
             
             <table>
                 <tr>
                     <th>Adres:</th>
-                    <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.address" :class="editClass"></td>
+                    <td><input 
+                        type="text" 
+                        :disabled="!inspectionSelectedEdit" 
+                        v-model="this.inspectionSelected.address" 
+                        :class="editClass"
+                    ></td>
                 </tr>
                 <tr>
                     <th>Stad:</th>
-                    <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.city" :class="editClass"></td>
+                    <td><input 
+                        type="text" 
+                        :disabled="!inspectionSelectedEdit" 
+                        v-model="this.inspectionSelected.city" 
+                        :class="editClass"
+                    ></td>
                 </tr>
                 <tr>
                     <th>Datum:</th>
@@ -31,8 +57,8 @@
                         type="date" 
                         :disabled="!inspectionSelectedEdit" 
                         :value="this.inspectionSelected.getDateInput()" 
-                        @input="this.inspectionSelected.inspectionDate = convertDate($event.target.value)">
-                    </td>
+                        @input="this.inspectionSelected.inspectionDate = convertDate($event.target.value)"
+                    ></td>
                 </tr>
                 <tr>
                     <th>Tijd:</th>
@@ -40,12 +66,17 @@
                         type="time" 
                         :disabled="!inspectionSelectedEdit" 
                         :value="this.inspectionSelected.getTime()" 
-                        @input="this.inspectionSelected.inspectionDate = convertTime($event.target.value)">
-                    </td>
+                        @input="this.inspectionSelected.inspectionDate = convertTime($event.target.value)"
+                    ></td>
                 </tr>
                 <tr>
                     <th>Inspecteur:</th>
-                    <td><input type="text" :disabled="!inspectionSelectedEdit" v-model="this.inspectionSelected.inspector" :class="editClass"></td>
+                    <td><input 
+                        type="text" 
+                        :disabled="!inspectionSelectedEdit" 
+                        v-model="this.inspectionSelected.inspector" 
+                        :class="editClass"
+                    ></td>
                 </tr>
             </table>
         </article>
@@ -63,7 +94,7 @@ import ReportsList from '@/components/ReportsList.vue';
 import SvgIcon from '@jamescoyle/vue-icon'
 
 export default {
-    name: 'InspectionDetails',
+    name: 'InspectionsListDetails',
     components: {
         ReportsList, SvgIcon
     },

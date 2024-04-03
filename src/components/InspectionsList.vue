@@ -9,7 +9,12 @@
                 <th>Stad</th>
                 <th>Adres</th>
             </tr>
-            <tr v-for="inspection in inspections" :key="inspection.getId()" :data-id="inspection.getId()" v-touch:tap="SelectInspection">
+            <tr 
+                v-for="inspection in inspections" 
+                :key="inspection.getId()" 
+                :data-id="inspection.getId()" 
+                v-touch:tap="SelectInspection"
+            >
                 <td>{{inspection.getDate()}}</td>
                 <td>{{inspection.getCity()}}</td>
                 <td>

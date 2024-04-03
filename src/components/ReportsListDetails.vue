@@ -3,29 +3,65 @@
 <template lang="">
     
     <div v-if="report.length">
-        <table v-for="detail in report" :key="detail.id">
-            <tr v-for="(value, key) in detail" :key="key">
+        <table 
+            v-for="detail in report" 
+            :key="detail.id"
+        >
+            <tr 
+                v-for="(value, key) in detail" 
+                :key="key"
+            >
                 <div v-if="detail.convertKeyToText(key)">
                     <td>
                         <label>{{detail.convertKeyToText(key)}}:</label>
                     </td>
                     <td>
                         <div v-if="detail.getOptions(key)">
-                            <select :disabled="!inspectionSelectedEdit" v-model="this.reportSelected.details[detail.id][key]" :class="editClass">
-                                <option v-for="(value2, key2) in detail.getOptions(key)" :value="key2" :key="key2" :selected="key2 === value.toString()">{{value2}}</option>
+                            <select 
+                                :disabled="!inspectionSelectedEdit" 
+                                v-model="this.reportSelected.details[detail.id][key]" 
+                                :class="editClass"
+                            >
+                                <option 
+                                    v-for="(value2, key2) in detail.getOptions(key)" 
+                                    :value="key2" :key="key2" 
+                                    :selected="key2 === value.toString()"
+                                >{{value2}}</option>
                             </select>
                         </div>
-                        <div v-else-if="detail.getCheckbox(key)" class="checkbox">
-                            <input type="checkbox" :checked="value" :disabled="!inspectionSelectedEdit" v-model="this.reportSelected.details[detail.id][key]">
+                        <div 
+                            v-else-if="detail.getCheckbox(key)" 
+                            class="checkbox"
+                        >
+                            <input 
+                                type="checkbox" 
+                                :checked="value" 
+                                :disabled="!inspectionSelectedEdit" 
+                                v-model="this.reportSelected.details[detail.id][key]"
+                            >
                         </div>
-                        <div v-else-if="detail.getPictures(key) && !inspectionSelectedEdit" class="picturesList">
-                            <a v-for="(valueLink, keyLink) in detail.getPictures(key)" :key="keyLink" :href="valueLink" target="_blank">{{keyLink}}</a>
+                        <div 
+                            v-else-if="detail.getPictures(key) && !inspectionSelectedEdit" 
+                            class="picturesList"
+                        >
+                            <a 
+                                v-for="(valueLink, keyLink) in detail.getPictures(key)" 
+                                :key="keyLink" 
+                                :href="valueLink" 
+                                target="_blank"
+                            >{{keyLink}}</a>
                         </div>
                         <div v-else-if="detail.getLink(key) && !inspectionSelectedEdit">
-                            <a :href="'/documents/general/' + detail.getLink(key)" target="_blank">{{detail.getLink(key)}}</a>
+                            <a 
+                                :href="'/documents/general/' + detail.getLink(key)" 
+                                target="_blank"
+                            >{{detail.getLink(key)}}</a>
                         </div>
                         <div v-else :class="editClass">
-                            <input :disabled="!inspectionSelectedEdit" v-model="this.reportSelected.details[detail.id][key]">
+                            <input 
+                                :disabled="!inspectionSelectedEdit" 
+                                v-model="this.reportSelected.details[detail.id][key]"
+                            >
                         </div>
                     </td>
                 </div>
@@ -46,7 +82,7 @@
 
 <script>
 export default {
-    name: 'reportDetails',
+    name: 'ReportsListDetails',
     computed: {
         // function to get the selected report details from the store 
         report(){

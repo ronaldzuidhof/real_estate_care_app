@@ -1,9 +1,9 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
 <template lang="">
-    <HeaderBar class="main_header"/>
+    <TheHeader class="main_header"/>
     <SettingsList />
-    <FooterBar class="main_tab_bar"/>
+    <TheFooter class="main_tab_bar"/>
 </template>
 
 <!--SCRIPT--------------------------------------------------------------------------------------------->
@@ -11,16 +11,16 @@
 <script>
 
 // imports
-import HeaderBar from '@/components/HeaderBar.vue';
-import FooterBar from '@/components/FooterBar.vue';
+import TheHeader from '@/components/TheHeader.vue';
 import SettingsList from '@/components/SettingsList.vue';
+import TheFooter from '@/components/TheFooter.vue';
 
 // Export App
 export default {
     name: "SettingsView",
     components: {
         // Load used components
-        HeaderBar, FooterBar, SettingsList
+        TheHeader, SettingsList, TheFooter
     },
 }
 </script>

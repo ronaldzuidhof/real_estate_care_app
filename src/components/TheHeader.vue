@@ -2,10 +2,25 @@
 
 <template lang="">
     <section>
-        <img src="@/assets/logo/RealEstateMainLogoWhite.png" v-touch:tap="touchHandler" id="home">
+        <img 
+            src="@/assets/logo/RealEstateMainLogoWhite.png" 
+            v-touch:tap="touchHandler" 
+            id="home"
+        >
         <picture>
-            <svg-icon type="mdi" :path="icons[0]" v-touch:tap="touchHandler" class="icon"></svg-icon>
-            <svg-icon type="mdi" :path="icons[1]" v-touch:tap="touchHandler" class="icon" id="settings"></svg-icon>
+            <svg-icon 
+                type="mdi" 
+                :path="icons[0]" 
+                v-touch:tap="touchHandler" 
+                class="icon"
+            ></svg-icon>
+            <svg-icon 
+                type="mdi" 
+                :path="icons[1]" 
+                v-touch:tap="touchHandler" 
+                class="icon" 
+                id="settings"
+            ></svg-icon>
         </picture>
     </section>
 </template>
@@ -18,7 +33,7 @@ import SvgIcon from '@jamescoyle/vue-icon'
 
 // export component
 export default {
-    name: "MainHeader", 
+    name: "TheHeader", 
     // load used components
     components: {
         SvgIcon

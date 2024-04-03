@@ -12,7 +12,7 @@
 <script>
 // export shared component
 export default {
-    name: "TabBarButton",
+    name: "TheFooterButton",
 }
 </script>
 

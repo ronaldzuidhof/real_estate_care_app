@@ -2,18 +2,33 @@
 
 <template lang="">
     <section>
-        <TabBarButton v-touch:tap="touchHandler" class="selected">
-            <svg-icon type="mdi" :path="path[0]" class="icon selected"></svg-icon>
+        <TheFooterButton 
+            v-touch:tap="touchHandler" 
+            class="selected"
+        >
+            <svg-icon 
+                type="mdi" 
+                :path="path[0]" 
+                class="icon selected"
+            ></svg-icon>
             <p class="selected">Active task</p>
-        </TabBarButton> 
-        <TabBarButton v-touch:tap="touchHandler">
-            <svg-icon type="mdi" :path="path[1]" class="icon"></svg-icon>
+        </TheFooterButton> 
+        <TheFooterButton v-touch:tap="touchHandler">
+            <svg-icon 
+                type="mdi" 
+                :path="path[1]" 
+                class="icon"
+            ></svg-icon>
             <p>Search</p>
-        </TabBarButton> 
-        <TabBarButton v-touch:tap="touchHandler">
-            <svg-icon type="mdi" :path="path[2]" class="icon"></svg-icon>
+        </TheFooterButton> 
+        <TheFooterButton v-touch:tap="touchHandler">
+            <svg-icon 
+                type="mdi" 
+                :path="path[2]" 
+                class="icon"
+            ></svg-icon>
             <p>Information</p>
-        </TabBarButton> 
+        </TheFooterButton> 
     </section>
 </template>
 
@@ -23,13 +38,13 @@
 // imports
 import SvgIcon from '@jamescoyle/vue-icon'
 import {mdiWrench, mdiMagnify, mdiInformation  } from '@mdi/js'
-import TabBarButton from '@/shared/TabBarButton.vue'
+import TheFooterButton from '@/components/TheFooterButton.vue'
 
 export default {
-    name: "MainTabBar",
+    name: "TheFooter",
     // Load used components
     components: {
-        TabBarButton, SvgIcon
+        TheFooterButton, SvgIcon
     },
     data() {
         return {

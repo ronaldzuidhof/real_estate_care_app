@@ -9,29 +9,66 @@
             <div class="status">
                 <h5>Status:</h5>
                 <h5 v-if="!report.getReportRequired()">Niet benodigd</h5>
-                <select :disabled="!inspectionSelectedEdit" :class="reportStatus(report.id)" v-model="this.inspectionSelected.reports[report.id].finished">
-                    <option :selected="reportStatus(report.id)" value=true>Gereed</option>
-                    <option :selected="!reportStatus(report.id)" value=false>Open</option>
+                <select 
+                    :disabled="!inspectionSelectedEdit" 
+                    :class="reportStatus(report.id)" 
+                    v-model="this.inspectionSelected.reports[report.id].finished"
+                >
+                    <option 
+                        :selected="reportStatus(report.id)" 
+                        value=true
+                    >Gereed</option>
+                    <option 
+                        :selected="!reportStatus(report.id)" 
+                        value=false
+                    >Open</option>
                 </select>
             </div>
-            <div v-if="reportSelected" v-touch:tap="selectReport" :data-id="report.id">
-                <svg-icon type="mdi" :path="icons[6]" class="icon" v-if="reportSelected.getId() === report.id"></svg-icon>
-                <svg-icon type="mdi" :path="icons[5]" class="icon" v-else></svg-icon>
+            <div 
+                v-if="reportSelected" 
+                v-touch:tap="selectReport" 
+                :data-id="report.id"
+            >
+                <svg-icon 
+                    type="mdi" 
+                    :path="icons[6]" 
+                    class="icon" 
+                    v-if="reportSelected.getId() === report.id"
+                ></svg-icon>
+                <svg-icon 
+                    type="mdi" 
+                    :path="icons[5]" 
+                    class="icon" 
+                    v-else
+                ></svg-icon>
             </div>
-            <div v-else v-touch:tap="selectReport" :data-id="report.id">
-                <svg-icon type="mdi" :path="icons[5]" class="icon"></svg-icon>
+            <div v-else 
+                v-touch:tap="selectReport" 
+                :data-id="report.id"
+            >
+                <svg-icon 
+                    type="mdi" 
+                    :path="icons[5]" 
+                    class="icon"
+                ></svg-icon>
             </div>
         </header>
 
         <div v-if="reportSelected">
-            <div v-if="report.getLink(report.id) && reportSelected.getId() === report.id" class="document">
+            <div 
+                v-if="report.getLink(report.id) && reportSelected.getId() === report.id" 
+                class="document"
+            >
                 <h3>Aangemeld:</h3>
-                <a :href="'/documents/modifications/inspection_' + inspectionSelectedId + '/' + report.getLink(report.id)" target="_blank">{{report.getLink(report.id)}}</a>
+                <a 
+                    :href=createLink(report.getLink(report.id))
+                    target="_blank"
+                >{{report.getLink(report.id)}}</a>
             </div>
         </div>
 
         <div v-if="reportSelected"> 
-            <ReportDetails v-if="reportSelected.getId() === report.id"/>
+            <ReportsListDetails v-if="reportSelected.getId() === report.id"/>
         </div>
 
     </article>
@@ -41,13 +78,13 @@
 
 <script>
 // imports
-import ReportDetails from '@/components/ReportDetails.vue';
+import ReportsListDetails from '@/components/ReportsListDetails.vue';
 import SvgIcon from '@jamescoyle/vue-icon'
 
 export default {
-    name: 'ReportList',
+    name: 'ReportsList',
     components: {
-        ReportDetails, SvgIcon
+        ReportsListDetails, SvgIcon
     },
     methods: {
         // function to get the status for the selected report 'id'
@@ -77,6 +114,10 @@ export default {
                 this.$store.dispatch('inspections/fetchReportSelected', this.$store.state.inspections.inspectionSelected.getReports()[event.currentTarget.getAttribute("data-id")])
             } 
         },
+        // function to create a link to the modifications document for the report
+        createLink(reportLink){
+            return "documents/modifications/inspection_" + this.inspectionSelectedId + "/" + reportLink
+        }
     },
     computed: {
         // function to get the selected inspection from the store

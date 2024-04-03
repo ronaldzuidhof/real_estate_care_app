@@ -2,22 +2,46 @@
 
 <template lang="">
     <section>
-        <ContentButton v-touch:tap="touchHandler" id="Scheduled">
-            <svg-icon type="mdi" :path="icons[2]" class="icon"></svg-icon>
-            Scheduled
-        </ContentButton> 
-        <ContentButton v-touch:tap="touchHandler" id="Completed">
-            <svg-icon type="mdi" :path="icons[3]" class="icon"></svg-icon>
-            Completed
-        </ContentButton> 
-        <ContentButton v-touch:tap="touchHandler" id="knowledgeBase">
-            <svg-icon type="mdi" :path="icons[4]" class="icon"></svg-icon>
-            Knowledge base
-        </ContentButton> 
-        <ContentButton v-touch:tap="touchHandler" id="settings">
-            <svg-icon type="mdi" :path="icons[1]" class="icon"></svg-icon>
-            Settings        
-        </ContentButton> 
+        <TheNavigationButton 
+            v-touch:tap="touchHandler" 
+            id="Scheduled"
+        >
+            <svg-icon 
+                type="mdi" 
+                :path="icons[2]" 
+                class="icon"
+            ></svg-icon>Scheduled
+        </TheNavigationButton> 
+        <TheNavigationButton 
+            v-touch:tap="touchHandler" 
+            id="Completed"
+        >
+            <svg-icon 
+                type="mdi" 
+                :path="icons[3]" 
+                class="icon"
+            ></svg-icon>Completed
+        </TheNavigationButton> 
+        <TheNavigationButton 
+            v-touch:tap="touchHandler" 
+            id="knowledgeBase"
+        >
+            <svg-icon 
+                type="mdi" 
+                :path="icons[4]" 
+                class="icon"
+            ></svg-icon>Knowledge base
+        </TheNavigationButton> 
+        <TheNavigationButton 
+            v-touch:tap="touchHandler" 
+            id="settings"
+        >
+            <svg-icon 
+                type="mdi" 
+                :path="icons[1]" 
+                class="icon"
+            ></svg-icon>Settings        
+        </TheNavigationButton> 
     </section>
 </template>
 
@@ -26,14 +50,14 @@
 <script>
 // imports
 import SvgIcon from '@jamescoyle/vue-icon'
-import ContentButton from '@/shared/ContentButton.vue'
+import TheNavigationButton from '@/components/TheNavigationButton.vue'
 
 // export component
 export default {
-    name: "MainContent",
+    name: "TheNavigation",
     components: {
         // load used components
-        ContentButton, SvgIcon,
+        TheNavigationButton, SvgIcon,
     },
     computed: {
         icons() {
