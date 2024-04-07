@@ -22,7 +22,7 @@
                                 "typeDamage": "geweld", 
                                 "immediateAction": false,
                                 "description": "Gat in de muur",
-                                "pictures": "foto_1.jpg"
+                                "pictures": ["foto_1.jpg"]
                             },
                             {
                                 "id": 1,
@@ -31,7 +31,7 @@
                                 "typeDamage": "normaal gebruik",
                                 "immediateAction": true,
                                 "description": "stopcontact gebroken",
-                                "pictures": "foto_2.jpg,foto_3.jpg"
+                                "pictures": ["foto_2.jpg,foto_3.jpg"]
                             }
                         ]
                 },
@@ -47,7 +47,7 @@
                                 "typeMaintenance": "houtrot",
                                 "immediateAction": true,
                                 "costIndication": "0-500",
-                                "pictures": "foto_4.jpg,foto_5.jpg"
+                                "pictures": ["foto_4.jpg,foto_5.jpg"]
                             }
                         ]
                 },
@@ -65,7 +65,7 @@
                                 "testProcedure": "koeling_test_beschrijving.pdf",
                                 "approved": true,
                                 "comments": "",
-                                "pictures": ""
+                                "pictures": []
                             }, 
                             {
                                 "id": 1,
@@ -75,7 +75,7 @@
                                 "testProcedure": "cv_test_beschrijving.pdf",
                                 "approved": false,
                                 "comments": "monteur laten controleren",
-                                "pictures": "foto_6.jpg"
+                                "pictures": ["foto_6.jpg"]
                             },   
                             {
                                 "id": 2,
@@ -85,7 +85,7 @@
                                 "testProcedure": "luchtsysteem_test_beschrijving.pdf",
                                 "approved": false,
                                 "comments": "monteur laten controleren",
-                                "pictures": ""
+                                "pictures": []
                             },
                             {
                                 "id": 3,
@@ -95,7 +95,7 @@
                                 "testProcedure": "elektra_test_beschrijving.pdf",
                                 "approved": true,
                                 "comments": "",
-                                "pictures": ""
+                                "pictures": []
                             }, 
                             {
                                 "id": 4,
@@ -105,7 +105,7 @@
                                 "testProcedure": "beveiliging_test_beschrijving.pdf",
                                 "approved": false,
                                 "comments": "slot laten vervangen",
-                                "pictures": "foto_7.jpg"
+                                "pictures": ["foto_7.jpg"]
                             }
                         ]       
                 },
@@ -123,7 +123,7 @@
                                 "description": "nieuwe keuken geplaatst",
                                 "action": "accepteren",
                                 "comments": "",
-                                "pictures": "foto_8.jpg"
+                                "pictures": ["foto_8.jpg"]
                             }    
                         ]
                 }
