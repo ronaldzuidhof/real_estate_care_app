@@ -1,36 +1,39 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <section>
         <TheNavigationButton 
             v-touch:tap="touchHandler" 
-            id="Scheduled"
+            id="scheduled"
         >
             <svg-icon 
                 type="mdi" 
                 :path="icons[2]" 
                 class="icon"
-            ></svg-icon>Scheduled
+                alt="Knop icoon gepland"
+            ></svg-icon>Gepland
         </TheNavigationButton> 
         <TheNavigationButton 
             v-touch:tap="touchHandler" 
-            id="Completed"
+            id="completed"
         >
             <svg-icon 
                 type="mdi" 
                 :path="icons[3]" 
                 class="icon"
-            ></svg-icon>Completed
+                alt="Knop icoon uitgevoerd"
+            ></svg-icon>Uitgevoerd
         </TheNavigationButton> 
         <TheNavigationButton 
             v-touch:tap="touchHandler" 
-            id="knowledgeBase"
+            id="documentation"
         >
             <svg-icon 
                 type="mdi" 
                 :path="icons[4]" 
                 class="icon"
-            ></svg-icon>Knowledge base
+                alt="Knop icoon documentatie"
+            ></svg-icon>Documentatie
         </TheNavigationButton> 
         <TheNavigationButton 
             v-touch:tap="touchHandler" 
@@ -40,7 +43,8 @@
                 type="mdi" 
                 :path="icons[1]" 
                 class="icon"
-            ></svg-icon>Settings        
+                alt="Knop icoon instellingen"
+            ></svg-icon>Instellingen        
         </TheNavigationButton> 
     </section>
 </template>

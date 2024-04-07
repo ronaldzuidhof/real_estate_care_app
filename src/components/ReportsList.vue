@@ -1,15 +1,16 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <article v-for="report in inspectionSelected.getReports()" :key="report.id">
 
         <header>
-            <h4>{{report.getReportName()}}</h4>
+            <h1>{{report.getReportName()}}</h1>
 
             <div class="status">
-                <h5>Status:</h5>
-                <h5 v-if="!report.getReportRequired()">Niet benodigd</h5>
-                <select 
+                <h2><label :for="'statusReport' + report.id">Status:</label></h2>
+                <h2 v-if="!report.getReportRequired()">>Niet benodigd</h2>
+                <select
+                    :id="'statusReport' + report.id"
                     :disabled="!inspectionSelectedEdit" 
                     :class="reportStatus(report.id)" 
                     v-model="this.inspectionSelected.reports[report.id].finished"
@@ -153,12 +154,19 @@ h3 {
     padding-inline-end: .5rem;
 }
 
-h4 {
+h1 {
     width: 100%;
-    padding-block: .4rem
+    padding-block: .4rem;
+    font-weight: bold;
 }
 
 h5 {
+    padding-inline-start: .5rem
+}
+
+h2 {
+    font-size: 0.83em;
+    font-weight: bold;
     padding-inline-start: .5rem
 }
 

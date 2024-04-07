@@ -1,6 +1,6 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <TheHeader class="main_header"/>
     <SettingsList />
     <TheFooter class="main_tab_bar"/>

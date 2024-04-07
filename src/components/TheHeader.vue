@@ -1,11 +1,12 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <section>
         <img 
             src="@/assets/logo/RealEstateMainLogoWhite.png" 
             v-touch:tap="touchHandler" 
             id="home"
+            alt="Logo Real Estate bedrijf"
         >
         <picture>
             <svg-icon 
@@ -13,6 +14,8 @@
                 :path="icons[0]" 
                 v-touch:tap="touchHandler" 
                 class="icon"
+                id="notifications"
+                alt="knop icoon meldingen"
             ></svg-icon>
             <svg-icon 
                 type="mdi" 
@@ -20,6 +23,7 @@
                 v-touch:tap="touchHandler" 
                 class="icon" 
                 id="settings"
+                alt="Knop icoon instellingen"
             ></svg-icon>
         </picture>
     </section>

@@ -1,6 +1,6 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <TheHeader class="main_header"/>
     <TheNavigation class="main_content"/>
     <TheFooter class="main_tab_bar"/>

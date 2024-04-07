@@ -1,6 +1,6 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <div class="button">
         <!--=injected content comes here-->
         <slot></slot>

@@ -1,6 +1,6 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <TheHeader class="main_header"/>
     <DocumentsList />
     <TheFooter class="main_tab_bar"/>
@@ -17,7 +17,7 @@ import TheFooter from '@/components/TheFooter.vue';
 
 // Export App
 export default {
-    name: "KnowledgeBaseView",
+    name: "DocumentationView",
     components: {
         // Load used components
         TheHeader, DocumentsList, TheFooter

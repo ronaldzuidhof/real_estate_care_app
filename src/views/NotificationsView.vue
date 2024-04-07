@@ -2,7 +2,7 @@
 
 <template lang="nl">
     <TheHeader class="main_header"/>
-    <InspectionsListDetails />
+    <NotificationsList />
     <TheFooter class="main_tab_bar"/>
 </template>
 
@@ -12,19 +12,15 @@
 
 // imports
 import TheHeader from '@/components/TheHeader.vue';
-import InspectionsListDetails from '@/components/InspectionsListDetails.vue';
+import NotificationsList from '@/components/NotificationsList.vue';
 import TheFooter from '@/components/TheFooter.vue';
 
 // Export App
 export default {
-    name: "DetailsView",
+    name: "SettingsView",
     components: {
         // Load used components
-        TheHeader, InspectionsListDetails, TheFooter
-    },
-    mounted() {
-        // Set page title when component is mounted (tab browser)
-        document.title = "RealEstateCare";
+        TheHeader, NotificationsList, TheFooter
     },
 }
 </script>

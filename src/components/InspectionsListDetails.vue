@@ -1,13 +1,14 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <section>
         <article>
             <header>
                 <h1>Rapporten</h1>
                 <div class="status">
-                    <h2>Status:</h2>
+                    <h2><label for="statusInspection">Status:</label></h2>
                     <select 
+                        id="statusInspection"
                         :disabled="!inspectionSelectedEdit" 
                         :class="inspectionStatus" 
                         v-model="this.inspectionSelected.finished"
@@ -34,8 +35,9 @@
             
             <table>
                 <tr>
-                    <th>Adres:</th>
+                    <th><label for="address">Adres:</label></th>
                     <td><input 
+                        id="address"
                         type="text" 
                         :disabled="!inspectionSelectedEdit" 
                         v-model="this.inspectionSelected.address" 
@@ -43,8 +45,9 @@
                     ></td>
                 </tr>
                 <tr>
-                    <th>Stad:</th>
+                    <th><label for="city">Stad:</label></th>
                     <td><input 
+                        id="city"
                         type="text" 
                         :disabled="!inspectionSelectedEdit" 
                         v-model="this.inspectionSelected.city" 
@@ -52,8 +55,9 @@
                     ></td>
                 </tr>
                 <tr>
-                    <th>Datum:</th>
+                    <th><label for="date">Datum:</label></th>
                     <td><input 
+                        id="date"
                         type="date" 
                         :disabled="!inspectionSelectedEdit" 
                         :value="this.inspectionSelected.getDateInput()" 
@@ -61,8 +65,9 @@
                     ></td>
                 </tr>
                 <tr>
-                    <th>Tijd:</th>
+                    <th><label for="time">Tijd:</label></th>
                     <td><input 
+                        id="time"
                         type="time" 
                         :disabled="!inspectionSelectedEdit" 
                         :value="this.inspectionSelected.getTime()" 
@@ -70,8 +75,9 @@
                     ></td>
                 </tr>
                 <tr>
-                    <th>Inspecteur:</th>
+                    <th><label for="inspector">Inspecteur:</label></th>
                     <td><input 
+                        id="inspector"
                         type="text" 
                         :disabled="!inspectionSelectedEdit" 
                         v-model="this.inspectionSelected.inspector" 

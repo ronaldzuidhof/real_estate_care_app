@@ -1,6 +1,6 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <section>
         <h1>Inspectie rapporten: {{title}}</h1>
         <table>
@@ -65,10 +65,18 @@ export default {
         inspectionSelected() {
             return this.$store.state.inspections.inspectionSelected
         },
-        // function to
+        // function to return the title based on the $route.name
         title() {
-            return this.$route.name;
+            switch(this.$route.name){
+                case ("scheduled"):
+                    return "Gepland"
+                case ("completed"):
+                    return "Uitgevoerd"
+                default:
+                    return ""
+            }
         }
+        
     },
     created(){
         // get all inspections to the store with action 'fetchInspections'

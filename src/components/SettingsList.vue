@@ -1,8 +1,8 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <section>
-        <h1>Settings</h1>
+        <h1>Instellingen</h1>
     </section>
 </template>
 

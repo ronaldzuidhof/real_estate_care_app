@@ -9,7 +9,7 @@ export default class DetailMaintenance {
     typeMaintenance = "";
     immediateAction = false;
     costIndication = "";
-    pictures = "";
+    pictures = [];
     
     constructor(data){
         this.id = data.id
@@ -65,21 +65,14 @@ export default class DetailMaintenance {
                 return null
         }
     }
-    // fuction to return a object of A tags (image links)
+    // fuction to return the pictures array
     getPictures(key){
         // check if key is equal to pictures
         if (key === "pictures"){
-            // create empty links object
-            let links = {}
-            // split the picture string by comma and place in the array pictures
-            let pictures = this.pictures.split(',')
-            // loop trough the created pictures array
-            for (const picture in pictures) {
-                links[pictures[picture]] = "/images/inspection_" + 0 + "/" + pictures[picture];
-            }
-            // return links object
-            return links
-        } 
+            return this.pictures
+        } else {
+            return null
+        }
     }
     // function to return a link to a document (pdf) (not in use)
     getLink() {

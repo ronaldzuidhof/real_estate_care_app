@@ -1,32 +1,37 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
 <template lang="nl">
-    <TheHeader class="main_header"/>
-    <InspectionsList />
-    <TheFooter class="main_tab_bar"/>
+    <section>
+        <h1>Meldingen</h1>
+    </section>
 </template>
 
 <!--SCRIPT--------------------------------------------------------------------------------------------->
 
 <script>
-
 // imports
-import TheHeader from '@/components/TheHeader.vue';
-import TheFooter from '@/components/TheFooter.vue';
-import InspectionsList from '@/components/InspectionsList';
 
-// Export App
+
+// export component
 export default {
-    name: "CompletedView",
-    components: {
-        // Load used components
-        TheHeader,InspectionsList, TheFooter
-    },
+    name: "NotificationsList",
 }
+
 </script>
 
 <!--STYLE--------------------------------------------------------------------------------------------->
 
 <style scoped>
+
+section {
+    display: flex;
+    height: 80%;
+    gap: 7px;
+    padding: 7px;
+    text-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
+    background-color: rgba(255,255,255,1);
+    border-inline: 1px solid var(--color-1);
+}
+
 
 </style>

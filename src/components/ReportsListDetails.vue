@@ -1,6 +1,6 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     
     <div v-if="report.length">
         <table 
@@ -12,12 +12,13 @@
                 :key="key"
             >
                 <div v-if="detail.convertKeyToText(key)">
-                    <td>
-                        <label>{{detail.convertKeyToText(key)}}:</label>
-                    </td>
+                    <th>
+                        <label :for="key + detail.id">{{detail.convertKeyToText(key)}}:</label>
+                    </th>
                     <td>
                         <div v-if="detail.getOptions(key)">
                             <select 
+                                :id="key + detail.id"
                                 :disabled="!inspectionSelectedEdit" 
                                 v-model="this.reportSelected.details[detail.id][key]" 
                                 :class="editClass"
@@ -34,31 +35,44 @@
                             class="checkbox"
                         >
                             <input 
+                                :id="key + detail.id"
+                                :disabled="!inspectionSelectedEdit" 
                                 type="checkbox" 
                                 :checked="value" 
-                                :disabled="!inspectionSelectedEdit" 
                                 v-model="this.reportSelected.details[detail.id][key]"
                             >
                         </div>
                         <div 
-                            v-else-if="detail.getPictures(key) && !inspectionSelectedEdit" 
+                            v-else-if="detail.getPictures(key) !== null" 
                             class="picturesList"
                         >
-                            <a 
-                                v-for="(valueLink, keyLink) in detail.getPictures(key)" 
+                            <input
+                                :id="key + detail.id"
+                                v-for="(value, index) in detail.pictures" 
                                 :key="keyLink" 
-                                :href="valueLink" 
-                                target="_blank"
-                            >{{keyLink}}</a>
+                                :readonly="!inspectionSelectedEdit" 
+                                :class="editClass"
+                                v-model=this.reportSelected.details[detail.id][key][index]
+                                :data-id="value"
+                                v-touch:tap="openPicture"
+                            >
                         </div>
-                        <div v-else-if="detail.getLink(key) && !inspectionSelectedEdit">
-                            <a 
-                                :href="'/documents/general/' + detail.getLink(key)" 
-                                target="_blank"
-                            >{{detail.getLink(key)}}</a>
+                        <div 
+                            v-else-if="detail.getLink(key) && !inspectionSelectedEdit"
+                            class="linkList"
+                        >
+                            <input
+                                :id="key + detail.id" 
+                                v-model="this.reportSelected.details[detail.id][key]"
+                                :readonly="!inspectionSelectedEdit" 
+                                :class="editClass"
+                                :data-id="this.reportSelected.details[detail.id][key]"
+                                v-touch:tap="openLink"
+                            >
                         </div>
                         <div v-else :class="editClass">
                             <input 
+                                :id="key + detail.id"
                                 :disabled="!inspectionSelectedEdit" 
                                 v-model="this.reportSelected.details[detail.id][key]"
                             >
@@ -112,20 +126,27 @@ export default {
         }
     },
     methods: {
-        // function to edit the selected report (enable fields)
-        editReport(event){
-            // load preventDefault to stop propagnation
-            event.preventDefault();
-            // check state of reportSelectedEdit store entry
-            if (this.reportSelectedEdit){
-                // disable all input fields of the reports
-                this.$store.dispatch('inspections/clearReportSelectedEdit')
-                // clear the report selected entry in the store
-                this.$store.dispatch('inspections/clearReportSelected')
-            } else {
-                // enable all input fields of the reports
-                this.$store.dispatch('inspections/setReportSelectedEdit')
-            }
+        // function to open the selected picture in a browser window
+        openPicture(event){
+            // check if inspection selected edit is not active
+            if(!this.inspectionSelectedEdit){
+                // load event data-id in pictureName variable
+                const pictureName = event.currentTarget.getAttribute("data-id")
+                // check if pictureName is not empty
+                if (pictureName){
+                    // Open a new browser window with the pciture
+                window.open("images/inspection_" + this.inspectionSelectedId + "/" + pictureName)
+                }
+            }   
+        },
+        openLink(event){
+            // check if inspection selected edit is not active
+            if(!this.inspectionSelectedEdit){
+                // load event data-id in pictureName variable
+                const linkName = event.currentTarget.getAttribute("data-id")
+                // Open a new browser window when clicked
+                window.open("documents/general/" + linkName)
+            }   
         }
     }
 }
@@ -185,6 +206,14 @@ tr div {
     padding-block-end: .3rem;
 } 
 
+th {
+    width: 30%;
+}
+
+td {
+    padding-inline-start: .5rem;
+}
+
 td:nth-child(odd) {
     width: 45%;
 }
@@ -212,6 +241,10 @@ a {
 .picturesList {
     display: flex;
     flex-direction: column;
+}
+
+.picturesList input:focus, .linkList input:focus {
+    outline: none;
 }
 
 .noData td {

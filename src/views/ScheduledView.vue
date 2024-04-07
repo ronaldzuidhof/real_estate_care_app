@@ -1,6 +1,6 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <TheHeader class="main_header"/>
     <InspectionsList />
     <TheFooter class="main_tab_bar"/>

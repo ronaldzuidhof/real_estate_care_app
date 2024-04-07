@@ -1,6 +1,6 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <section>
         <TheFooterButton 
             v-touch:tap="touchHandler" 
@@ -10,24 +10,27 @@
                 type="mdi" 
                 :path="path[0]" 
                 class="icon selected"
+                alt="Knop icoon actieve taken"
             ></svg-icon>
-            <p class="selected">Active task</p>
+            <p class="selected">Actieve taken</p>
         </TheFooterButton> 
         <TheFooterButton v-touch:tap="touchHandler">
             <svg-icon 
                 type="mdi" 
                 :path="path[1]" 
                 class="icon"
+                alt="Knop icoon zoeken"
             ></svg-icon>
-            <p>Search</p>
+            <p>Zoeken</p>
         </TheFooterButton> 
         <TheFooterButton v-touch:tap="touchHandler">
             <svg-icon 
                 type="mdi" 
                 :path="path[2]" 
                 class="icon"
+                alt="Knop icoon informatie"
             ></svg-icon>
-            <p>Information</p>
+            <p>Informatie</p>
         </TheFooterButton> 
     </section>
 </template>

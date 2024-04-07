@@ -1,8 +1,8 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
-<template lang="">
+<template lang="nl">
     <section>
-        <h1>Knowledge base:</h1>
+        <h1>Documentatie</h1>
         <table>
             <tr>
                 <th>Beschrijving</th>
