@@ -65,7 +65,7 @@
                                 "testProcedure": "koeling_test_beschrijving.pdf",
                                 "approved": true,
                                 "comments": "",
-                                "pictures": []
+                                "pictures": [""]
                             }, 
                             {
                                 "id": 1,
@@ -85,7 +85,7 @@
                                 "testProcedure": "luchtsysteem_test_beschrijving.pdf",
                                 "approved": false,
                                 "comments": "monteur laten controleren",
-                                "pictures": []
+                                "pictures": [""]
                             },
                             {
                                 "id": 3,
@@ -95,7 +95,7 @@
                                 "testProcedure": "elektra_test_beschrijving.pdf",
                                 "approved": true,
                                 "comments": "",
-                                "pictures": []
+                                "pictures": [""]
                             }, 
                             {
                                 "id": 4,
