@@ -14,6 +14,7 @@
                 :key="inspection.getId()" 
                 :data-id="inspection.getId()" 
                 v-touch:tap="SelectInspection"
+                class="inspectionLine"
             >
                 <td>{{inspection.getDate()}}</td>
                 <td>{{inspection.getCity()}}</td>
@@ -168,6 +169,10 @@ tr:first-child {
 
 .finished {
     background-color: green
+}
+
+.inspectionLine:hover {
+    cursor: pointer
 }
 
 

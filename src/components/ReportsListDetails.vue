@@ -49,9 +49,9 @@
                             <input
                                 :id="key + detail.id"
                                 v-for="(value, index) in detail.pictures" 
-                                :key="keyLink" 
+                                :key="index" 
                                 :readonly="!inspectionSelectedEdit" 
-                                :class="editClass"
+                                :class="editClassLink"
                                 v-model=this.reportSelected.details[detail.id][key][index]
                                 :data-id="value"
                                 v-touch:tap="openPicture"
@@ -65,7 +65,7 @@
                                 :id="key + detail.id" 
                                 v-model="this.reportSelected.details[detail.id][key]"
                                 :readonly="!inspectionSelectedEdit" 
-                                :class="editClass"
+                                :class="editClassLink"
                                 :data-id="this.reportSelected.details[detail.id][key]"
                                 v-touch:tap="openLink"
                             >
@@ -81,7 +81,6 @@
                 </div>
             </tr>
         </table>
-
     </div>
 
     <div v-else>
@@ -122,6 +121,16 @@ export default {
             // return empty class
             } else {
                 return ""
+            }
+        },
+        // function to return the "editClass" if inspection selection edit is active other wise return linkClass 
+        editClassLink(){
+            // return editClass
+            if(this.inspectionSelectedEdit){
+                return "editClass"
+            // return empty class
+            } else {
+                return "linkClass"
             }
         }
     },
@@ -256,6 +265,14 @@ a {
     border: 1px solid black;
     border-radius: 2px;
     box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
+}
+
+.linkClass {
+    text-decoration: underline;
+}
+
+.linkClass:hover {
+    cursor: pointer;
 }
 
 </style>

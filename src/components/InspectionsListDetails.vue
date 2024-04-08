@@ -278,4 +278,8 @@ button {
     box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
 }
 
+.icon:hover {
+    cursor: pointer;
+}
+
 </style>

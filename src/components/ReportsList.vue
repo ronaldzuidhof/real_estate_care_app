@@ -60,11 +60,15 @@
                 v-if="report.getLink(report.id) && reportSelected.getId() === report.id" 
                 class="document"
             >
-                <h3>Aangemeld:</h3>
-                <a 
-                    :href=createLink(report.getLink(report.id))
-                    target="_blank"
-                >{{report.getLink(report.id)}}</a>
+                <h3><label for="link">Aangemeld:</label></h3>
+                <input
+                    id="link"
+                    v-model="this.reportSelected.currentSituation"
+                    :readonly="!inspectionSelectedEdit"
+                    :class="editClass"
+                    :data-id="this.reportSelected.currentSituation"
+                    v-touch:tap="openLink"
+                >
             </div>
         </div>
 
@@ -118,7 +122,20 @@ export default {
         // function to create a link to the modifications document for the report
         createLink(reportLink){
             return "documents/modifications/inspection_" + this.inspectionSelectedId + "/" + reportLink
-        }
+        },
+        // function to open the selected document in a browser window
+        openLink(event){
+            // check if inspection selected edit is not active
+            if(!this.inspectionSelectedEdit){
+                // load event data-id in documentName variable
+                const documentName = event.currentTarget.getAttribute("data-id")
+                // check if pictureName is not empty
+                if (documentName){
+                    // Open a new browser window with the document
+                window.open("documents/modifications/inspection_" + this.inspectionSelectedId + "/" + documentName)
+                }
+            }   
+        },
     },
     computed: {
         // function to get the selected inspection from the store
@@ -140,6 +157,16 @@ export default {
         // function to get the selected inspection from the store
         inspectionSelectedId() {
             return this.$store.state.inspections.inspectionSelected.getId()
+        },
+        // function to return the "editClass" if inspection selection edit is active
+        editClass(){
+            // return editClass
+            if(this.inspectionSelectedEdit){
+                return "editClass"
+            // return empty class
+            } else {
+                return "linkClass"
+            }
         },
     }
 }
@@ -209,6 +236,11 @@ select {
     font-weight: bold;
 }
 
+input {
+    width: 100%;
+    padding-inline-start: .3rem;
+}
+
 .status {
     display: flex;
     flex-direction: row;
@@ -225,6 +257,28 @@ select {
     padding-inline-start: .5rem;
     padding-inline-end: .5rem;
     border-block-start: 1px solid black;
+}
+
+.document input:focus {
+    outline: none;
+}
+
+.editClass {
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3);
+}
+
+.linkClass {
+    text-decoration: underline;
+}
+
+.linkClass:hover {
+    cursor: pointer;
+}
+
+.icon:hover {
+    cursor: pointer;
 }
 
 </style>
