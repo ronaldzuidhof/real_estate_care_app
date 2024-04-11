@@ -6,16 +6,17 @@ open - user login met 2 way authenitcatie
 open - Instellingen view toevoegen gebruikers gegevens
 open - ReadMe.md compleet maken volgens opdracht LOI 
 open - Debriefing case begin module aanpassen met opmerkingen vanuit leeromgeving LOI
-open - melding voor openen PDF document ? (download)
 open - Update npm to latest packages before deploy
 open - 2 keer klikken voor aanpassen status rapport
 open - comment and allign all code lines
 open - volgorde commands by inputs volgens styling guide VUE.js (class, v-model, value, etc)
 
-edit - Tijd indicatie in rapporten verkeerd formaat
+
 
 ----------------------------------------------------------------------------------------------
 
 ready - rapport 3 status niet benodgid tegen status gereed
 ready - input border tonen select bij status inspection en rapporten
 ready - vekleuren tekst status rapport (rood/groen)
+ready - Tijd indicatie in rapporten verkeerd formaat
+ready - melding voor openen PDF document ? (download)

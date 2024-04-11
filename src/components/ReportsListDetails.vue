@@ -149,13 +149,16 @@ export default {
             }   
         },
         openLink(event){
-            // check if inspection selected edit is not active
-            if(!this.inspectionSelectedEdit){
-                // load event data-id in pictureName variable
-                const linkName = event.currentTarget.getAttribute("data-id")
-                // Open a new browser window when clicked
-                window.open("documents/general/" + linkName)
-            }   
+            // open popup user accept before opening the file
+            if(confirm("U gaat een bestand openen !")){
+                // check if inspection selected edit is not active
+                if(!this.inspectionSelectedEdit){
+                    // load event data-id in pictureName variable
+                    const linkName = event.currentTarget.getAttribute("data-id")
+                    // Open a new browser window when clicked
+                    window.open("documents/general/" + linkName)
+                }   
+            }
         }
     }
 }

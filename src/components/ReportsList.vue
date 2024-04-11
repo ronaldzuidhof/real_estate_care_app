@@ -142,16 +142,19 @@ export default {
         },
         // function to open the selected document in a browser window
         openLink(event){
-            // check if inspection selected edit is not active
-            if(!this.inspectionSelectedEdit){
-                // load event data-id in documentName variable
-                const documentName = event.currentTarget.getAttribute("data-id")
-                // check if pictureName is not empty
-                if (documentName){
-                    // Open a new browser window with the document
-                window.open("documents/modifications/inspection_" + this.inspectionSelectedId + "/" + documentName)
-                }
-            }   
+            // open popup user accept before opening the file
+            if(confirm("U gaat een bestand openen !")){
+                // check if inspection selected edit is not active
+                if(!this.inspectionSelectedEdit){
+                    // load event data-id in documentName variable
+                    const documentName = event.currentTarget.getAttribute("data-id")
+                    // check if pictureName is not empty
+                    if (documentName){
+                        // Open a new browser window with the document
+                    window.open("documents/modifications/inspection_" + this.inspectionSelectedId + "/" + documentName)
+                    }
+                } 
+            }
         },
     },
     computed: {
