@@ -13,7 +13,7 @@
                         "id": 0, 
                         "nameReport": "Schade",
                         "required": true,
-                        "finished": true,
+                        "finished": "true",
                         "details": [
                             {
                                 "id": 0,
@@ -39,7 +39,7 @@
                         "id": 1,
                         "nameReport": "Achterstallig onderhoud",
                         "required": true,
-                        "finished": true,
+                        "finished": "true",
                         "details": [
                             {
                                 "id": 0,
@@ -55,7 +55,7 @@
                         "id": 2,
                         "nameReport": "Technische installatie",
                         "required": true,
-                        "finished": true,
+                        "finished": "true",
                         "details": [
                             {
                                 "id": 0,
@@ -114,7 +114,7 @@
                         "nameReport": "Modificaties",
                         "required": true,
                         "currentSituation": "modificaties_aangemeld.pdf",
-                        "finished": true,
+                        "finished": "true",
                         "details": [
                             {
                                 "id": 0,
@@ -141,21 +141,21 @@
                     "id": 0,
                     "nameReport": "Schade",
                     "required": true,
-                    "finished": true,
+                    "finished": "true",
                     "details": []
                 },
                 {
                     "id": 1,
                     "nameReport": "Achterstallig onderhoud",
                     "required": true,
-                    "finished": true,
+                    "finished": "true",
                     "details": []
                 },
                 {
                     "id": 2,
                     "nameReport": "Technische installatie",
                     "required": true,
-                    "finished": true,
+                    "finished": "true",
                     "details": []       
                 },
                 {
@@ -163,7 +163,7 @@
                     "nameReport": "Modificaties",
                     "required": true,
                     "currentSituation": "",
-                    "finished": true,
+                    "finished": "true",
                     "details": []
                 }
             ]
@@ -180,21 +180,21 @@
                     "id": 0,
                     "nameReport": "Schade",
                     "required": true,
-                    "finished": true,
+                    "finished": "true",
                     "details": []
                 },
                 {
                     "id": 1,
                     "nameReport": "Achterstallig onderhoud",
                     "required": true,
-                    "finished": true,
+                    "finished": "true",
                     "details": []
                 },
                 {
                     "id": 2,
                     "nameReport": "Technische installatie",
                     "required": true,
-                    "finished": true,
+                    "finished": "true",
                     "details": []       
                 },
                 {
@@ -202,7 +202,7 @@
                     "nameReport": "Modificaties",
                     "required": true,
                     "currentSituation": "",
-                    "finished": true,
+                    "finished": "true",
                     "details": []
                 }
             ]
@@ -219,21 +219,21 @@
                     "id": 0,
                     "nameReport": "Schade",
                     "required": true,
-                    "finished": true,
+                    "finished": "true",
                     "details": []
                 },
                 {
                     "id": 1,
                     "nameReport": "Achterstallig onderhoud",
                     "required": true,
-                    "finished": true,
+                    "finished": "true",
                     "details": []
                 },
                 {
                     "id": 2,
                     "nameReport": "Technische installatie",
                     "required": true,
-                    "finished": false,
+                    "finished": "false",
                     "details": []       
                 },
                 {
@@ -241,7 +241,7 @@
                     "nameReport": "Modificaties",
                     "required": false,
                     "currentSituation": "",
-                    "finished": true,
+                    "finished": "true",
                     "details": []
                 }
             ]
