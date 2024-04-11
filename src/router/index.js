@@ -11,6 +11,12 @@ const routes = [
         component: HomeView
     },
     {
+        path: '/login',
+        name: 'login',
+        // Lazzy loading
+        component: () => import(/* webpackChunkName: "LoginView" */ '@/views/LoginView.vue')
+    },
+    {
         path: '/scheduled',
         name: 'scheduled',
         // Lazzy loading
@@ -52,5 +58,17 @@ const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes
 })
+
+// function to check if the user is logged in
+//router.beforeEach(async (to, from) => {
+    //if (!this.$store.state.user.loggedIn && to.name !== 'login'){
+    //if (true && to.name !== 'login'){
+    //    console.log(from)
+    //    return {name: 'login'}
+    //} 
+//})
+
+// https://medium.com/@brightikhide/how-to-guard-routes-in-vue-js-c5e85129aa4c
+
 
 export default router;

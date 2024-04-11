@@ -25,6 +25,14 @@
                 id="settings"
                 alt="Knop icoon instellingen"
             ></svg-icon>
+            <svg-icon 
+                type="mdi" 
+                :path="userStatus" 
+                v-touch:tap="touchHandler" 
+                class="icon" 
+                id="login"
+                alt="Knop icoon inloggen"
+            ></svg-icon>
         </picture>
     </section>
 </template>
@@ -43,9 +51,20 @@ export default {
         SvgIcon
     },
     computed: {
+        // function to return the icons array from the store
         icons() {
             return this.$store.state.inspections.icons
         },
+        // function to return the login or logout icon
+        userStatus(){
+            // logged in show logout icon
+            if (this.$store.state.user.loggedIn){
+                return this.icons[10]
+            // not logged in show the login icon
+            } else {
+                return this.icons[9]
+            }
+        }
     },
     methods: {
         // push currenTarget id (name) of event to router (load view)

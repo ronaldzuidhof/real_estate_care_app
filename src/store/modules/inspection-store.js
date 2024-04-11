@@ -3,7 +3,7 @@
 // imports
 import ReportService from '@/services/ReportService'
 import Inspection from '@/models/inspection';
-import {mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown,  mdiChevronUp, mdiPencilOutline, mdiContentSaveOutline  } from '@mdi/js'
+import {mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown,  mdiChevronUp, mdiPencilOutline, mdiContentSaveOutline, mdiLogin, mdiLogout} from '@mdi/js'
 
 export default ({
     namespaced: true,
@@ -15,7 +15,7 @@ export default ({
         reportSelected: null,
         reportSelectedEdit: false,
         errors: [],
-        icons: [mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown, mdiChevronUp, mdiPencilOutline, mdiContentSaveOutline  ]
+        icons: [mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown, mdiChevronUp, mdiPencilOutline, mdiContentSaveOutline, mdiLogin, mdiLogout]
     },
     mutations: {
         // mutation to set the loadingStatus in the store
