@@ -5,28 +5,34 @@
 
         <header>
             <h1>{{report.getReportName()}}</h1>
-
-            <div class="status">
+            <div v-if="report.getReportRequired()" class="status">
                 <h2><label :for="'statusReport' + report.id">Status:</label></h2>
-                <h2 v-if="!report.getReportRequired()">>Niet benodigd</h2>
                 <select
                     :id="'statusReport' + report.id"
                     :disabled="!inspectionSelectedEdit" 
-                    :class="reportStatus(report.id)" 
+                    :class="[reportClassStatus(report.id), editSelectClass]" 
                     v-model="this.inspectionSelected.reports[report.id].finished"
                 >
                     <option 
-                        :selected="reportStatus(report.id)" 
-                        value=true
+                        :selected="reportStatus(report.id) === true" 
+                        value="true"
+                        class="finished"
                     >Gereed</option>
                     <option 
-                        :selected="!reportStatus(report.id)" 
-                        value=false
+                        :selected="reportStatus(report.id) === false" 
+                        value="false"
+                        class="unfinished"
                     >Open</option>
                 </select>
             </div>
+
+            <div v-else class="status">
+                <h2>Status:</h2>
+                <h2 class="finished">Niet benodigd</h2>
+            </div>
+
             <div 
-                v-if="reportSelected" 
+                v-if="reportSelected && report.getReportRequired()" 
                 v-touch:tap="selectReport" 
                 :data-id="report.id"
             >
@@ -43,7 +49,7 @@
                     v-else
                 ></svg-icon>
             </div>
-            <div v-else 
+            <div v-else-if="report.getReportRequired()" 
                 v-touch:tap="selectReport" 
                 :data-id="report.id"
             >
@@ -65,7 +71,7 @@
                     id="link"
                     v-model="this.reportSelected.currentSituation"
                     :readonly="!inspectionSelectedEdit"
-                    :class="editClass"
+                    :class="editLinkClass"
                     :data-id="this.reportSelected.currentSituation"
                     v-touch:tap="openLink"
                 >
@@ -96,6 +102,17 @@ export default {
         reportStatus(id){
             return this.$store.state.inspections.inspectionSelected.getReportStatus(id)
         },
+        // function to return a class based on the report status
+        reportClassStatus(id){
+            // return class finished based on report status
+            if(this.$store.state.inspections.inspectionSelected.getReportStatus(id) === "true"){
+                return "finished"
+            // return unfinished class
+            } else {
+                return "unfinished"
+            }
+        },
+        // function
         reportRequired(id){
             return this.$store.state.inspections.inspectionSelected.getReportRequired(id)
         },
@@ -158,14 +175,24 @@ export default {
         inspectionSelectedId() {
             return this.$store.state.inspections.inspectionSelected.getId()
         },
-        // function to return the "editClass" if inspection selection edit is active
-        editClass(){
+        // function to return the "editLinkClass" if inspection selection edit is active for links
+        editLinkClass(){
             // return editClass
             if(this.inspectionSelectedEdit){
                 return "editClass"
             // return empty class
             } else {
                 return "linkClass"
+            }
+        },
+         // function to return the "editSelectClass" if inspection selection edit is active
+         editSelectClass(){
+            // return editClass
+            if(this.inspectionSelectedEdit){
+                return "editClass"
+            // return empty class
+            } else {
+                return ""
             }
         },
     }
@@ -279,6 +306,14 @@ input {
 
 .icon:hover {
     cursor: pointer;
+}
+
+.unfinished {
+    color: red;
+}
+
+.finished {
+    color: green
 }
 
 </style>

@@ -10,7 +10,7 @@
                     <select 
                         id="statusInspection"
                         :disabled="!inspectionSelectedEdit" 
-                        :class="inspectionStatus" 
+                        :class="[inspectionStatus, editClass]" 
                         v-model="this.inspectionSelected.finished"
                     >
                         <option :selected="inspectionStatus === 'finished'" value="finished" class="finished">Gereed</option>
@@ -60,6 +60,7 @@
                         id="date"
                         type="date" 
                         :disabled="!inspectionSelectedEdit" 
+                        :class="editClass"
                         :value="this.inspectionSelected.getDateInput()" 
                         @input="this.inspectionSelected.inspectionDate = convertDate($event.target.value)"
                     ></td>
@@ -70,6 +71,7 @@
                         id="time"
                         type="time" 
                         :disabled="!inspectionSelectedEdit" 
+                        :class="editClass"
                         :value="this.inspectionSelected.getTime()" 
                         @input="this.inspectionSelected.inspectionDate = convertTime($event.target.value)"
                     ></td>
