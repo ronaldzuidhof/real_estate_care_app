@@ -7,30 +7,33 @@
             class="selected"
         >
             <svg-icon 
+                v-if="loggedIn"
                 type="mdi" 
                 :path="path[0]" 
                 class="icon selected"
                 alt="Knop icoon actieve taken"
             ></svg-icon>
-            <p class="selected">Actieve taken</p>
+            <p v-if="loggedIn" class="selected">Actieve taken</p>
         </TheFooterButton> 
         <TheFooterButton v-touch:tap="touchHandler">
             <svg-icon 
+                v-if="loggedIn"
                 type="mdi" 
                 :path="path[1]" 
                 class="icon"
                 alt="Knop icoon zoeken"
             ></svg-icon>
-            <p>Zoeken</p>
+            <p v-if="loggedIn">Zoeken</p>
         </TheFooterButton> 
         <TheFooterButton v-touch:tap="touchHandler">
             <svg-icon 
+                v-if="loggedIn"
                 type="mdi" 
                 :path="path[2]" 
                 class="icon"
                 alt="Knop icoon informatie"
             ></svg-icon>
-            <p>Informatie</p>
+            <p v-if="loggedIn">Informatie</p>
         </TheFooterButton> 
     </section>
 </template>
@@ -59,6 +62,12 @@ export default {
          // print event object to the console that called the method
         touchHandler(event){
             console.log(event);
+        }
+    },
+    computed: {
+        // function to return the state if the user is logged in
+        loggedIn(){
+            return this.$store.state.user.loggedIn
         }
     }
 }

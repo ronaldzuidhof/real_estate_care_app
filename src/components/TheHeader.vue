@@ -10,6 +10,7 @@
         >
         <picture>
             <svg-icon 
+                v-if="loggedIn"
                 type="mdi" 
                 :path="icons[0]" 
                 v-touch:tap="touchHandler" 
@@ -18,6 +19,7 @@
                 alt="knop icoon meldingen"
             ></svg-icon>
             <svg-icon 
+                v-if="loggedIn"
                 type="mdi" 
                 :path="icons[1]" 
                 v-touch:tap="touchHandler" 
@@ -26,8 +28,9 @@
                 alt="Knop icoon instellingen"
             ></svg-icon>
             <svg-icon 
+                v-if="loggedIn"
                 type="mdi" 
-                :path="userStatus" 
+                :path="icons[10]"
                 v-touch:tap="touchHandler" 
                 class="icon" 
                 id="login"
@@ -55,15 +58,9 @@ export default {
         icons() {
             return this.$store.state.inspections.icons
         },
-        // function to return the login or logout icon
-        userStatus(){
-            // logged in show logout icon
-            if (this.$store.state.user.loggedIn){
-                return this.icons[10]
-            // not logged in show the login icon
-            } else {
-                return this.icons[9]
-            }
+        // function to return the state if the user is logged in
+        loggedIn(){
+            return this.$store.state.user.loggedIn
         }
     },
     methods: {
@@ -71,8 +68,15 @@ export default {
         touchHandler(event){
             // load preventDefault to stop propagnation on the loaded route
             event.preventDefault();
+            // check if event is 'login'
+            if (event.currentTarget.id === 'login'){
+                // log out user and redirect to login page
+                this.$store.dispatch('user/resetLoggedIn')
+                this.$router.push({name: 'login'})
             // push target event to the router
-            this.$router.push({name: event.currentTarget.id});
+            } else {
+                this.$router.push({name: event.currentTarget.id});
+            }
         }
     }
 }
