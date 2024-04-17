@@ -30,12 +30,17 @@ export default {
     components: {},
     methods: {
         SelectDocument(event) {
-            // set the selected document to the store
-            this.$store.dispatch('documents/fetchDocumentSelected', this.filterDocument(event.currentTarget.getAttribute("data-id")))
-            // get the document selected from the store
-            let documentSelected = this.$store.state.documents.documentSelected
-            // open selected document in new browser window
-            window.open(documentSelected.getLink(), '_blank')
+            // load event data-id in pictureName variable
+            const linkName = event.currentTarget.getAttribute("data-id")
+            // open popup user accept before opening the file
+            if(confirm("U gaat het bestand: " + linkName + " openen !")){
+                // set the selected document to the store
+                this.$store.dispatch('documents/fetchDocumentSelected', this.filterDocument(event.currentTarget.getAttribute("data-id")))
+                // get the document selected from the store
+                let documentSelected = this.$store.state.documents.documentSelected
+                // open selected document in new browser window
+                window.open(documentSelected.getLink(), '_blank')
+            }
         },
         // function to filter document from documents array (store)
         filterDocument(id) {

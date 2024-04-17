@@ -142,8 +142,10 @@ export default {
         },
         // function to open the selected document in a browser window
         openLink(event){
+            // load event data-id in pictureName variable
+            const linkName = event.currentTarget.getAttribute("data-id")
             // open popup user accept before opening the file
-            if(confirm("U gaat een bestand openen !")){
+            if(confirm("U gaat het bestand: " + linkName + " openen !")){
                 // check if inspection selected edit is not active
                 if(!this.inspectionSelectedEdit){
                     // load event data-id in documentName variable
