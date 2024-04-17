@@ -7,7 +7,7 @@
                 "password": "Ronald",
                 "smsCode": "56789",
                 "group": "administrator",
-                "firstName": "Ronald",
+                "firstname": "Ronald",
                 "lastname": "Test",
                 "mail": "ronald@realestate.com"
             },
@@ -17,7 +17,7 @@
                 "password": "Miranda",
                 "smsCode": "56789",
                 "group": "user",
-                "firstName": "Miranda",
+                "firstname": "Miranda",
                 "lastname": "Test",
                 "mail": "miranda@realestate.com"
             },
@@ -27,7 +27,7 @@
                 "password": "Roman",
                 "smsCode": "56789",
                 "group": "user",
-                "firstName": "Roman",
+                "firstname": "Roman",
                 "lastname": "Test",
                 "mail": "roman@realestate.com"
             },
@@ -37,7 +37,7 @@
                 "password": "Test",
                 "smsCode": "56789",
                 "group": "user",
-                "firstName": "Piet",
+                "firstname": "Piet",
                 "lastname": "Test",
                 "mail": "piet@realestate.com"
             },
@@ -47,7 +47,7 @@
                 "password": "Sara",
                 "smsCode": "56789",
                 "group": "guest",
-                "firstName": "Sara",
+                "firstname": "Sara",
                 "lastname": "Test",
                 "mail": "sara@realestate.com"
             }

@@ -14,7 +14,7 @@ export default class User {
     constructor(data){
         this.id = data.id
         this.username = data.username
-        this.firstName = data.firstName
+        this.firstname = data.firstname
         this.group = data.group
         this.lastname = data.lastname
         this.mail = data.mail

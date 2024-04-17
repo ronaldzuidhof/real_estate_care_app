@@ -119,7 +119,7 @@ table {
 }
 
 tr {
-    width: 50%;
+    width: 85%;
     display: flex;
     flex-direction: row;
     padding-block-end: .3rem;

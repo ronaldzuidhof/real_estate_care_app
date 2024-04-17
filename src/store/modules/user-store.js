@@ -14,6 +14,7 @@ export default ({
         smsCode: "",
         twoWay: false,
         errors: [],
+        settingSelectedEdit: false,
     },
     mutations: {
         // mutation to set the inspections in the store
@@ -49,7 +50,15 @@ export default ({
         // mutation to reset the errors array
         RESET_ERRORS(state){
             state.errors = []
-        }
+        },
+         // mutation to set the selected inspection in the store
+         SET_SETTING_SELECTED_EDIT(state){
+            state.settingSelectedEdit = true;
+        },
+        // mutation to clear the inspection in the store
+        CLEAR_SETTING_SELECTED_EDIT(state){
+            state.settingSelectedEdit = false;
+        },
     },
     actions: {
          // action to fetch the documents from the JSON file (local) and save the result into the VUEX store
@@ -76,7 +85,7 @@ export default ({
             context.commit("RESET_ERRORS")
             // filter over user array and check if username and password is equal
             const user = usersJson.users.filter((user) => (
-                user.username === value.username &&
+                user.username === value.username.toLowerCase() &&
                 user.password === value.password &&
                 user.smsCode === value.smsCode
             ))
@@ -90,7 +99,16 @@ export default ({
             } else {
                 context.commit('ADD_ERROR', "Inlog gegevens incorrect")
             }
-        } 
+        },
+        // action to set the 'inspectionSelectedEdit' in the store
+        setSettingSelectedEdit(context){
+            // set the report selected edit entry to true
+            context.commit('SET_SETTING_SELECTED_EDIT')
+        },
+        // action to clear the inspectionSelectedEdit in the store
+        clearSettingSelectedEdit(context){
+            context.commit('CLEAR_SETTING_SELECTED_EDIT')
+        },
 
     },
     modules: {
