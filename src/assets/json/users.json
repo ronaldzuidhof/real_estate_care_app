@@ -1,0 +1,55 @@
+{
+    "users": 
+        [
+            {
+                "id": 0,
+                "username": "ronald",
+                "password": "Ronald",
+                "smsCode": "56789",
+                "group": "administrator",
+                "firstName": "Ronald",
+                "lastname": "Test",
+                "mail": "ronald@realestate.com"
+            },
+            {
+                "id": 1,
+                "username": "miranda",
+                "password": "Miranda",
+                "smsCode": "56789",
+                "group": "user",
+                "firstName": "Miranda",
+                "lastname": "Test",
+                "mail": "miranda@realestate.com"
+            },
+            {
+                "id": 2,
+                "username": "roman",
+                "password": "Roman",
+                "smsCode": "56789",
+                "group": "user",
+                "firstName": "Roman",
+                "lastname": "Test",
+                "mail": "roman@realestate.com"
+            },
+            {
+                "id": 3,
+                "username": "piet",
+                "password": "Test",
+                "smsCode": "56789",
+                "group": "user",
+                "firstName": "Piet",
+                "lastname": "Test",
+                "mail": "piet@realestate.com"
+            },
+            {
+                "id": 4,
+                "username": "sara",
+                "password": "Sara",
+                "smsCode": "56789",
+                "group": "guest",
+                "firstName": "Sara",
+                "lastname": "Test",
+                "mail": "sara@realestate.com"
+            }
+        ]
+    }

@@ -7,33 +7,33 @@
             class="selected"
         >
             <svg-icon 
-                v-if="loggedIn"
+                v-if="userLoggedIn"
                 type="mdi" 
                 :path="path[0]" 
                 class="icon selected"
                 alt="Knop icoon actieve taken"
             ></svg-icon>
-            <p v-if="loggedIn" class="selected">Actieve taken</p>
+            <p v-if="userLoggedIn" class="selected">Actieve taken</p>
         </TheFooterButton> 
         <TheFooterButton v-touch:tap="touchHandler">
             <svg-icon 
-                v-if="loggedIn"
+                v-if="userLoggedIn"
                 type="mdi" 
                 :path="path[1]" 
                 class="icon"
                 alt="Knop icoon zoeken"
             ></svg-icon>
-            <p v-if="loggedIn">Zoeken</p>
+            <p v-if="userLoggedIn">Zoeken</p>
         </TheFooterButton> 
         <TheFooterButton v-touch:tap="touchHandler">
             <svg-icon 
-                v-if="loggedIn"
+                v-if="userLoggedIn"
                 type="mdi" 
                 :path="path[2]" 
                 class="icon"
                 alt="Knop icoon informatie"
             ></svg-icon>
-            <p v-if="loggedIn">Informatie</p>
+            <p v-if="userLoggedIn">Informatie</p>
         </TheFooterButton> 
     </section>
 </template>
@@ -66,8 +66,8 @@ export default {
     },
     computed: {
         // function to return the state if the user is logged in
-        loggedIn(){
-            return this.$store.state.user.loggedIn
+        userLoggedIn(){
+            return this.$store.state.user.userLoggedIn
         }
     }
 }

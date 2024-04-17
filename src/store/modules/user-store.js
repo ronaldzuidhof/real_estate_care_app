@@ -1,83 +1,97 @@
 // Vuex store module - Knowledge base doucments
 
 // imports
-// import user from '@/models/user' - Future create a class instance for every user
+import usersJson from '@/assets/json/users.json'
+import User from '@/models/user'
 
 export default ({
     namespaced: true,
     state: {
+        users: null,
+        userLoggedIn: null,
         username: "",
         password: "",
-        firstname: "",
-        lastname: "",
-        email: "",
-        loggedIn: false,
-        twoWayAuthentication: false,
         smsCode: "",
-        message: "",
+        twoWay: false,
+        errors: [],
     },
     mutations: {
-        SET_LOGGED_IN(state){
-            state.loggedIn = true;
+        // mutation to set the inspections in the store
+        SET_USERS(state, payload){
+            state.users = payload;
         },
+        // mutation to clear the inspection in the store
+        CLEAR_USER_LOGGED_IN(state){
+            state.userLoggedIn = false;
+        },
+        // mutation to clear the inspection in the store
+        SET_USER_LOGGED_IN(state, payload){
+            state.userLoggedIn = payload;
+        },
+        // mutation to set the twoWay in the store
         SET_TWO_WAY(state){
-            state.twoWayAuthentication = true
+            state.twoWay = true;
         },
-        SET_MESSAGE(state, payload){
-            state.message = payload
+        // mutation to reset the twoWay in the store
+        RESET_TWO_WAY(state){
+            state.twoWay = false;
         },
-        RESET_MESSAGE(state){
-            state.message = ""
-        },
-        RESET_LOGGED_IN(state){
-            state.loggedIn = false;
-        },
+        // mutation to reset the user credentials
         RESET_USER_CREDENTIALS(state){
-            state.username = ""
-            state.password = ""
+            state.username = "",
+            state.password = "",
             state.smsCode = ""
+        },
+        // mutation to set the errors in the store
+        ADD_ERROR(state, payload){
+            state.errors = [...state.errors, payload]
+        },
+        // mutation to reset the errors array
+        RESET_ERRORS(state){
+            state.errors = []
         }
     },
     actions: {
-        // action to set the loggedIn status of the user
-        setLoggedIn(context){
-            context.commit('SET_LOGGED_IN')
+         // action to fetch the documents from the JSON file (local) and save the result into the VUEX store
+         fetchUsers(context){
+            // map over the user Array and create User instances
+            let result = usersJson.users.map(user => new User(user)); 
+            // send the documents array to the mutation 'SET_USERS' of the store
+            context.commit('SET_USERS', result) 
+         },
+         // action to set the 'userLoggedIn' in the store
+        fetchUserLoggedIn(context, value){
+            // clear the userLoggedIn store entry
+            context.commit('CLEAR_USER_LOGGED_IN')
+            // set the userLoggedIn store entry
+            context.commit('SET_USER_LOGGED_IN', value)
         },
-        // action to reset the loggedIn status of the user
-        resetLoggedIn(context){
-            context.commit('RESET_LOGGED_IN')
+        // action to clear the 'userLoggedIn' in the store
+        clearUserLoggedIn(context){
+            context.commit('CLEAR_USER_LOGGED_IN')
         },
-        // function to check het user credentials with the database on the server
-        // No API presenst for this for testing, No API call will be done for now
-        checkCredentials(context, payload){
-            // debug
-            console.log(payload.username)
-            console.log(payload.password)
-            console.log(payload.smsCode)
-            console.log(this.twoWayAuthentication)
-            // first part username and password is received and validated
-            if (this.twoWayAuthentication){
-                // check if sms code is equal to value stored in the database of the server, simulated (1234)
-                if (payload.smsCode === '456789'){
-                    context.commit('SET_LOGGED_IN')
-                } else {
-                    context.commit('RESET_USER_CREDENTIALS')
-                    context.commit('SET_MESSAGE', 'SMS code niet correct')
-                }
-                
+        // action to check the given user credentials with the user JSON file (Future should be secure API of backbone) and store as server session cookie
+        checkUserCredentials(context, value){
+            // reset errors arrays before check
+            context.commit("RESET_ERRORS")
+            // filter over user array and check if username and password is equal
+            const user = usersJson.users.filter((user) => (
+                user.username === value.username &&
+                user.password === value.password &&
+                user.smsCode === value.smsCode
+            ))
+            // create new user instance in the loggedIn entry if user credentials are valid
+            if (user[0]){
+                // set logged in user to the store
+                context.commit('SET_USER_LOGGED_IN', new User(user[0]))
+                // reset login credentials
+                context.commit('RESET_USER_CREDENTIALS')
+            // create a new error and reset login credentials
             } else {
-                // check if username and password is equal to values stored in the database of the server, simulated (inspecteur, inspecteur1234) 
-                if (payload.username === 'inspecteur' && payload.password === 'inspecteur1234'){
-                    context.commit('RESET_MESSAGE')
-                    context.commit('RESET_USER_CREDENTIALS')
-                    context.commit('SET_TWO_WAY')
-                // reset the user credentials and set a error message in the store variable
-                } else {
-                    context.commit('RESET_USER_CREDENTIALS')
-                    context.commit('SET_MESSAGE', 'Gebruikers gegevens niet correct')
-                }
+                context.commit('ADD_ERROR', "Inlog gegevens incorrect")
             }
-        }
+        } 
+
     },
     modules: {
         // modules

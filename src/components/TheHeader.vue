@@ -10,7 +10,7 @@
         >
         <picture>
             <svg-icon 
-                v-if="loggedIn"
+                v-if="userLoggedIn"
                 type="mdi" 
                 :path="icons[0]" 
                 v-touch:tap="touchHandler" 
@@ -19,7 +19,7 @@
                 alt="knop icoon meldingen"
             ></svg-icon>
             <svg-icon 
-                v-if="loggedIn"
+                v-if="userLoggedIn"
                 type="mdi" 
                 :path="icons[1]" 
                 v-touch:tap="touchHandler" 
@@ -28,13 +28,13 @@
                 alt="Knop icoon instellingen"
             ></svg-icon>
             <svg-icon 
-                v-if="loggedIn"
+                v-if="userLoggedIn"
                 type="mdi" 
                 :path="icons[10]"
                 v-touch:tap="touchHandler" 
                 class="icon" 
                 id="login"
-                alt="Knop icoon inloggen"
+                alt="Knop icoon inloggen/uitloggen"
             ></svg-icon>
         </picture>
     </section>
@@ -59,8 +59,8 @@ export default {
             return this.$store.state.inspections.icons
         },
         // function to return the state if the user is logged in
-        loggedIn(){
-            return this.$store.state.user.loggedIn
+        userLoggedIn(){
+            return this.$store.state.user.userLoggedIn
         }
     },
     methods: {
@@ -71,7 +71,7 @@ export default {
             // check if event is 'login'
             if (event.currentTarget.id === 'login'){
                 // log out user and redirect to login page
-                this.$store.dispatch('user/resetLoggedIn')
+                this.$store.dispatch('user/clearUserLoggedIn')
                 this.$router.push({name: 'login'})
             // push target event to the router
             } else {

@@ -4,7 +4,7 @@
     <section>
         <h1>Login</h1>
         <table>
-            <tr v-if="!twoWayStatus">
+            <tr>
                 <th><label for="username">Gebruikersnaam:</label></th>
                 <td><input 
                     id="username"
@@ -12,7 +12,7 @@
                     v-model="this.$store.state.user.username" 
                 ></td>
             </tr>
-            <tr v-if="!twoWayStatus">
+            <tr>
                 <th><label for="password">Wachtwoord:</label></th>
                 <td><input 
                     id="password"
@@ -20,7 +20,7 @@
                     v-model="this.$store.state.user.password" 
                 ></td>
             </tr>
-            <tr v-if="twoWayStatus">
+            <tr>
                 <th><label for="smsCode">SMS code:</label></th>
                 <td><input 
                     id="smsCode"
@@ -33,10 +33,18 @@
                     type="button"
                     v-touch:tap="touchHandler" 
                 >
-                {{buttonText}}</button>
+                Inloggen</button>
             </tr>
         </table>
-        <p v-if="message" class="message">{{message}}</p>
+        <div v-if="errors.length !== 0">
+            <p  
+                v-for="error in errors"
+                class="error"
+            >
+                {{error}}
+            </p>
+        </div>
+
     </section>
 </template>
 
@@ -53,21 +61,9 @@ export default {
         // load used components
     },
     computed: {
-        // function to return the status of the 2 way authentication
-        twoWayStatus(){
-            return this.$store.state.user.twoWayAuthentication
-        },
         // function to return the content of user message
-        message(){
-            return this.$store.state.user.message
-        },
-        // function to change the text of the button based on the login state
-        buttonText(){
-            if (this.twoWayStatus){
-                return 'controleer'
-            } else {
-                return 'Inloggen'
-            }
+        errors(){
+            return this.$store.state.user.errors
         },
     },
     methods: {
@@ -75,12 +71,12 @@ export default {
         touchHandler(event){
             // load preventDefault to stop propagnation on the loaded route
             event.preventDefault();
-            // set the user credentials into variables
-            const username = this.$store.state.user.username
-            const password = this.$store.state.user.password
-            const smsCode = this.$store.state.user.smsCode
-            // // check user credentials / sms code
-            this.$store.dispatch('user/checkCredentials', {'username': username, 'password': password, 'smsCode': smsCode} )
+            // check if the user credentials are correct
+            this.$store.dispatch('user/checkUserCredentials', {
+                username: this.$store.state.user.username,
+                password: this.$store.state.user.password,
+                smsCode: this.$store.state.user.smsCode,
+            })
             // forware the user to the  "home" page
             this.$router.push({name: 'home'});
         }
@@ -158,7 +154,7 @@ button {
     box-shadow: 1px 2px 3px rgb(0 0 0 / 0.3); 
 }
 
-.message {
+.error {
     color: red;
     font-weight: bold;
 }
