@@ -2,7 +2,7 @@
 
 <template lang="nl">
     <TheHeader class="main_header"/>
-    <InspectionsList />
+    <InspectionsList :source="'scheduled'"/>
     <TheFooter class="main_tab_bar"/>
 </template>
 

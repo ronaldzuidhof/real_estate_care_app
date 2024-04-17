@@ -48,6 +48,7 @@
                         id="firstname"
                         type="text" 
                         v-model="this.userLoggedIn.firstname" 
+                        :disabled="!settingSelectedEdit" 
                         :class="editClass"
                     ></td>
                 </tr>
@@ -57,6 +58,7 @@
                         id="lastname"
                         type="text" 
                         v-model="this.userLoggedIn.lastname" 
+                        :disabled="!settingSelectedEdit" 
                         :class="editClass"
                     ></td>
                 </tr>
@@ -66,6 +68,7 @@
                         id="mail"
                         type="text" 
                         v-model="this.userLoggedIn.mail" 
+                        :disabled="!settingSelectedEdit" 
                         :class="editClass"
                     ></td>
                 </tr>

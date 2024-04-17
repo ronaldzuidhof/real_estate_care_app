@@ -36,10 +36,18 @@
 
 export default {
     name: "InspectionList",
+    props: {
+        source: {
+            type: String,
+            required: true,
+        }
+    },
     components: {},
     methods: {
         // function to load the DetailsView for selected inspection
         SelectInspection(event){
+            // set the selected inspection source to the store
+            this.$store.dispatch('inspections/setInspectionSelectedSource', this.source)
             // set the selected inspection to the store
             this.$store.dispatch('inspections/fetchInspectionSelected', this.filterInspection(event.currentTarget.getAttribute("data-id")))
             // open DetailsView with data-id from event

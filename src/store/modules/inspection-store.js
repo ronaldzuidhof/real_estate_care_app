@@ -12,6 +12,7 @@ export default ({
         inspections: null,
         inspectionSelected: null,
         inspectionSelectedEdit: false,
+        inspectionSelectedSource: null,
         reportSelected: null,
         reportSelectedEdit: false,
         errors: [],
@@ -37,6 +38,14 @@ export default ({
         // mutation to clear the inspection in the store
         CLEAR_INSPECTION_SELECTED(state){
             state.inspectionSelected = null;
+        },
+        // mutation to set the selected inspection in the store
+        SET_INSPECTION_SELECTED_SOURCE(state, payload){
+            state.inspectionSelectedSource = payload;
+        },
+        // mutation to clear the inspection in the store
+        CLEAR_INSPECTION_SELECTED_SOURCE(state){
+            state.inspectionSelectedSource = null;
         },
         // mutation to set the selected inspection in the store
         SET_REPORT_SELECTED(state, payload){
@@ -136,6 +145,14 @@ export default ({
         clearReportSelected(context){
             context.commit('CLEAR_REPORT_SELECTED')
         },
+        // action to setr the inspection selected source store entry
+        setInspectionSelectedSource(context, value){
+            context.commit('SET_INSPECTION_SELECTED_SOURCE', value)
+        },
+        // action to setr the inspection selected source store entry
+        clearInspectionSelectedSource(context){
+            context.commit('CLEAR_INSPECTION_SELECTED_SOURCE')
+        }
     },
     modules: {
 

@@ -17,14 +17,14 @@
                         <option :selected="inspectionStatus === 'unfinished'" value="unfinished" class="unfinished">Open</option>
                     </select>
                     <svg-icon 
-                        v-if="inspectionSelectedEdit && userGroup !=='guest'" 
+                        v-if="inspectionSelectedEdit && userGroup !=='guest' && source !== 'scheduled'" 
                         type="mdi" 
                         :path="icons[8]" 
                         class="icon" 
                         v-touch:tap="editInspection"
                     ></svg-icon>
                     <svg-icon 
-                        v-else-if="userGroup !=='guest'" 
+                        v-else-if="userGroup !=='guest' && source !== 'scheduled'" 
                         type="mdi" 
                         :path="icons[7]" 
                         class="icon" 
@@ -161,6 +161,10 @@ export default {
         // function to return the state if the user is logged in
         userGroup(){
             return this.$store.state.user.userLoggedIn.group
+        },
+        // function to return the inspection selected source entry
+        source(){
+            return this.$store.state.inspections.inspectionSelectedSource
         }
     },
 }
