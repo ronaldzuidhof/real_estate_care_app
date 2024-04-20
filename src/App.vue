@@ -50,7 +50,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    height: 100dvh;
     padding: 0;
     margin-inline: auto;
     max-width: 700px;

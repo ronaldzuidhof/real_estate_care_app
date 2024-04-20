@@ -144,10 +144,10 @@ export default {
         openLink(event){
             // load event data-id in pictureName variable
             const linkName = event.currentTarget.getAttribute("data-id")
-            // open popup user accept before opening the file
-            if(confirm("U gaat het bestand: " + linkName + " openen !")){
-                // check if inspection selected edit is not active
-                if(!this.inspectionSelectedEdit){
+            // check if inspection selected edit is not active
+            if(!this.inspectionSelectedEdit){
+                // open popup user accept before opening the file
+                if(confirm("U gaat het bestand: " + linkName + " openen !")){
                     // load event data-id in documentName variable
                     const documentName = event.currentTarget.getAttribute("data-id")
                     // check if pictureName is not empty

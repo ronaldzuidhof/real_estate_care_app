@@ -158,8 +158,7 @@ export default {
                     // Open a new browser window when clicked
                     window.open("documents/general/" + linkName)
                 }  
-            }
-                 
+            }       
         }
     }
 }

@@ -208,7 +208,6 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     font-size: 1.3rem;
-    padding-inline-end: 1rem;
     text-wrap: nowrap;
 }
 
