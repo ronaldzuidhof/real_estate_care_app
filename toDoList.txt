@@ -2,13 +2,11 @@ ToDo list - Real Estate care App
 
 --------------------------------------------------------------------------------------------
 
-
 open - ReadMe.md compleet maken volgens opdracht LOI 
 open - Debriefing case begin module aanpassen met opmerkingen vanuit leeromgeving LOI
 open - comment and allign all code lines
-open - volgorde commands by inputs volgens styling guide VUE.js (class, v-model, value, etc)
 
-Edit - Open file from documents window. notificagtion message (now only number !!!)
+edit - volgorde commands by inputs volgens styling guide VUE.js (class, v-model, value, etc)
 
 ----------------------------------------------------------------------------------------------
 
@@ -21,3 +19,5 @@ ready - Update npm to latest packages before deploy
 ready - 2 keer klikken voor aanpassen status rapport
 ready - user login met 2 way authenitcatie
 ready - Instellingen view toevoegen gebruikers gegevens
+ready - hover over link documentation
+ready - Open file from documents window, navigation message

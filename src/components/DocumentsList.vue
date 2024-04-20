@@ -11,6 +11,7 @@
             <tr 
                 v-for="document in documents" 
                 :key="document.getId()" 
+                class="linkClass"
                 v-touch:tap="SelectDocument" 
                 :data-id="document.getId()"
             >
@@ -31,7 +32,9 @@ export default {
     methods: {
         SelectDocument(event) {
             // load event data-id in pictureName variable
-            const linkName = event.currentTarget.getAttribute("data-id")
+            const linkId = event.currentTarget.getAttribute("data-id")
+            // get name based on the linkId from the store
+            const linkName = this.$store.state.documents.documents[linkId].getName()
             // open popup user accept before opening the file
             if(confirm("U gaat het bestand: " + linkName + " openen !")){
                 // set the selected document to the store
@@ -120,5 +123,8 @@ tr:first-child {
     pointer-events: none;
 }
 
+.linkClass:hover {
+    cursor: pointer;
+}
 
 </style>
