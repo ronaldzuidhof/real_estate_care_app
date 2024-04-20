@@ -9,6 +9,7 @@
                 <td><input 
                     id="username"
                     type="text" 
+                    autocomplete="username"
                     v-model="this.$store.state.user.username" 
                 ></td>
             </tr>
@@ -17,6 +18,7 @@
                 <td><input 
                     id="password"
                     type="password" 
+                    autocomplete="current-password"
                     v-model="this.$store.state.user.password" 
                 ></td>
             </tr>

@@ -29,7 +29,7 @@
             v-touch:tap="touchHandler" 
         >
             <svg-icon 
-                path="icons[4]" 
+                :path="icons[4]" 
                 class="icon"
                 alt="Knop icoon documentatie"
                 type="mdi" 
