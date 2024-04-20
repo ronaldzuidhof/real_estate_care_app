@@ -11,30 +11,30 @@
         <picture>
             <svg-icon 
                 v-if="userLoggedIn"
-                type="mdi" 
                 :path="icons[0]" 
-                v-touch:tap="touchHandler" 
                 class="icon"
-                id="notifications"
                 alt="knop icoon meldingen"
+                id="notifications"
+                type="mdi" 
+                v-touch:tap="touchHandler" 
             ></svg-icon>
             <svg-icon 
                 v-if="userLoggedIn"
-                type="mdi" 
                 :path="icons[1]" 
-                v-touch:tap="touchHandler" 
                 class="icon" 
-                id="settings"
                 alt="Knop icoon instellingen"
+                id="settings"
+                type="mdi" 
+                v-touch:tap="touchHandler" 
             ></svg-icon>
             <svg-icon 
                 v-if="userLoggedIn"
-                type="mdi" 
                 :path="icons[10]"
-                v-touch:tap="touchHandler" 
-                class="icon" 
-                id="login"
+                class="icon"
                 alt="Knop icoon inloggen/uitloggen"
+                id="login"
+                type="mdi" 
+                v-touch:tap="touchHandler" 
             ></svg-icon>
         </picture>
     </section>

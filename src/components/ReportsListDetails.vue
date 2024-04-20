@@ -18,10 +18,10 @@
                     <td>
                         <div v-if="detail.getOptions(key)">
                             <select 
-                                :id="key + detail.id"
-                                :disabled="!inspectionSelectedEdit" 
-                                v-model="this.reportSelected.details[detail.id][key]" 
                                 :class="editClass"
+                                :disabled="!inspectionSelectedEdit" 
+                                :id="key + detail.id"
+                                v-model="this.reportSelected.details[detail.id][key]" 
                             >
                                 <option 
                                     v-for="(value2, key2) in detail.getOptions(key)" 
@@ -35,10 +35,10 @@
                             class="checkbox"
                         >
                             <input 
-                                :id="key + detail.id"
-                                :disabled="!inspectionSelectedEdit" 
-                                type="checkbox" 
+                                :disabled="!inspectionSelectedEdit"
                                 :checked="value" 
+                                type="checkbox" 
+                                :id="key + detail.id"
                                 v-model="this.reportSelected.details[detail.id][key]"
                             >
                         </div>
@@ -47,13 +47,13 @@
                             class="picturesList"
                         >
                             <input
-                                :id="key + detail.id"
                                 v-for="(value, index) in detail.pictures" 
                                 :key="index" 
-                                :readonly="!inspectionSelectedEdit" 
                                 :class="editClassLink"
-                                v-model=this.reportSelected.details[detail.id][key][index]
                                 :data-id="value"
+                                :readonly="!inspectionSelectedEdit" 
+                                :id="key + detail.id"
+                                v-model=this.reportSelected.details[detail.id][key][index]
                                 v-touch:tap="openPicture"
                             >
                         </div>
@@ -62,18 +62,18 @@
                             class="linkList"
                         >
                             <input
+                                :class="editClassLink"
+                                :readonly="!inspectionSelectedEdit" 
+                                :data-id="this.reportSelected.details[detail.id][key]"
                                 :id="key + detail.id" 
                                 v-model="this.reportSelected.details[detail.id][key]"
-                                :readonly="!inspectionSelectedEdit" 
-                                :class="editClassLink"
-                                :data-id="this.reportSelected.details[detail.id][key]"
                                 v-touch:tap="openLink"
                             >
                         </div>
                         <div v-else :class="editClass">
                             <input 
-                                :id="key + detail.id"
                                 :disabled="!inspectionSelectedEdit" 
+                                :id="key + detail.id"
                                 v-model="this.reportSelected.details[detail.id][key]"
                             >
                         </div>

@@ -8,30 +8,30 @@
         >
             <svg-icon 
                 v-if="userLoggedIn"
-                type="mdi" 
-                :path="path[0]" 
+                :path="path[0]"
                 class="icon selected"
-                alt="Knop icoon actieve taken"
+                alt="Knop icoon actieve taken" 
+                type="mdi" 
             ></svg-icon>
             <p v-if="userLoggedIn" class="selected">Actieve taken</p>
         </TheFooterButton> 
         <TheFooterButton v-touch:tap="touchHandler">
             <svg-icon 
                 v-if="userLoggedIn"
-                type="mdi" 
                 :path="path[1]" 
                 class="icon"
                 alt="Knop icoon zoeken"
+                type="mdi" 
             ></svg-icon>
             <p v-if="userLoggedIn">Zoeken</p>
         </TheFooterButton> 
         <TheFooterButton v-touch:tap="touchHandler">
             <svg-icon 
                 v-if="userLoggedIn"
-                type="mdi" 
                 :path="path[2]" 
                 class="icon"
                 alt="Knop icoon informatie"
+                type="mdi" 
             ></svg-icon>
             <p v-if="userLoggedIn">Informatie</p>
         </TheFooterButton> 

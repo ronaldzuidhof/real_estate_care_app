@@ -8,16 +8,18 @@
                 <div class="status">
                     <svg-icon 
                         v-if="settingSelectedEdit" 
-                        type="mdi" 
                         :path="icons[8]" 
                         class="icon" 
+                        alt="Knop icoon opslaan"
+                        type="mdi" 
                         v-touch:tap="editSetting"
                     ></svg-icon>
                     <svg-icon 
                         v-else
-                        type="mdi" 
                         :path="icons[7]" 
                         class="icon" 
+                        alt="Knop icoon bewerken"
+                        type="mdi" 
                         v-touch:tap="editSetting"
                     ></svg-icon>
                 </div>
@@ -28,48 +30,48 @@
                     <th><label for="username">Gebruikersnaam:</label></th>
                     <td><input 
                         id="username"
+                        disabled="true" 
                         type="text" 
                         v-model="this.userLoggedIn.username" 
-                        disabled="true" 
                     ></td>
                 </tr>
                 <tr>
                     <th><label for="group">Groep:</label></th>
                     <td><input 
                         id="group"
+                        disabled="true" 
                         type="text" 
                         v-model="this.userLoggedIn.group" 
-                        disabled="true" 
                     ></td>
                 </tr>
                 <tr>
                     <th><label for="firstname">Voornaam:</label></th>
                     <td><input 
                         id="firstname"
+                        :class="editClass"
+                        :disabled="!settingSelectedEdit"
                         type="text" 
                         v-model="this.userLoggedIn.firstname" 
-                        :disabled="!settingSelectedEdit" 
-                        :class="editClass"
                     ></td>
                 </tr>
                 <tr>
                     <th><label for="lastname">Achternaam:</label></th>
                     <td><input 
                         id="lastname"
+                        :class="editClass"
+                        :disabled="!settingSelectedEdit" 
                         type="text" 
                         v-model="this.userLoggedIn.lastname" 
-                        :disabled="!settingSelectedEdit" 
-                        :class="editClass"
                     ></td>
                 </tr>
                 <tr>
                     <th><label for="mail">Mail adres:</label></th>
                     <td><input 
                         id="mail"
+                        :class="editClass"
+                        :disabled="!settingSelectedEdit" 
                         type="text" 
                         v-model="this.userLoggedIn.mail" 
-                        :disabled="!settingSelectedEdit" 
-                        :class="editClass"
                     ></td>
                 </tr>
             </table>

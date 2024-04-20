@@ -9,19 +9,19 @@
                 <h2><label :for="'statusReport' + report.id">Status:</label></h2>
                 <select
                     :id="'statusReport' + report.id"
-                    :disabled="!inspectionSelectedEdit" 
                     :class="[reportClassStatus(report.id), editSelectClass]" 
+                    :disabled="!inspectionSelectedEdit" 
                     v-model="this.inspectionSelected.reports[report.id].finished"
                 >
                     <option 
                         :selected="reportStatus(report.id) === true" 
-                        value="true"
                         class="finished"
+                        value="true"
                     >Gereed</option>
                     <option 
                         :selected="reportStatus(report.id) === false" 
-                        value="false"
                         class="unfinished"
+                        value="false"
                     >Open</option>
                 </select>
             </div>
@@ -33,30 +33,33 @@
 
             <div 
                 v-if="reportSelected && report.getReportRequired()" 
-                v-touch:tap="selectReport" 
                 :data-id="report.id"
+                v-touch:tap="selectReport" 
             >
                 <svg-icon 
-                    type="mdi" 
-                    :path="icons[6]" 
-                    class="icon" 
                     v-if="reportSelected.getId() === report.id"
+                    :path="icons[6]" 
+                    class="icon"
+                    alt="Knop icoon invouwen"
+                    type="mdi" 
                 ></svg-icon>
                 <svg-icon 
-                    type="mdi" 
+                    v-else
                     :path="icons[5]" 
                     class="icon" 
-                    v-else
+                    alt="Knop icoon uitvouwen"
+                    type="mdi" 
                 ></svg-icon>
             </div>
             <div v-else-if="report.getReportRequired()" 
-                v-touch:tap="selectReport" 
                 :data-id="report.id"
+                v-touch:tap="selectReport" 
             >
                 <svg-icon 
-                    type="mdi" 
                     :path="icons[5]" 
                     class="icon"
+                    alt="Knop icoon uitvouwen"
+                    type="mdi" 
                 ></svg-icon>
             </div>
         </header>
@@ -68,11 +71,11 @@
             >
                 <h3><label for="link">Aangemeld:</label></h3>
                 <input
+                    :data-id="this.reportSelected.currentSituation"
+                    :class="editLinkClass"
+                    :readonly="!inspectionSelectedEdit"
                     id="link"
                     v-model="this.reportSelected.currentSituation"
-                    :readonly="!inspectionSelectedEdit"
-                    :class="editLinkClass"
-                    :data-id="this.reportSelected.currentSituation"
                     v-touch:tap="openLink"
                 >
             </div>

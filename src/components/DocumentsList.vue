@@ -11,9 +11,9 @@
             <tr 
                 v-for="document in documents" 
                 :key="document.getId()" 
+                :data-id="document.getId()"
                 class="linkClass"
                 v-touch:tap="SelectDocument" 
-                :data-id="document.getId()"
             >
                 <td>{{document.getDescription()}}</td>
                 <td>{{document.getName()}}</td>

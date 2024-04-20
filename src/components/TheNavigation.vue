@@ -3,14 +3,14 @@
 <template lang="nl">
     <section>
         <TheNavigationButton 
-            v-touch:tap="touchHandler" 
             id="scheduled"
+            v-touch:tap="touchHandler"
         >
             <svg-icon 
-                type="mdi" 
                 :path="icons[2]" 
                 class="icon"
                 alt="Knop icoon gepland"
+                type="mdi" 
             ></svg-icon>Gepland
         </TheNavigationButton> 
         <TheNavigationButton 
@@ -18,32 +18,32 @@
             id="completed"
         >
             <svg-icon 
-                type="mdi" 
                 :path="icons[3]" 
                 class="icon"
                 alt="Knop icoon uitgevoerd"
+                type="mdi" 
             ></svg-icon>Uitgevoerd
         </TheNavigationButton> 
         <TheNavigationButton 
-            v-touch:tap="touchHandler" 
             id="documentation"
+            v-touch:tap="touchHandler" 
         >
             <svg-icon 
-                type="mdi" 
-                :path="icons[4]" 
+                path="icons[4]" 
                 class="icon"
                 alt="Knop icoon documentatie"
+                type="mdi" 
             ></svg-icon>Documentatie
         </TheNavigationButton> 
         <TheNavigationButton 
-            v-touch:tap="touchHandler" 
             id="settings"
+            v-touch:tap="touchHandler" 
         >
             <svg-icon 
-                type="mdi" 
-                :path="icons[1]" 
+                :path="icons[1]"
                 class="icon"
                 alt="Knop icoon instellingen"
+                type="mdi" 
             ></svg-icon>Instellingen        
         </TheNavigationButton> 
     </section>

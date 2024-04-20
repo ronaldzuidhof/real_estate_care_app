@@ -13,8 +13,8 @@
                 v-for="inspection in inspections" 
                 :key="inspection.getId()" 
                 :data-id="inspection.getId()" 
-                v-touch:tap="SelectInspection"
                 class="inspectionLine"
+                v-touch:tap="SelectInspection"
             >
                 <td>{{inspection.getDate()}}</td>
                 <td>{{inspection.getCity()}}</td>
@@ -37,7 +37,7 @@
 export default {
     name: "InspectionList",
     props: {
-        source: {
+        sourcePage: {
             type: String,
             required: true,
         }
@@ -47,7 +47,7 @@ export default {
         // function to load the DetailsView for selected inspection
         SelectInspection(event){
             // set the selected inspection source to the store
-            this.$store.dispatch('inspections/setInspectionSelectedSource', this.source)
+            this.$store.dispatch('inspections/setInspectionSelectedSource', this.sourcePage)
             // set the selected inspection to the store
             this.$store.dispatch('inspections/fetchInspectionSelected', this.filterInspection(event.currentTarget.getAttribute("data-id")))
             // open DetailsView with data-id from event

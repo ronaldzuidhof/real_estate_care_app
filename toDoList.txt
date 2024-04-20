@@ -6,7 +6,8 @@ open - ReadMe.md compleet maken volgens opdracht LOI
 open - Debriefing case begin module aanpassen met opmerkingen vanuit leeromgeving LOI
 open - comment and allign all code lines
 
-edit - volgorde commands by inputs volgens styling guide VUE.js (class, v-model, value, etc)
+edit - alt attribute add to svg icon elements
+edit - volgorde commands by inputs volgens styling guide VUE.js (class, v-model, value, etc) - https://vuejs.org/style-guide/rules-recommended.html#element-attribute-order
 
 ----------------------------------------------------------------------------------------------
 
