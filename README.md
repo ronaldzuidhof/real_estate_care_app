@@ -1,4 +1,3 @@
-# real_estate_care_app
 
 ## Project setup
 ```
@@ -22,3 +21,19 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Project description (Real Estate Care App)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

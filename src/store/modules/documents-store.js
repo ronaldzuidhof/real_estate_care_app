@@ -11,12 +11,15 @@ export default ({
         documentSelected: null,
     },
     mutations: {
+        // mutation to set the documents in the store
         SET_DOCUMENTS(state, payload){
             state.documents = payload;
         },
+        // mutation to clear the document selected in the store
         CLEAR_DOCUMENT_SELECTED(state){
             state.documentSelected = null;
         },
+        //mutation to set the document selected in the store
         SET_DOCUMENT_SELECTED(state, payload){
             state.documentSelected = payload;
         }
@@ -41,7 +44,5 @@ export default ({
             context.commit('CLEAR_DOCUMENT_SELECTED')
         },
     },
-    modules: {
-        // modules
-    }
+    modules: {}
 })

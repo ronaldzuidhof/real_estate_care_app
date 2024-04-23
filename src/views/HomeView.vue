@@ -15,11 +15,9 @@ import TheHeader from '@/components/TheHeader.vue';
 import TheNavigation from '@/components/TheNavigation.vue';
 import TheFooter from '@/components/TheFooter.vue';
 
-// Export App
 export default {
     name: "HomeView",
     components: {
-        // Load used components
         TheHeader, TheNavigation, TheFooter
     },
     mounted() {

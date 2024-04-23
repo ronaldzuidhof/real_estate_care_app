@@ -8,7 +8,6 @@
 
 <script>
 
-// export App
 export default {
   name: 'App',
   mounted() {

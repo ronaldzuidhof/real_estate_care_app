@@ -2,7 +2,9 @@
 
 <template lang="nl">
     <section>
+
         <h1>Documentatie</h1>
+
         <table>
             <tr>
                 <th>Beschrijving</th>
@@ -28,14 +30,13 @@
 <script>
 export default {
     name: "DocumentsList",
-    components: {},
     methods: {
         SelectDocument(event) {
-            // load event data-id in pictureName variable
+            // load event "data-id" in linkId variable
             const linkId = event.currentTarget.getAttribute("data-id")
             // get name based on the linkId from the store
             const linkName = this.$store.state.documents.documents[linkId].getName()
-            // open popup user accept before opening the file
+            // open popup window, open file if the user accepts
             if(confirm("U gaat het bestand: " + linkName + " openen !")){
                 // set the selected document to the store
                 this.$store.dispatch('documents/fetchDocumentSelected', this.filterDocument(event.currentTarget.getAttribute("data-id")))
@@ -49,7 +50,7 @@ export default {
         filterDocument(id) {
             // filter all documents and select where document.id is equal to 'id'
             let document = this.documents.filter(document => document.id === Number(id))
-            // return document object
+            // return document object position 0
             return document[0];
         },
     },
@@ -60,7 +61,7 @@ export default {
         }
     },
     created() {
-        // get all documents to the store with action 'fetchDocuments'
+        // set all documents to the store with action 'fetchDocuments'
         this.$store.dispatch('documents/fetchDocuments')
     }
 }

@@ -3,6 +3,7 @@
 <template lang="nl">
     <section>
         <h1>Inspectie rapporten: {{title}}</h1>
+
         <table>
             <tr>
                 <th>Datum</th>
@@ -21,12 +22,18 @@
                 <td>
                     <div class="status">
                         {{inspection.getAddress()}}
-                        <div v-if="inspection.getStatus() === 'finished'" class="dot finished" ></div>
-                        <div v-else class="dot unfinished" ></div> 
+                        <div 
+                            v-if="inspection.getStatus() === 'finished'" 
+                            class="dot finished" >
+                        </div>
+                        <div 
+                            v-else class="dot unfinished" >
+                        </div> 
                     </div>
                 </td>
             </tr>
         </table>
+        
     </section>
 </template>
 
@@ -42,61 +49,61 @@ export default {
             required: true,
         }
     },
-    components: {},
     methods: {
         // function to load the DetailsView for selected inspection
         SelectInspection(event){
-            // set the selected inspection source to the store
+            // set the selected inspection source to the store (scheduled or completed)
             this.$store.dispatch('inspections/setInspectionSelectedSource', this.sourcePage)
             // set the selected inspection to the store
             this.$store.dispatch('inspections/fetchInspectionSelected', this.filterInspection(event.currentTarget.getAttribute("data-id")))
-            // open DetailsView with data-id from event
+            // open DetailsView (router)
             this.$router.push('details')
         },
-        // function to filter inspection from inspections array (store)
+        // function to filter inspection from inspections array (store) based on id
         filterInspection(id) {
             // filter all inspections and select where inspection.id is equal to 'id'
             let inspection = this.inspections.filter(inspection => inspection.id === Number(id))
-            // return inspection object
+            // return inspection object position 0
             return inspection[0];
         },
     }, 
     computed: {
-        // function to
+        // function to return the inspection objects from the store
         inspections() {
             return this.$store.state.inspections.inspections
         },
-        // function to
+        // function to return the icons array from the store
         icons() {
             return this.$store.state.inspections.icons
         },
-        // function to
+        // function to return the inspection selected object from the store
         inspectionSelected() {
             return this.$store.state.inspections.inspectionSelected
         },
-        // function to return the title based on the $route.name
+        // function to return the title (h1) based on the $route.name
         title() {
             switch(this.$route.name){
+                // return "scheduled" header name
                 case ("scheduled"):
                     return "Gepland"
+                // return "completed" header name
                 case ("completed"):
                     return "Uitgevoerd"
+                // default entry
                 default:
                     return ""
             }
         }
-        
     },
     created(){
-        // get all inspections to the store with action 'fetchInspections'
+        // set all inspections to the store with action 'fetchInspections' get trough service from API
         this.$store.dispatch('inspections/fetchInspections')
-        // reset reportSelected entrie from the store
+        // clear reportSelected entrie in the store
         this.$store.dispatch('inspections/clearReportSelected')
         // clear the inspection selected edit entry in the store
         this.$store.dispatch('inspections/clearInspectionSelectedEdit')
     }
 }
-
 
 </script>
 
@@ -182,6 +189,5 @@ tr:first-child {
 .inspectionLine:hover {
     cursor: pointer
 }
-
 
 </style>

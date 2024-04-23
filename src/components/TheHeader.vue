@@ -2,12 +2,14 @@
 
 <template lang="nl">
     <section>
+
         <img 
             src="@/assets/logo/RealEstateMainLogoWhite.png" 
             v-touch:tap="touchHandler" 
             id="home"
             alt="Logo Real Estate bedrijf"
         >
+
         <picture>
             <svg-icon 
                 v-if="userLoggedIn"
@@ -37,6 +39,7 @@
                 v-touch:tap="touchHandler" 
             ></svg-icon>
         </picture>
+
     </section>
 </template>
 
@@ -46,10 +49,8 @@
 // imports
 import SvgIcon from '@jamescoyle/vue-icon'
 
-// export component
 export default {
     name: "TheHeader", 
-    // load used components
     components: {
         SvgIcon
     },
@@ -58,7 +59,7 @@ export default {
         icons() {
             return this.$store.state.inspections.icons
         },
-        // function to return the state if the user is logged in
+        // function to return the state of the user logged in from the store
         userLoggedIn(){
             return this.$store.state.user.userLoggedIn
         }

@@ -3,7 +3,7 @@
 // imports
 import ReportService from '@/services/ReportService'
 import Inspection from '@/models/inspection';
-import {mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown,  mdiChevronUp, mdiPencilOutline, mdiContentSaveOutline, mdiLogin, mdiLogout} from '@mdi/js'
+import {mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown,  mdiChevronUp, mdiPencilOutline, mdiContentSaveOutline, mdiLogin, mdiLogout, mdiWrench, mdiMagnify, mdiInformation} from '@mdi/js'
 
 export default ({
     namespaced: true,
@@ -16,7 +16,7 @@ export default ({
         reportSelected: null,
         reportSelectedEdit: false,
         errors: [],
-        icons: [mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown, mdiChevronUp, mdiPencilOutline, mdiContentSaveOutline, mdiLogin, mdiLogout]
+        icons: [mdiBell, mdiCog, mdiCalendar, mdiCheckCircle, mdiApps, mdiChevronDown, mdiChevronUp, mdiPencilOutline, mdiContentSaveOutline, mdiLogin, mdiLogout, mdiWrench ,mdiMagnify ,mdiInformation]
     },
     mutations: {
         // mutation to set the loadingStatus in the store
@@ -145,16 +145,14 @@ export default ({
         clearReportSelected(context){
             context.commit('CLEAR_REPORT_SELECTED')
         },
-        // action to setr the inspection selected source store entry
+        // action to set the inspection selected source store entry
         setInspectionSelectedSource(context, value){
             context.commit('SET_INSPECTION_SELECTED_SOURCE', value)
         },
-        // action to setr the inspection selected source store entry
+        // action to set the inspection selected source store entry
         clearInspectionSelectedSource(context){
             context.commit('CLEAR_INSPECTION_SELECTED_SOURCE')
         }
     },
-    modules: {
-
-    }
+    modules: {}
 })

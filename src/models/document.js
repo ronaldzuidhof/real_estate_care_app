@@ -3,7 +3,7 @@
 // imports
 
 // define CLASS Inspection
-export default class Inspection {
+export default class Document {
     id = null;
     name = "";
     description = "";

@@ -3,6 +3,7 @@
 <template lang="nl">
     <section>
         <article>
+            
             <header>
                 <h1>Rapporten</h1>
                 <div class="status">
@@ -13,8 +14,16 @@
                         :disabled="!inspectionSelectedEdit" 
                         v-model="this.inspectionSelected.finished"
                     >
-                        <option :selected="inspectionStatus === 'finished'" value="finished" class="finished">Gereed</option>
-                        <option :selected="inspectionStatus === 'unfinished'" value="unfinished" class="unfinished">Open</option>
+                        <option 
+                            :selected="inspectionStatus === 'finished'" 
+                            value="finished" 
+                            class="finished"
+                        >Gereed</option>
+                        <option 
+                            :selected="inspectionStatus === 'unfinished'" 
+                            value="unfinished" 
+                            class="unfinished"
+                        >Open</option>
                     </select>
                     <svg-icon 
                         v-if="inspectionSelectedEdit && userGroup !=='guest' && source !== 'scheduled'" 
@@ -34,7 +43,7 @@
                     ></svg-icon>
                 </div>
             </header>
-            
+
             <table>
                 <tr>
                     <th><label for="address">Adres:</label></th>
@@ -89,10 +98,11 @@
                     ></td>
                 </tr>
             </table>
+
         </article>
 
         <ReportsList />
-
+        
     </section>
 </template>
 
@@ -109,12 +119,12 @@ export default {
         ReportsList, SvgIcon
     },
     methods: {
-        // function to update the date part of the inspectionSelected inspectionDate
+        // function to convert the date part of the inspectionSelected inspectionDate
         convertDate(date){
             // combine the received date with the last part of inspectionDate
             return date.slice(0,10) + this.inspectionSelected.inspectionDate.slice(10)
         },
-        // function to update the time part of the inspectionSelected inspectionDate
+        // function to convert the time part of the inspectionSelected inspectionDate
         convertTime(time) {
             // combine the received time with the first part of inspectionDate
             return this.inspectionSelected.inspectionDate.slice(0,11) + time.slice(0,5) + this.inspectionSelected.inspectionDate.slice(16)
@@ -138,11 +148,11 @@ export default {
         inspectionSelected() {
             return this.$store.state.inspections.inspectionSelected
         },
-        // function to determine the state of the inspection
+        // function to determine the "finished" entry of the inspection
         inspectionStatus(){
             return this.$store.state.inspections.inspectionSelected.finished
         },
-        // function
+        // function to return the inspection selected edit entry of the store
         inspectionSelectedEdit() {
             return this.$store.state.inspections.inspectionSelectedEdit
         },
@@ -156,15 +166,15 @@ export default {
                 return ""
             }
         },
-        // function to return the icons array
+        // function to return the icons array from the store
         icons() {
             return this.$store.state.inspections.icons
         },
-        // function to return the state if the user is logged in
+        // function to return the group of the user that is logged in from the store
         userGroup(){
             return this.$store.state.user.userLoggedIn.group
         },
-        // function to return the inspection selected source entry
+        // function to return the inspection source from the store (scheduled or completed)
         source(){
             return this.$store.state.inspections.inspectionSelectedSource
         }

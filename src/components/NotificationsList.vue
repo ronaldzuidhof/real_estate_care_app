@@ -9,8 +9,6 @@
 <!--SCRIPT--------------------------------------------------------------------------------------------->
 
 <script>
-// imports
-
 
 // export component
 export default {
@@ -32,6 +30,5 @@ section {
     background-color: rgba(255,255,255,1);
     border-inline: 1px solid var(--color-1);
 }
-
 
 </style>

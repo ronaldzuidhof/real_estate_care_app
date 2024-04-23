@@ -25,7 +25,7 @@ export default class DetailDamage {
     getId(){
         return this.id;
     }
-    // function to convert the key to a description in dutch language
+    // function to convert the key to a description in the dutch language
     convertKeyToText(key){
         switch(key){
             case ("id"):

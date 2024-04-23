@@ -2,6 +2,7 @@
 
 <template lang="nl">
     <section>
+
         <TheNavigationButton 
             id="scheduled"
             v-touch:tap="touchHandler"
@@ -13,6 +14,7 @@
                 type="mdi" 
             ></svg-icon>Gepland
         </TheNavigationButton> 
+
         <TheNavigationButton 
             v-touch:tap="touchHandler" 
             id="completed"
@@ -24,6 +26,7 @@
                 type="mdi" 
             ></svg-icon>Uitgevoerd
         </TheNavigationButton> 
+
         <TheNavigationButton 
             id="documentation"
             v-touch:tap="touchHandler" 
@@ -35,6 +38,7 @@
                 type="mdi" 
             ></svg-icon>Documentatie
         </TheNavigationButton> 
+
         <TheNavigationButton 
             id="settings"
             v-touch:tap="touchHandler" 
@@ -46,6 +50,7 @@
                 type="mdi" 
             ></svg-icon>Instellingen        
         </TheNavigationButton> 
+
     </section>
 </template>
 
@@ -56,14 +61,13 @@
 import SvgIcon from '@jamescoyle/vue-icon'
 import TheNavigationButton from '@/components/TheNavigationButton.vue'
 
-// export component
 export default {
     name: "TheNavigation",
     components: {
-        // load used components
         TheNavigationButton, SvgIcon,
     },
     computed: {
+        // return the icons array from the store
         icons() {
             return this.$store.state.inspections.icons
         },

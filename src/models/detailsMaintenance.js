@@ -23,7 +23,7 @@ export default class DetailMaintenance {
     getId(){
         return this.id;
     }
-    // function to convert the key to a description in dutch language
+    // function to convert the key to a description in the dutch language
     convertKeyToText(key){
         switch(key){
             case ("id"):
@@ -56,7 +56,7 @@ export default class DetailMaintenance {
                 return null
         }
     }
-    // function to return true if the input type is "radio" based on the key
+    // function to return true if the input type is "checkbox" based on the key
     getCheckbox(key) {
         switch(key) {
             case "immediateAction":

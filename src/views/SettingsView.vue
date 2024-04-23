@@ -15,11 +15,9 @@ import TheHeader from '@/components/TheHeader.vue';
 import SettingsList from '@/components/SettingsList.vue';
 import TheFooter from '@/components/TheFooter.vue';
 
-// Export App
 export default {
     name: "SettingsView",
     components: {
-        // Load used components
         TheHeader, SettingsList, TheFooter
     },
 }

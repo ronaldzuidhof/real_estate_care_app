@@ -97,19 +97,19 @@
 export default {
     name: 'ReportsListDetails',
     computed: {
-        // function to get the selected report details from the store 
+        // function to return the selected report details from the store 
         report(){
             return this.$store.state.inspections.reportSelected.getReportDetails()
         },
-        // function to get the selected inspection from the store
+        // function to return the selected inspection from the store
         inspectionSelectedId() {
             return this.$store.state.inspections.inspectionSelected.getId()
         },
-        // function
+        // function to return the inspection selected edit object from the store
         inspectionSelectedEdit(){
             return this.$store.state.inspections.inspectionSelectedEdit
         },
-        // function
+        // function to return the report selected object from the store
         reportSelected() {
             return this.$store.state.inspections.reportSelected
         },
@@ -135,7 +135,7 @@ export default {
         }
     },
     methods: {
-        // function to open the selected picture in a browser window
+        // function to open the selected picture in a new browser window
         openPicture(event){
             // check if inspection selected edit is not active
             if(!this.inspectionSelectedEdit){
@@ -153,7 +153,7 @@ export default {
             const linkName = event.currentTarget.getAttribute("data-id")
             // check if inspection selected edit is not active
             if(!this.inspectionSelectedEdit){
-                // open popup user accept before opening the file
+                // open popup window, open file if the user accepts
                 if(confirm("U gaat het bestand: " + linkName + " openen !")){
                     // Open a new browser window when clicked
                     window.open("documents/general/" + linkName)

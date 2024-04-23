@@ -26,7 +26,7 @@ const vuetify = createVuetify({
 
 // create instance with createApp
 const app = createApp(App);
-// Attach Vue3TouchEvents, vuetify and router to app instance
+// Attach Vue3TouchEvents, vuetify, router and store to app instance
 app.use(Vue3TouchEvents);
 app.use(vuetify);
 app.use(router);

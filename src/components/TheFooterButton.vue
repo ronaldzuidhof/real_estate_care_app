@@ -2,15 +2,15 @@
 
 <template lang="nl">
     <div class="button">
-        <!--=injected content comes here-->
-        <slot></slot>
+        <slot>
+            <!--=injected content-->
+        </slot>
     </div>
 </template>
 
 <!--SCRIPT--------------------------------------------------------------------------------------------->
 
 <script>
-// export shared component
 export default {
     name: "TheFooterButton",
 }

@@ -17,15 +17,15 @@ export default ({
         settingSelectedEdit: false,
     },
     mutations: {
-        // mutation to set the inspections in the store
+        // mutation to set the users in the store
         SET_USERS(state, payload){
             state.users = payload;
         },
-        // mutation to clear the inspection in the store
+        // mutation to clear the user logged in in the store
         CLEAR_USER_LOGGED_IN(state){
             state.userLoggedIn = false;
         },
-        // mutation to clear the inspection in the store
+        // mutation to set the user logge in in the store
         SET_USER_LOGGED_IN(state, payload){
             state.userLoggedIn = payload;
         },
@@ -43,11 +43,11 @@ export default ({
             state.password = "",
             state.smsCode = ""
         },
-        // mutation to set the errors in the store
+        // mutation to add a error to the errors aaray in the store
         ADD_ERROR(state, payload){
             state.errors = [...state.errors, payload]
         },
-        // mutation to reset the errors array
+        // mutation to clear the errors array
         RESET_ERRORS(state){
             state.errors = []
         },
@@ -55,7 +55,7 @@ export default ({
          SET_SETTING_SELECTED_EDIT(state){
             state.settingSelectedEdit = true;
         },
-        // mutation to clear the inspection in the store
+        // mutation to clear the inspection selecged edit in the store
         CLEAR_SETTING_SELECTED_EDIT(state){
             state.settingSelectedEdit = false;
         },
@@ -79,7 +79,7 @@ export default ({
         clearUserLoggedIn(context){
             context.commit('CLEAR_USER_LOGGED_IN')
         },
-        // action to check the given user credentials with the user JSON file (Future should be secure API of backbone) and store as server session cookie
+        // action to check the given user credentials with the user JSON file (Future should be secure API of backbone) and store as server session cookie and Hashed password
         checkUserCredentials(context, value){
             // reset errors arrays before check
             context.commit("RESET_ERRORS")
@@ -111,7 +111,5 @@ export default ({
         },
 
     },
-    modules: {
-        // modules
-    }
+    modules: {}
 })

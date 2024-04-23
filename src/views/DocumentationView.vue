@@ -15,11 +15,9 @@ import TheHeader from '@/components/TheHeader.vue';
 import DocumentsList from '@/components/DocumentsList.vue';
 import TheFooter from '@/components/TheFooter.vue';
 
-// Export App
 export default {
     name: "DocumentationView",
     components: {
-        // Load used components
         TheHeader, DocumentsList, TheFooter
     },
 }

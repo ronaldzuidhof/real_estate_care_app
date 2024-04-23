@@ -1,11 +1,16 @@
 <!--HTML----------------------------------------------------------------------------------------------->
 
 <template lang="nl">
-    <article v-for="report in inspectionSelected.getReports()" :key="report.id">
-
+    <article 
+        v-for="report in inspectionSelected.getReports()" 
+        :key="report.id"
+    >
         <header>
             <h1>{{report.getReportName()}}</h1>
-            <div v-if="report.getReportRequired()" class="status">
+            <div 
+                v-if="report.getReportRequired()" 
+                class="status"
+            >
                 <h2><label :for="'statusReport' + report.id">Status:</label></h2>
                 <select
                     :id="'statusReport' + report.id"
@@ -25,7 +30,6 @@
                     >Open</option>
                 </select>
             </div>
-
             <div v-else class="status">
                 <h2>Status:</h2>
                 <h2 class="finished">Niet benodigd</h2>
@@ -101,21 +105,21 @@ export default {
         ReportsListDetails, SvgIcon
     },
     methods: {
-        // function to get the status for the selected report 'id'
+        // function to get the status for the selected report 'id' from the store
         reportStatus(id){
             return this.$store.state.inspections.inspectionSelected.getReportStatus(id)
         },
-        // function to return a class based on the report status
+        // function to return a class based on the report status from the store
         reportClassStatus(id){
-            // return class finished based on report status
+            // return "finished" class
             if(this.$store.state.inspections.inspectionSelected.getReportStatus(id) === "true"){
                 return "finished"
-            // return unfinished class
+            // return "unfinished" class
             } else {
                 return "unfinished"
             }
         },
-        // function
+        // function to return the if the report is required from the store
         reportRequired(id){
             return this.$store.state.inspections.inspectionSelected.getReportRequired(id)
         },
@@ -123,7 +127,7 @@ export default {
         selectReport(event){
             // load preventDefault to stop propagnation
             event.preventDefault();
-            // reset the report selected edit entry in the store
+            // clear the report selected edit entry in the store
             this.$store.dispatch('inspections/clearReportSelectedEdit')
             // check if reportSelected has content
             if (!this.reportSelected){
@@ -132,7 +136,7 @@ export default {
             }
             // check if report is already selected
             else if (this.reportSelected.getId() === Number(event.currentTarget.getAttribute("data-id"))){
-                // reset the selected report in the store
+                // clear the selected report in the store
                 this.$store.dispatch('inspections/clearReportSelected')
             } else {
                 // set the selected report to the store
@@ -143,19 +147,19 @@ export default {
         createLink(reportLink){
             return "documents/modifications/inspection_" + this.inspectionSelectedId + "/" + reportLink
         },
-        // function to open the selected document in a browser window
+        // function to open the selected document in a new browser window
         openLink(event){
             // load event data-id in pictureName variable
             const linkName = event.currentTarget.getAttribute("data-id")
             // check if inspection selected edit is not active
             if(!this.inspectionSelectedEdit){
-                // open popup user accept before opening the file
+                // open popup window, open file if the user accepts
                 if(confirm("U gaat het bestand: " + linkName + " openen !")){
                     // load event data-id in documentName variable
                     const documentName = event.currentTarget.getAttribute("data-id")
-                    // check if pictureName is not empty
+                    // check if document name is not empty
                     if (documentName){
-                        // Open a new browser window with the document
+                        // Open a new browser window for the document
                     window.open("documents/modifications/inspection_" + this.inspectionSelectedId + "/" + documentName)
                     }
                 } 
@@ -167,19 +171,19 @@ export default {
         inspectionSelected() {
             return this.$store.state.inspections.inspectionSelected
         },
-        // function
+        // function to get the report selected object from the store
         reportSelected() {
             return this.$store.state.inspections.reportSelected
         },
-        // function
+        // function to return the icons array from the store
         icons() {
             return this.$store.state.inspections.icons
         },
-        // function
+        // function to return the inspection selected edit entry from the store
         inspectionSelectedEdit() {
             return this.$store.state.inspections.inspectionSelectedEdit
         },
-        // function to get the selected inspection from the store
+        // function to get the selected inspection object from the store
         inspectionSelectedId() {
             return this.$store.state.inspections.inspectionSelected.getId()
         },

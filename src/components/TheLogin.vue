@@ -2,6 +2,7 @@
 
 <template lang="nl">
     <section>
+
         <h1>Login</h1>
         <table>
             <tr>
@@ -38,6 +39,7 @@
                 Inloggen</button>
             </tr>
         </table>
+
         <div v-if="errors.length !== 0">
             <p  
                 v-for="error in errors"
@@ -53,17 +55,10 @@
 <!--SCRIPT--------------------------------------------------------------------------------------------->
 
 <script>
-// imports
-
-
-// export component
 export default {
     name: "TheLogin",
-    components: {
-        // load used components
-    },
     computed: {
-        // function to return the content of user message
+        // function to return the errors array from the store
         errors(){
             return this.$store.state.user.errors
         },
@@ -73,7 +68,7 @@ export default {
         touchHandler(event){
             // load preventDefault to stop propagnation on the loaded route
             event.preventDefault();
-            // check if the user credentials are correct
+            // check if the user credentials are correct (username, password, smsCode)
             this.$store.dispatch('user/checkUserCredentials', {
                 username: this.$store.state.user.username,
                 password: this.$store.state.user.password,
@@ -160,7 +155,5 @@ button {
     color: red;
     font-weight: bold;
 }
-
-
 
 </style>

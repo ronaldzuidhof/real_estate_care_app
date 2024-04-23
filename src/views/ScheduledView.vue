@@ -15,11 +15,9 @@ import TheHeader from '@/components/TheHeader.vue';
 import InspectionsList from '@/components/InspectionsList';
 import TheFooter from '@/components/TheFooter.vue';
 
-// Export App
 export default {
     name: "ScheduledView",
     components: {
-        // Load used components
         TheHeader, InspectionsList, TheFooter
     },
 }

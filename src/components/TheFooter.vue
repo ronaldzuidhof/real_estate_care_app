@@ -2,13 +2,14 @@
 
 <template lang="nl">
     <section>
+
         <TheFooterButton 
             v-touch:tap="touchHandler" 
             class="selected"
         >
             <svg-icon 
                 v-if="userLoggedIn"
-                :path="path[0]"
+                :path="icons[11]" 
                 class="icon selected"
                 alt="Knop icoon actieve taken" 
                 type="mdi" 
@@ -18,7 +19,7 @@
         <TheFooterButton v-touch:tap="touchHandler">
             <svg-icon 
                 v-if="userLoggedIn"
-                :path="path[1]" 
+                :path="icons[12]" 
                 class="icon"
                 alt="Knop icoon zoeken"
                 type="mdi" 
@@ -28,13 +29,14 @@
         <TheFooterButton v-touch:tap="touchHandler">
             <svg-icon 
                 v-if="userLoggedIn"
-                :path="path[2]" 
+                :path="icons[13]"  
                 class="icon"
                 alt="Knop icoon informatie"
                 type="mdi" 
             ></svg-icon>
             <p v-if="userLoggedIn">Informatie</p>
-        </TheFooterButton> 
+        </TheFooterButton>
+
     </section>
 </template>
 
@@ -43,20 +45,12 @@
 <script>
 // imports
 import SvgIcon from '@jamescoyle/vue-icon'
-import {mdiWrench, mdiMagnify, mdiInformation  } from '@mdi/js'
 import TheFooterButton from '@/components/TheFooterButton.vue'
 
 export default {
     name: "TheFooter",
-    // Load used components
     components: {
         TheFooterButton, SvgIcon
-    },
-    data() {
-        return {
-            // put icon objects in path array of object data
-            path: [mdiWrench, mdiMagnify, mdiInformation]
-        }
     },
     methods: {
          // print event object to the console that called the method
@@ -68,7 +62,11 @@ export default {
         // function to return the state if the user is logged in
         userLoggedIn(){
             return this.$store.state.user.userLoggedIn
-        }
+        },
+        // function to return the icons array from the store
+        icons() {
+            return this.$store.state.inspections.icons
+        },
     }
 }
 </script>

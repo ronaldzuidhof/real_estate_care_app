@@ -15,11 +15,9 @@ import TheHeader from '@/components/TheHeader.vue';
 import InspectionsListDetails from '@/components/InspectionsListDetails.vue';
 import TheFooter from '@/components/TheFooter.vue';
 
-// Export App
 export default {
     name: "DetailsView",
     components: {
-        // Load used components
         TheHeader, InspectionsListDetails, TheFooter
     },
     mounted() {

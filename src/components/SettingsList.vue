@@ -3,6 +3,7 @@
 <template lang="nl">
     <section>
         <article>
+            
             <header>
                 <h1>Instellingen</h1>
                 <div class="status">
@@ -108,15 +109,15 @@ export default {
         }
     },
     computed: {
-        // function to return the the user logged in state from the store
+        // function to return the the object of the user that is logged in from the store
         userLoggedIn(){
             return this.$store.state.user.userLoggedIn
         },
-        // function
+        // function return the settings selected edit entry from the store
         settingSelectedEdit() {
             return this.$store.state.user.settingSelectedEdit
         },
-        // function to return the icons array
+        // function to return the icons array from the store
         icons() {
             return this.$store.state.inspections.icons
         },

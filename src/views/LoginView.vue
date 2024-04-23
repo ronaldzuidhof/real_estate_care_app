@@ -15,11 +15,9 @@ import TheHeader from '@/components/TheHeader.vue';
 import TheLogin from '@/components/TheLogin.vue';
 import TheFooter from '@/components/TheFooter.vue';
 
-// Export App
 export default {
     name: "loginView",
     components: {
-        // Load used components
         TheHeader, TheLogin, TheFooter
     },
     mounted() {
