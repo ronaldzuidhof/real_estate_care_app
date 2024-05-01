@@ -12,6 +12,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# work files
+toDoList.txt
+
 # Editor directories and files
 .idea
 .vscode

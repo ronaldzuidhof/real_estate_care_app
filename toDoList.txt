@@ -3,7 +3,6 @@ ToDo list - Real Estate care App
 --------------------------------------------------------------------------------------------
 
 open - ReadMe.md compleet maken volgens opdracht LOI 
-open - Debriefing case begin module aanpassen met opmerkingen vanuit leeromgeving LOI
 
 ----------------------------------------------------------------------------------------------
 
@@ -21,3 +20,4 @@ ready - Open file from documents window, navigation message
 ready - alt attribute add to svg icon elements
 ready - volgorde commands by inputs volgens styling guide VUE.js (class, v-model, value, etc) - https://vuejs.org/style-guide/rules-recommended.html#element-attribute-order
 ready - comment and allign all code lines
+ready - Debriefing case begin module aanpassen met opmerkingen vanuit leeromgeving LOI
